@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>S1 · 白底研报风 · 5 张套图</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#111111;
+    --ink-2:#333333;
+    --ink-3:#666666;
+    --ink-4:#999999;
+    --line:#e5e5e5;
+    --line-2:#d0d0d0;
+    --red:#e11d48;
+    --blue:#1e3a8a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#222}
+  body{
+    font-family:"Noto Sans SC","PingFang SC","Inter",sans-serif;
+    color:var(--ink);font-weight:400;
+    -webkit-font-smoothing:antialiased;padding:30px 0;
+  }
+  .card{
+    width:1080px;height:1440px;margin:24px auto;position:relative;
+    background:var(--bg);overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    padding:80px 80px;
+  }
+
+  /* 顶栏 / 页脚 */
+  .c-topbar{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line)}
+  .c-topbar .l{font-size:14px;color:var(--ink-3);letter-spacing:1px}
+  .c-topbar .r{font-size:14px;color:var(--ink-3)}
+  .c-foot{position:absolute;bottom:80px;left:80px;right:80px;padding-top:20px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;font-size:13px;color:var(--ink-4);letter-spacing:1px}
+
+  /* ===== 卡片 1 · 封面 ===== */
+  .c-title{margin-top:80px}
+  .c-title .cat{font-size:16px;color:var(--blue);font-weight:600;letter-spacing:2px}
+  .c-title h1{margin-top:24px;font-size:96px;font-weight:900;line-height:1.12;color:var(--ink);letter-spacing:-1px}
+  .c-title .sub{margin-top:28px;font-size:22px;color:var(--ink-3);line-height:1.7;font-weight:400}
+  .c-title .sub b{color:var(--ink);font-weight:600}
+
+  .c-kpi{margin-top:90px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+  .c-kpi .k{padding:28px 24px 28px 0;border-right:1px solid var(--line)}
+  .c-kpi .k:last-child{border-right:none;padding-right:0}
+  .c-kpi .k .lb{font-size:14px;color:var(--ink-3);letter-spacing:1px}
+  .c-kpi .k .vl{margin-top:14px;font-size:56px;font-weight:700;color:var(--red);letter-spacing:-1px;line-height:1}
+  .c-kpi .k .vl .u{font-size:24px;font-weight:500;margin-left:2px}
+  .c-kpi .k .cp{margin-top:10px;font-size:13px;color:var(--ink-4)}
+
+  .c-meta{margin-top:80px}
+  .c-meta h3{font-size:14px;color:var(--ink-3);letter-spacing:2px;font-weight:500;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .c-meta .row{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--line);font-size:17px}
+  .c-meta .row .k{color:var(--ink-3)}
+  .c-meta .row .v{color:var(--ink);font-weight:500}
+
+  /* ===== 卡片 2 · 持仓季度分卡 ===== */
+  .h-top{padding-bottom:20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end}
+  .h-top .t h2{font-size:44px;font-weight:700;color:var(--ink);letter-spacing:-0.5px}
+  .h-top .t p{margin-top:8px;font-size:15px;color:var(--ink-3)}
+  .h-top .rg{font-size:14px;color:var(--ink-4)}
+  .h-lead{margin-top:36px;font-size:20px;line-height:1.7;color:var(--ink-2);font-weight:400}
+  .h-lead b{color:var(--red);font-weight:600}
+
+  .qgrid{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;column-gap:48px;row-gap:30px}
+  .qbox{padding-top:18px;border-top:2px solid var(--ink)}
+  .qbox .qh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+  .qbox .qh .qd{font-size:22px;font-weight:700;color:var(--ink);letter-spacing:.5px}
+  .qbox .qh .qt{font-size:13px;color:var(--ink-4)}
+  .qbox.latest{border-top-color:var(--red)}
+  .qbox.latest .qh .qd{color:var(--red)}
+  .qbox .qrow{display:grid;grid-template-columns:24px 1fr 70px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .qbox .qrow:last-child{border-bottom:none}
+  .qbox .qrow .no{color:var(--ink-4);font-size:12px}
+  .qbox .qrow .nm{color:var(--ink-2)}
+  .qbox .qrow .nm .en{color:var(--ink-4);font-size:12px;margin-left:4px}
+  .qbox .qrow .pct{text-align:right;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+  .qbox.latest .qrow .pct{color:var(--red)}
+
+  /* ===== 卡片 3 · 经理名片 ===== */
+  .m-hero{margin-top:60px;display:flex;align-items:center;gap:32px}
+  .m-hero .av{width:120px;height:120px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:700;flex-shrink:0}
+  .m-hero .nm h1{font-size:64px;font-weight:900;line-height:1;letter-spacing:-1px}
+  .m-hero .nm .role{margin-top:10px;font-size:16px;color:var(--blue);font-weight:600;letter-spacing:1px}
+  .m-hero .nm .desc{margin-top:6px;font-size:15px;color:var(--ink-3)}
+
+  .m-kpi{margin-top:50px;display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+  .m-kpi .cell{padding:24px 24px 24px 0;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .m-kpi .cell:nth-child(2n){border-right:none;padding-left:24px;padding-right:0}
+  .m-kpi .cell:nth-last-child(-n+2){border-bottom:none}
+  .m-kpi .cell .lb{font-size:13px;color:var(--ink-3);letter-spacing:1px}
+  .m-kpi .cell .v{margin-top:10px;font-size:38px;font-weight:700;color:var(--ink);line-height:1}
+  .m-kpi .cell .v .u{font-size:18px;font-weight:500;margin-left:4px;color:var(--ink-3)}
+  .m-kpi .cell.hot .v{color:var(--red)}
+  .m-kpi .cell .sub{margin-top:8px;font-size:12px;color:var(--ink-4)}
+
+  .m-bio{margin-top:36px;padding:22px 26px;border-left:3px solid var(--blue);background:#f9fafb;font-size:16px;line-height:1.8;color:var(--ink-2)}
+  .m-bio b{color:var(--ink);font-weight:600}
+
+  .m-style{margin-top:32px}
+  .m-style h3{font-size:14px;color:var(--ink-3);letter-spacing:2px;font-weight:500;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .m-style .li{display:grid;grid-template-columns:36px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.6;color:var(--ink-2)}
+  .m-style .li:last-child{border-bottom:none}
+  .m-style .li .n{font-size:18px;font-weight:700;color:var(--blue);font-family:"Inter",sans-serif}
+  .m-style .li b{color:var(--red);font-weight:600}
+
+  /* ===== 卡片 4 · 四个交易习惯 ===== */
+  .hb-top h2{font-size:42px;font-weight:700;letter-spacing:-0.5px}
+  .hb-grid{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+  .hb-cell{padding:28px 28px 28px 0;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .hb-cell:nth-child(2n){border-right:none;padding-left:28px;padding-right:0}
+  .hb-cell:nth-last-child(-n+2){border-bottom:none}
+  .hb-cell .lb{font-size:14px;color:var(--ink-3);letter-spacing:1px}
+  .hb-cell .v{margin-top:14px;font-size:54px;font-weight:700;color:var(--red);line-height:1;font-variant-numeric:tabular-nums}
+  .hb-cell .v .u{font-size:22px;font-weight:500;margin-left:4px;color:var(--ink-3)}
+  .hb-cell .cp{margin-top:10px;font-size:14px;color:var(--ink-2);line-height:1.6}
+
+  .trend{margin-top:36px;padding:24px 28px;border:1px solid var(--line);border-radius:4px;background:#fafafa}
+  .trend .tt{font-size:13px;color:var(--ink-3);letter-spacing:2px;text-align:center}
+  .trend .row{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .trend .cell{text-align:center}
+  .trend .cell .q{font-size:13px;color:var(--ink-4)}
+  .trend .cell .v{margin-top:6px;font-size:30px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+  .trend .cell.last .v{color:var(--red)}
+  .trend .arrow{margin-top:12px;text-align:center;font-size:14px;color:var(--red);letter-spacing:6px}
+
+  .hb-sum{margin-top:30px;padding:22px 26px;border-left:3px solid var(--red);background:#f9fafb;font-size:17px;line-height:1.7;color:var(--ink-2)}
+  .hb-sum b{color:var(--red);font-weight:600}
+
+  /* ===== 卡片 5 · 下期推测 ===== */
+  .fc-main{margin-top:50px;padding:36px 32px;border:2px solid var(--ink);background:#fff}
+  .fc-main .lb{font-size:13px;color:var(--blue);letter-spacing:3px;font-weight:600}
+  .fc-main .tx{margin-top:18px;font-size:30px;font-weight:700;line-height:1.5;color:var(--ink)}
+  .fc-main .tx b{color:var(--red);font-weight:700;border-bottom:2px solid var(--red);padding-bottom:2px}
+
+  .fc-reasons{margin-top:36px}
+  .fc-reasons h3{font-size:14px;color:var(--ink-3);letter-spacing:2px;font-weight:500;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .fc-reasons .ri{display:grid;grid-template-columns:36px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.6;color:var(--ink-2)}
+  .fc-reasons .ri:last-child{border-bottom:none}
+  .fc-reasons .ri .n{font-size:18px;font-weight:700;color:var(--blue);font-family:"Inter",sans-serif}
+  .fc-reasons .ri b{color:var(--ink);font-weight:600}
+
+  .fc-risk{margin-top:28px;padding:18px 22px;background:#f9fafb;border:1px dashed var(--line-2);font-size:14px;line-height:1.7;color:var(--ink-3);text-align:center}
+  .fc-risk b{color:var(--red)}
+</style>
+</head>
+<body>
+
+<!-- ============ 卡片 1 · 封面 ============ -->
+<div class="card" id="p1">
+  <div class="c-topbar">
+    <div class="l">易方达全球成长精选 QDII · 012922 · C</div>
+    <div class="r">2026 Q1 · 基金分析</div>
+  </div>
+
+  <div class="c-title">
+    <div class="cat">QDII 混合 · 012922 · C · 基金分析</div>
+    <h1>易方达全球<br/>成长精选 QDII</h1>
+    <div class="sub">基金经理 <b>郑希</b> · 任职 <b>4 年 110 天</b> · 任职回报 <b>+239.88%</b>。<br/>一份跨越 A 股与美股、从 AI 应用切向算力基础设施的持仓记录。</div>
+  </div>
+
+  <div class="c-kpi">
+    <div class="k"><div class="lb">近 1 年收益</div><div class="vl">+158.07<span class="u">%</span></div><div class="cp">截至 2026 Q1</div></div>
+    <div class="k"><div class="lb">近 3 年收益</div><div class="vl">+264.52<span class="u">%</span></div><div class="cp">滚动 36 个月</div></div>
+    <div class="k"><div class="lb">任职以来</div><div class="vl">+239.88<span class="u">%</span></div><div class="cp">4 年 110 天</div></div>
+  </div>
+
+  <div class="c-meta">
+    <h3>基金概况</h3>
+    <div class="row"><span class="k">基金经理</span><span class="v">郑希</span></div>
+    <div class="row"><span class="k">管理规模</span><span class="v">61.61 亿元</span></div>
+    <div class="row"><span class="k">基金类型</span><span class="v">QDII 混合 · 全球成长</span></div>
+    <div class="row"><span class="k">投资范围</span><span class="v">A 股 / 美股 / 港股</span></div>
+  </div>
+
+  <div class="c-foot"><span>本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</span><span></span></div>
+</div>
+
+<!-- ============ 卡片 2 · 持仓季度分卡 ============ -->
+<div class="card" id="p2">
+  <div class="h-top">
+    <div class="t"><h2>持仓演化 · 近四个季度</h2><p>各季度前 8 重仓股 · 单位：% · 占净值比</p></div>
+    <div class="rg">2025 Q2 — 2026 Q1</div>
+  </div>
+
+  <div class="h-lead">
+    一年内，从 <b>AI 应用层</b>（博通、英伟达、微软）切向 <b>算力基础设施</b>（台积电、光模块、激光芯片）。
+  </div>
+
+  <div class="qgrid">
+    <div class="qbox">
+      <div class="qh"><div class="qd">2025 Q2</div><div class="qt">应用层主导</div></div>
+      <div class="qrow"><div class="no">1</div><div class="nm">博通<span class="en">AVGO</span></div><div class="pct">7.02</div></div>
+      <div class="qrow"><div class="no">2</div><div class="nm">天弘科技<span class="en">CLS</span></div><div class="pct">6.04</div></div>
+      <div class="qrow"><div class="no">3</div><div class="nm">新易盛<span class="en">300502</span></div><div class="pct">5.03</div></div>
+      <div class="qrow"><div class="no">4</div><div class="nm">英伟达<span class="en">NVDA</span></div><div class="pct">5.00</div></div>
+      <div class="qrow"><div class="no">5</div><div class="nm">微软<span class="en">MSFT</span></div><div class="pct">4.77</div></div>
+      <div class="qrow"><div class="no">6</div><div class="nm">沪电股份<span class="en">002463</span></div><div class="pct">3.11</div></div>
+      <div class="qrow"><div class="no">7</div><div class="nm">安费诺<span class="en">APH</span></div><div class="pct">2.83</div></div>
+      <div class="qrow"><div class="no">8</div><div class="nm">超威半导体<span class="en">AMD</span></div><div class="pct">2.71</div></div>
+    </div>
+    <div class="qbox">
+      <div class="qh"><div class="qd">2025 Q3</div><div class="qt">台积电首次登顶</div></div>
+      <div class="qrow"><div class="no">1</div><div class="nm">台积电<span class="en">TSM</span></div><div class="pct">6.75</div></div>
+      <div class="qrow"><div class="no">2</div><div class="nm">英伟达<span class="en">NVDA</span></div><div class="pct">6.65</div></div>
+      <div class="qrow"><div class="no">3</div><div class="nm">谷歌-A<span class="en">GOOGL</span></div><div class="pct">5.13</div></div>
+      <div class="qrow"><div class="no">4</div><div class="nm">博通<span class="en">AVGO</span></div><div class="pct">4.65</div></div>
+      <div class="qrow"><div class="no">5</div><div class="nm">天弘科技<span class="en">CLS</span></div><div class="pct">3.66</div></div>
+      <div class="qrow"><div class="no">6</div><div class="nm">阿里巴巴-W<span class="en">9988</span></div><div class="pct">3.47</div></div>
+      <div class="qrow"><div class="no">7</div><div class="nm">美光<span class="en">MU</span></div><div class="pct">3.23</div></div>
+      <div class="qrow"><div class="no">8</div><div class="nm">欣旺达<span class="en">300207</span></div><div class="pct">2.82</div></div>
+    </div>
+    <div class="qbox">
+      <div class="qh"><div class="qd">2025 Q4</div><div class="qt">切向光模块</div></div>
+      <div class="qrow"><div class="no">1</div><div class="nm">台积电<span class="en">TSM</span></div><div class="pct">7.07</div></div>
+      <div class="qrow"><div class="no">2</div><div class="nm">新易盛<span class="en">300502</span></div><div class="pct">6.43</div></div>
+      <div class="qrow"><div class="no">3</div><div class="nm">谷歌-A<span class="en">GOOGL</span></div><div class="pct">6.26</div></div>
+      <div class="qrow"><div class="no">4</div><div class="nm">中际旭创<span class="en">300308</span></div><div class="pct">5.87</div></div>
+      <div class="qrow"><div class="no">5</div><div class="nm">Lumentum<span class="en">LITE</span></div><div class="pct">5.09</div></div>
+      <div class="qrow"><div class="no">6</div><div class="nm">美光<span class="en">MU</span></div><div class="pct">5.02</div></div>
+      <div class="qrow"><div class="no">7</div><div class="nm">博通<span class="en">AVGO</span></div><div class="pct">4.89</div></div>
+      <div class="qrow"><div class="no">8</div><div class="nm">Tower半导体<span class="en">TSEM</span></div><div class="pct">4.56</div></div>
+    </div>
+    <div class="qbox latest">
+      <div class="qh"><div class="qd">2026 Q1 · 最新</div><div class="qt">聚焦光链</div></div>
+      <div class="qrow"><div class="no">1</div><div class="nm">台积电<span class="en">TSM</span></div><div class="pct">8.88</div></div>
+      <div class="qrow"><div class="no">2</div><div class="nm">Lumentum<span class="en">LITE</span></div><div class="pct">8.68</div></div>
+      <div class="qrow"><div class="no">3</div><div class="nm">新易盛<span class="en">300502</span></div><div class="pct">6.02</div></div>
+      <div class="qrow"><div class="no">4</div><div class="nm">康宁<span class="en">GLW</span></div><div class="pct">4.67</div></div>
+      <div class="qrow"><div class="no">5</div><div class="nm">AXT Inc<span class="en">AXTI</span></div><div class="pct">4.67</div></div>
+      <div class="qrow"><div class="no">6</div><div class="nm">中际旭创<span class="en">300308</span></div><div class="pct">4.67</div></div>
+      <div class="qrow"><div class="no">7</div><div class="nm">源杰科技<span class="en">688498</span></div><div class="pct">4.49</div></div>
+      <div class="qrow"><div class="no">8</div><div class="nm">Tower半导体<span class="en">TSEM</span></div><div class="pct">3.72</div></div>
+    </div>
+  </div>
+
+  <div class="c-foot"><span>本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</span><span></span></div>
+</div>
+
+<!-- ============ 卡片 3 · 经理名片 ============ -->
+<div class="card" id="p3">
+  <div class="c-topbar">
+    <div class="l">基金经理 · 履历</div>
+    <div class="r">郑希 · Zheng Xi</div>
+  </div>
+
+  <div class="m-hero">
+    <div class="av">郑</div>
+    <div class="nm">
+      <h1>郑希</h1>
+      <div class="role">易方达基金 · 权益投资管理部副总经理</div>
+      <div class="desc">理学硕士 · 从业 13 年+ · 自 2022-01-11 管理本基金</div>
+    </div>
+  </div>
+
+  <div class="m-kpi">
+    <div class="cell hot"><div class="lb">本基金任职回报</div><div class="v">+239.88<span class="u">%</span></div><div class="sub">2022-01-11 至今</div></div>
+    <div class="cell"><div class="lb">任职时长</div><div class="v">4<span class="u">年 110 天</span></div><div class="sub">Since 2022-01-11</div></div>
+    <div class="cell"><div class="lb">管理规模（本基金）</div><div class="v">61.61<span class="u">亿元</span></div><div class="sub">截至 2026-03-31</div></div>
+    <div class="cell"><div class="lb">从业年限</div><div class="v">13<span class="u">年+</span></div><div class="sub">2012 入行研究员</div></div>
+  </div>
+
+  <div class="m-bio">
+    郑希先生，<b>中国国籍 · 理学硕士</b>。现任<b>易方达基金权益投资管理部副总经理</b>。历任行业研究员、基金经理助理、投资经理、投资一部副总经理、研究部副总经理；曾管理易方达<b>北交所精选两年定开</b>混合基金。
+  </div>
+
+  <div class="m-style">
+    <h3>投资风格 · 三个关键词</h3>
+    <div class="li"><div class="n">01</div><div><b>成长 + 科技</b>：聚焦 AI 算力、半导体、光通信全球龙头，持仓以成长股为主。</div></div>
+    <div class="li"><div class="n">02</div><div><b>高换手 · 跟随产业链轮动</b>：紧盯景气拐点，在赛道内快速切换细分环节。</div></div>
+    <div class="li"><div class="n">03</div><div><b>A 股 + 美股双线</b>：用 QDII 优势跨市场同时布局 TSM、Google 与新易盛、中际旭创。</div></div>
+  </div>
+
+  <div class="c-foot"><span>本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</span><span></span></div>
+</div>
+
+<!-- ============ 卡片 4 · 四个交易习惯 ============ -->
+<div class="card" id="p4">
+  <div class="c-topbar">
+    <div class="l">交易习惯 · 近四个季度推导</div>
+    <div class="r">Trading Habits</div>
+  </div>
+
+  <div class="hb-top" style="margin-top:60px">
+    <h2>郑希 · 四个交易习惯</h2>
+    <p style="margin-top:10px;font-size:15px;color:var(--ink-3)">从 2025 Q2 至 2026 Q1 的持仓变化中提炼</p>
+  </div>
+
+  <div class="hb-grid">
+    <div class="hb-cell"><div class="lb">核心持仓稳定度</div><div class="v">0<span class="u">/ 10</span></div><div class="cp">近 4 季 Top10 交集为空 · 换手率极高</div></div>
+    <div class="hb-cell"><div class="lb">Top 3 集中度抬升</div><div class="v">23.58<span class="u">%</span></div><div class="cp">+5.49 pp vs 25Q2 · 加码 TSM / LITE / 新易盛</div></div>
+    <div class="hb-cell"><div class="lb">A 股仓位（Top10 内）</div><div class="v">17.85<span class="u">%</span></div><div class="cp">vs 美/港股 33.98% · A 股集中在光模块 / PCB</div></div>
+    <div class="hb-cell"><div class="lb">每季换仓股票数</div><div class="v">4<span class="u">~ 6 只</span></div><div class="cp">最新一季新进 4 只、退出 4 只</div></div>
+  </div>
+
+  <div class="trend">
+    <div class="tt">TOP 10 集中度演化</div>
+    <div class="row">
+      <div class="cell"><div class="q">2025 Q2</div><div class="v">41.0%</div></div>
+      <div class="cell"><div class="q">2025 Q3</div><div class="v">42.0%</div></div>
+      <div class="cell"><div class="q">2025 Q4</div><div class="v">50.8%</div></div>
+      <div class="cell last"><div class="q">2026 Q1</div><div class="v">51.8%</div></div>
+    </div>
+    <div class="arrow">↗ ↗ ↗ ↗ &nbsp; 越押越集中</div>
+  </div>
+
+  <div class="hb-sum">
+    <b>习惯总结：</b>郑希不做"死抱核心股"，而是在 <b>AI 科技大赛道内部快速轮动</b>，
+    一旦判断产业链拐点切换（如 <b>应用 → 算力 → 光通信</b>），就会果断重构前十。
+  </div>
+
+  <div class="c-foot"><span>本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</span><span></span></div>
+</div>
+
+<!-- ============ 卡片 5 · 下期推测 ============ -->
+<div class="card" id="p5">
+  <div class="c-topbar">
+    <div class="l">下一期持仓推测</div>
+    <div class="r">2026 Q2 · Probable</div>
+  </div>
+
+  <div style="margin-top:60px">
+    <h2 style="font-size:42px;font-weight:700;letter-spacing:-0.5px">下一期持仓 · 推测</h2>
+    <p style="margin-top:10px;font-size:15px;color:var(--ink-3)">基于近四季持仓规律的合理外推</p>
+  </div>
+
+  <div class="fc-main">
+    <div class="lb">MAIN FORECAST · 主推测</div>
+    <div class="tx">继续沿 <b>AI 算力光通信产业链</b> 深挖，<br/><b>台积电 + 光模块三剑客</b> 的押注可能进一步加码。</div>
+  </div>
+
+  <div class="fc-reasons">
+    <h3>三条推理依据</h3>
+    <div class="ri"><div class="n">01</div><div><b>产业链方向已锁定</b> — 26Q1 Top10 中光通信环节（LITE / 新易盛 / 中际旭创 / 源杰 / 康宁）合计 <b>28.53%</b>，趋势仍在抬升。</div></div>
+    <div class="ri"><div class="n">02</div><div><b>台积电是"压舱石"</b> — 连续 3 季在任，仓位 6.75% → 7.07% → <b>8.88%</b>，下一季大概率再加。</div></div>
+    <div class="ri"><div class="n">03</div><div><b>新进候选方向</b> — 半导体设备 / 存储（美光回归可能）/ HBM 链，及 A 股 PCB 设备、CCL 等"算力卖铲人"。</div></div>
+  </div>
+
+  <div class="fc-risk">
+    <b>⚠ 风险提示</b>　本推测仅基于公开季报规律外推 · 历史习惯不等于未来动作 · 请理性决策
+  </div>
+
+  <div class="c-foot"><span>本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</span><span></span></div>
+</div>
+
+</body>
+</html>
