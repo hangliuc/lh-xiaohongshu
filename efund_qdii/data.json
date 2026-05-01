@@ -9,14 +9,14 @@
     "manager_name": "郑希",
     "found_date": "2022-01-11",
     "company": "易方达基金",
-    "nav": "3.3988",
-    "nav_date": "04-28",
-    "return_1m": "23.44%",
-    "return_3m": "24.41%",
-    "return_6m": "40.40%",
-    "return_1y": "158.07%",
-    "return_3y": "264.52%",
-    "return_sl": "239.88%"
+    "nav": "3.4874",
+    "nav_date": "04-29",
+    "return_1m": "26.65%",
+    "return_3m": "28.85%",
+    "return_6m": "39.73%",
+    "return_1y": "162.57%",
+    "return_3y": "274.02%",
+    "return_sl": "248.74%"
   },
   "manager": {
     "tenures": [
@@ -27,8 +27,8 @@
         "managers": [
           "郑希"
         ],
-        "days": "4年又110天",
-        "return": "239.88%"
+        "days": "4年又111天",
+        "return": "248.74%"
       }
     ],
     "current": {
@@ -38,8 +38,8 @@
       "managers": [
         "郑希"
       ],
-      "days": "4年又110天",
-      "return": "239.88%"
+      "days": "4年又111天",
+      "return": "248.74%"
     },
     "profiles": [
       {

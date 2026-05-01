@@ -1,11 +1,10 @@
-// shot.js —— 批量截图：V1 深色奢华金 (EFUND) + S1 白底研报 + S2 浅色卡片
+// shot.js —— 批量截图：V1 深色奠华金 (EFUND) + S1 白底研报
 const path = require('path');
 const puppeteer = require('puppeteer');
 
 const tasks = [
   { file: 'EFUND.html',     prefix: 'EFUND',     pages: 5 },
   { file: 's1_report.html', prefix: 'S1_REPORT', pages: 5 },
-  { file: 's2_light.html',  prefix: 'S2_LIGHT',  pages: 5 },
 ];
 
 (async () => {
