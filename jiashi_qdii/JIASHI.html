@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>易方达全球成长精选(QDII)C · 小红书图文笔记</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#05060b; --bg-1:#0b1020; --bg-2:#141a2e;
+    --line:rgba(255,255,255,.08);
+    --text:#e7ecf3; --muted:#8a93a6;
+    --gold:#d4b26a; --gold-soft:#f2e9d2;
+    --up:#ef3b3b; --up-deep:#a81818;
+    --down:#17b26a; --down-deep:#0b7a46;
+    --blue:#5b8bff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0a0d15}
+  body{
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
+    font-weight:600;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision;
+    color:var(--text);
+    padding:30px 0;
+  }
+  .mono{font-family:"DM Serif Display","Playfair Display",Georgia,serif}
+  .serif-en{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+
+  /* 小红书标准尺寸 1080×1440 */
+  .card{
+    width:1080px; height:1440px;
+    margin:24px auto;
+    position:relative;
+    color:var(--text);
+    background:
+      radial-gradient(1400px 800px at 120% -10%,rgba(212,178,106,.16),transparent 60%),
+      radial-gradient(1200px 700px at -20% 30%,rgba(239,59,59,.12),transparent 60%),
+      radial-gradient(1200px 700px at 120% 110%,rgba(23,178,106,.10),transparent 60%),
+      linear-gradient(180deg,#05060b 0%,#0b1020 50%,#070a14 100%);
+    overflow:hidden;
+    border-radius:8px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+  }
+
+  /* 角标 */
+  .corner{position:absolute;width:72px;height:72px;border:1.5px solid rgba(212,178,106,.55)}
+  .corner.tl{top:54px;left:54px;border-right:none;border-bottom:none}
+  .corner.tr{top:54px;right:54px;border-left:none;border-bottom:none}
+  .corner.bl{bottom:54px;left:54px;border-right:none;border-top:none}
+  .corner.br{bottom:54px;right:54px;border-left:none;border-top:none}
+
+  .page-num{
+    position:absolute;right:80px;bottom:78px;
+    font-family:"DM Serif Display",serif;color:var(--gold);
+    font-size:28px;letter-spacing:4px;z-index:2;
+  }
+  .watermark{
+    position:absolute;left:80px;bottom:82px;
+    color:var(--muted);font-size:24px;letter-spacing:5px;
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;z-index:2;
+  }
+
+  /* 共用页头 */
+  .page-header{padding:100px 80px 0;text-align:center;position:relative;z-index:1}
+  .ph-en{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;letter-spacing:10px;color:var(--gold);font-size:28px}
+  .ph-cn{margin-top:14px;font-size:50px;font-weight:900;letter-spacing:6px}
+  .ph-range{margin-top:10px;font-family:"DM Serif Display",serif;font-size:30px;color:var(--gold-soft);letter-spacing:4px}
+  .ph-line{width:160px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto 0}
+
+  /* ============ 卡片 1 · 封面 ============ */
+  .bg-word{
+    position:absolute;font-family:"DM Serif Display",serif;
+    font-size:520px;line-height:.85;color:transparent;
+    -webkit-text-stroke:1px rgba(212,178,106,.10);
+    letter-spacing:-16px;top:540px;left:-40px;
+    pointer-events:none;user-select:none;
+  }
+  .cover-top{position:absolute;top:120px;left:0;right:0;text-align:center}
+  .brand{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;letter-spacing:12px;color:var(--gold);font-size:32px;margin-left:12px}
+  .brand-sub{margin-top:16px;color:var(--muted);letter-spacing:8px;font-size:18px}
+  .hairline{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px auto 0}
+
+  .cover-center{position:absolute;top:310px;left:0;right:0;text-align:center;padding:0 50px}
+  .main-title{
+    font-family:"Noto Serif SC",serif;font-weight:900;
+    line-height:1.1;letter-spacing:2px;
+  }
+  .main-title .h-brand{
+    display:inline-block;
+    font-size:88px;
+    letter-spacing:8px;
+    background:linear-gradient(180deg,#ffffff 0%,#f3e3b8 55%,#d4b26a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 40px rgba(212,178,106,.22);
+    padding-bottom:12px;
+  }
+  .main-title .h-sub{
+    display:inline-block;margin-top:14px;
+    font-size:42px;letter-spacing:8px;color:#cfd6e4;
+    font-weight:700;line-height:1.55;
+  }
+  .kw-row{
+    margin-top:28px;
+    display:flex;justify-content:center;align-items:center;gap:18px;
+    line-height:1;
+  }
+  .kw-tag{
+    display:inline-block;padding:16px 28px;
+    border-radius:26px;
+    font-family:"Noto Serif SC",serif;font-weight:700;
+    font-size:32px;letter-spacing:4px;
+    background:linear-gradient(135deg,rgba(212,178,106,.18),rgba(212,178,106,.04));
+    border:1px solid rgba(212,178,106,.45);
+    color:var(--gold-soft);
+    box-shadow:0 0 20px rgba(212,178,106,.12),inset 0 0 12px rgba(212,178,106,.08);
+  }
+  .years-range{margin-top:34px;font-family:"DM Serif Display",serif;font-size:42px;letter-spacing:6px;color:var(--gold-soft)}
+  .years-range .sep{color:var(--gold);margin:0 16px;font-size:36px;vertical-align:middle}
+
+  .stats{position:absolute;left:80px;right:80px;bottom:260px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .stat{
+    border:1px solid rgba(212,178,106,.35);
+    border-radius:28px;
+    padding:30px 14px 26px;text-align:center;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.4));
+  }
+  .stat .k{font-family:"Noto Serif SC",serif;font-size:20px;color:#cfd6e4;letter-spacing:3px}
+  .stat .v{margin-top:14px;font-family:"DM Serif Display",serif;font-size:60px;line-height:1;letter-spacing:1px}
+  .stat .v .u{font-size:32px;margin-left:2px}
+  .stat.best .v{color:var(--up);text-shadow:0 0 20px rgba(239,59,59,.35)}
+  .stat.mid .v{color:var(--gold)}
+  .stat.since .v{color:var(--gold-soft)}
+  .stat .y{margin-top:10px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:22px;color:var(--muted);letter-spacing:3px}
+
+  .cover-bottom{position:absolute;left:0;right:0;bottom:140px;text-align:center}
+  .tag-dashed{display:inline-block;padding:12px 30px;border:1px dashed rgba(212,178,106,.5);border-radius:22px;color:#ffe8c4;font-size:20px;letter-spacing:6px}
+  .cover-hint{margin-top:20px;color:var(--muted);font-size:20px;letter-spacing:6px}
+
+  /* ============ 卡片 2 · 基金经理名片 ============ */
+  .mgr-top{display:flex;align-items:center;gap:40px;padding:60px 80px 0}
+  .avatar-wrap{
+    width:180px;height:180px;flex:0 0 180px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#f3e3b8,#d4b26a);
+    padding:3px;
+    box-shadow:0 0 30px rgba(212,178,106,.35);
+  }
+  .avatar{width:100%;height:100%;border-radius:50%;background:#0b1020;object-fit:cover;display:block}
+  .avatar-fallback{
+    width:100%;height:100%;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#141a2e,#0b1020);
+    font-family:"Noto Serif SC",serif;font-weight:900;
+    font-size:88px;color:var(--gold);letter-spacing:4px;
+  }
+  .mgr-text{flex:1}
+  .mgr-name{font-size:72px;font-weight:900;letter-spacing:4px;line-height:1}
+  .mgr-role{margin-top:14px;font-size:22px;color:var(--gold);letter-spacing:3px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+  .mgr-title{margin-top:10px;font-size:22px;color:#cfd6e4;letter-spacing:2px}
+
+  .mgr-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
+    padding:40px 80px 0;
+  }
+  .mgr-cell{
+    border:1px solid rgba(212,178,106,.3);
+    border-radius:24px;
+    padding:24px 26px;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.4));
+  }
+  .mgr-cell .k{font-size:20px;color:#cfd6e4;letter-spacing:3px}
+  .mgr-cell .v{margin-top:12px;font-family:"DM Serif Display",serif;font-size:52px;line-height:1;color:var(--gold)}
+  .mgr-cell.hot .v{color:var(--up);text-shadow:0 0 18px rgba(239,59,59,.35)}
+  .mgr-cell .u{font-size:28px;margin-left:4px;color:var(--gold-soft)}
+  .mgr-cell .sub{margin-top:10px;color:var(--muted);font-size:18px;letter-spacing:2px}
+
+  .mgr-bio{
+    margin:28px 80px 0;
+    padding:26px 30px;
+    border:1px dashed rgba(212,178,106,.35);
+    border-radius:24px;
+    background:linear-gradient(135deg,rgba(212,178,106,.06),rgba(10,14,26,.3));
+    color:#e7ecf3;font-size:20px;line-height:1.8;letter-spacing:1px;
+  }
+  .mgr-bio b{color:var(--gold)}
+
+  .mgr-idea{margin:24px 80px 0}
+  .mgr-idea-title{text-align:center;font-size:22px;color:var(--gold);letter-spacing:6px;margin-bottom:16px}
+  .mgr-idea-row{display:flex;gap:16px;align-items:flex-start;margin-top:12px}
+  .mgr-idea-no{
+    flex:0 0 40px;height:40px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"DM Serif Display",serif;font-size:20px;color:#1a0808;
+    background:radial-gradient(circle at 30% 30%,#ffe1ac,var(--gold));
+    box-shadow:0 0 12px rgba(212,178,106,.4);
+  }
+  .mgr-idea-text{color:#e7ecf3;font-size:20px;line-height:1.5;letter-spacing:1px}
+  .mgr-idea-text b{color:var(--gold)}
+
+  /* ============ 卡片 3 · 季度持仓演化 ============ */
+  .q-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+    padding:20px 46px 0;margin-top:24px;
+  }
+  .q-col{
+    border:1px solid rgba(212,178,106,.3);
+    border-radius:18px;
+    background:linear-gradient(180deg,rgba(20,26,46,.6),rgba(10,14,26,.4));
+    padding:18px 12px 14px;
+    display:flex;flex-direction:column;
+  }
+  .q-col.latest{border-color:rgba(239,59,59,.55);background:linear-gradient(180deg,rgba(80,20,20,.4),rgba(10,14,26,.55))}
+  .q-head{text-align:center;font-family:"DM Serif Display",serif;font-size:22px;color:var(--gold);letter-spacing:2px}
+  .q-col.latest .q-head{color:#ffdcdc}
+  .q-sub{text-align:center;font-size:14px;color:var(--muted);letter-spacing:2px;margin-top:4px;font-family:"Cormorant Garamond",serif;font-style:italic}
+  .q-list{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+  .q-item{
+    border-radius:12px;
+    padding:8px 10px;
+    background:rgba(20,26,46,.5);
+    border:1px solid rgba(255,255,255,.04);
+    position:relative;
+  }
+  .q-item .nm{font-size:16px;color:#e7ecf3;letter-spacing:.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .q-item .pct{margin-top:3px;font-family:"DM Serif Display",serif;font-size:18px;color:var(--gold)}
+  .q-item.hl{border-color:rgba(212,178,106,.55);background:linear-gradient(135deg,rgba(212,178,106,.18),rgba(10,14,26,.4))}
+  .q-item.hl .pct{color:var(--gold-soft);text-shadow:0 0 10px rgba(212,178,106,.45)}
+
+  .q-legend{
+    margin:20px 80px 0;text-align:center;font-size:18px;color:var(--muted);letter-spacing:3px;
+  }
+  .q-legend .hl-chip{display:inline-block;width:18px;height:18px;border-radius:6px;background:linear-gradient(135deg,#f3e3b8,#d4b26a);vertical-align:middle;margin-right:8px}
+
+  .q-foot{
+    margin:20px 80px 0;padding:20px 28px;
+    border:1px solid rgba(212,178,106,.3);border-radius:24px;
+    background:linear-gradient(180deg,rgba(20,26,46,.55),rgba(10,14,26,.3));
+    text-align:center;color:#cfd6e4;font-size:18px;line-height:1.7;letter-spacing:1px;
+  }
+  .q-foot b{color:var(--gold)}
+
+  /* ============ 卡片 4 · 投资习惯 ============ */
+  .insight-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:22px;
+    padding:30px 80px 0;margin-top:20px;
+  }
+  .icard{
+    border-radius:26px;
+    padding:30px 26px;text-align:center;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.45));
+    border:1px solid rgba(212,178,106,.3);
+    position:relative;overflow:hidden;
+    min-height:220px;
+  }
+  .icard.up{border-color:rgba(239,59,59,.45);background:linear-gradient(180deg,rgba(80,20,20,.45),rgba(10,14,26,.55))}
+  .icard.down{border-color:rgba(23,178,106,.45);background:linear-gradient(180deg,rgba(12,60,40,.45),rgba(10,14,26,.55))}
+  .icard .i-k{font-size:22px;color:#cfd6e4;letter-spacing:3px;font-weight:600}
+  .icard .i-v{
+    margin-top:14px;
+    font-family:"DM Serif Display",serif;
+    font-size:82px;line-height:1;letter-spacing:1px;color:var(--gold);
+    text-shadow:0 0 22px rgba(212,178,106,.3);
+  }
+  .icard.up .i-v{color:var(--up);text-shadow:0 0 22px rgba(239,59,59,.35)}
+  .icard.down .i-v{color:var(--down);text-shadow:0 0 22px rgba(23,178,106,.35)}
+  .icard .i-v .u{font-size:34px;margin-left:4px}
+  .icard .i-sub{margin-top:14px;color:var(--muted);font-size:18px;letter-spacing:2px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+  .icard .i-extra{margin-top:8px;color:#cfd6e4;font-size:16px;letter-spacing:1px;line-height:1.5}
+
+  .trend-bar{
+    margin:22px 80px 0;padding:22px 28px;
+    border-radius:24px;
+    background:linear-gradient(135deg,rgba(239,59,59,.10),rgba(212,178,106,.10));
+    border:1px solid rgba(212,178,106,.3);
+  }
+  .trend-title{text-align:center;font-size:20px;color:var(--gold);letter-spacing:6px;margin-bottom:12px}
+  .trend-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .trend-cell{text-align:center}
+  .trend-cell .q{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:16px;color:var(--muted);letter-spacing:1px}
+  .trend-cell .v{margin-top:4px;font-family:"DM Serif Display",serif;font-size:32px;color:var(--up)}
+  .trend-cell.top10 .v{color:var(--gold-soft)}
+  .trend-arrow{text-align:center;margin-top:10px;color:var(--up);font-size:22px;letter-spacing:8px}
+
+  .habit-sum{
+    margin:20px 80px 0;padding:22px 30px;
+    border:1px dashed rgba(212,178,106,.35);border-radius:24px;
+    background:linear-gradient(135deg,rgba(212,178,106,.06),rgba(10,14,26,.3));
+    text-align:center;color:#e7ecf3;font-size:19px;line-height:1.7;letter-spacing:1px;
+  }
+  .habit-sum b{color:var(--gold)}
+
+  /* ============ 卡片 5 · 下一期推测 ============ */
+  .forecast-main{
+    margin:40px 80px 0;padding:40px 40px;
+    border-radius:28px;
+    background:linear-gradient(135deg,rgba(239,59,59,.14),rgba(212,178,106,.10));
+    border:1px solid rgba(239,59,59,.35);
+    text-align:center;
+  }
+  .forecast-main .fm-label{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:24px;color:var(--gold);letter-spacing:6px}
+  .forecast-main .fm-text{
+    margin-top:18px;
+    font-size:36px;font-weight:900;line-height:1.4;letter-spacing:2px;
+    color:#fff;
+  }
+  .forecast-main .fm-text b{color:#ffdcdc;background:linear-gradient(135deg,rgba(239,59,59,.28),rgba(168,24,24,.18));padding:4px 10px;border-radius:12px}
+
+  .forecast-reasons{
+    margin:26px 80px 0;padding:28px 30px;
+    border:1px solid rgba(212,178,106,.3);border-radius:28px;
+    background:linear-gradient(180deg,rgba(20,26,46,.6),rgba(10,14,26,.4));
+  }
+  .fr-title{text-align:center;font-size:22px;color:var(--gold);letter-spacing:6px;margin-bottom:18px}
+  .fr-row{display:flex;gap:18px;align-items:flex-start;margin-top:14px}
+  .fr-no{
+    flex:0 0 48px;height:48px;border-radius:16px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"DM Serif Display",serif;font-size:22px;color:#1a0808;
+    background:radial-gradient(circle at 30% 30%,#ffe1ac,var(--gold));
+    box-shadow:0 0 12px rgba(212,178,106,.4);
+  }
+  .fr-text{color:#e7ecf3;font-size:20px;line-height:1.5;letter-spacing:1px}
+  .fr-text b{color:var(--gold)}
+
+  .risk-tip{
+    margin:24px 80px 0;padding:18px 26px;
+    border-radius:22px;
+    border:1px solid rgba(23,178,106,.4);
+    background:linear-gradient(135deg,rgba(23,178,106,.12),rgba(10,14,26,.3));
+    text-align:center;color:#c7f3dd;font-size:18px;letter-spacing:3px;line-height:1.6;
+  }
+  .end-tag{margin:24px 80px 0;text-align:center}
+  .end-tag .btn{
+    display:inline-block;padding:14px 40px;
+    border:1px solid rgba(212,178,106,.5);border-radius:22px;
+    color:var(--gold-soft);font-size:22px;letter-spacing:6px;
+    background:linear-gradient(135deg,rgba(212,178,106,.10),transparent);
+  }
+
+  /* 全站免责声明 */
+  .disclaimer{
+    position:absolute;left:140px;right:140px;bottom:22px;
+    text-align:center;font-size:13px;color:rgba(207,214,228,.55);
+    letter-spacing:2px;font-family:"Noto Serif SC",serif;font-weight:400;
+    z-index:3;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ============ 卡片 1 · 封面 ============ -->
+<div class="card" id="p1">
+  <div class="bg-word">QDII</div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="cover-top">
+    <div class="brand">HARVEST &middot; GLOBAL UPGRADE</div>
+    <div class="brand-sub">嘉 实 · 全 球 产 业 升 级</div>
+    <div class="hairline"></div>
+  </div>
+
+  <div class="cover-center">
+    <div class="main-title">
+      <div class="h-brand">嘉实全球产业升级</div>
+      <div class="h-sub">QDII 股票发起 · C 017731<br/>基金经理 陈俊杰</div>
+    </div>
+    <div class="kw-row">
+      <span class="kw-tag">AI 半导体</span>
+      <span class="kw-tag">全链路布局</span>
+      <span class="kw-tag">全球龙头</span>
+    </div>
+    <div class="years-range">017731 <span class="sep">◆</span> 2023 — 2026</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat best">
+      <div class="k">近 1 年收益</div>
+      <div class="v">+127.93<span class="u">%</span></div>
+      <div class="y">PAST 12 MONTHS</div>
+    </div>
+    <div class="stat best">
+      <div class="k">近 3 年收益</div>
+      <div class="v">+247.07<span class="u">%</span></div>
+      <div class="y">3-YEAR TOTAL</div>
+    </div>
+    <div class="stat since">
+      <div class="k">成立来回报</div>
+      <div class="v">+243.04<span class="u">%</span></div>
+      <div class="y">SINCE 2023-02-09</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="tag-dashed">← 滑动查看 · 陈俊杰的半导体全景 →</div>
+    <div class="cover-hint">经 理 · 持 仓 · 习 惯 · 推 测</div>
+  </div>
+
+  <div class="disclaimer">数据获取 2026.05.02 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="watermark">HARVEST · 017731</div>
+  <div class="page-num">01 / 05</div>
+</div>
+
+<!-- ============ 卡片 2 · 基金经理名片 ============ -->
+<div class="card" id="p3">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">THE MANAGER</div>
+    <div class="ph-cn">基 金 经 理 · 陈 俊 杰</div>
+    <div class="ph-range">Chen Junjie &middot; Harvest Fund</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="mgr-top" style="padding-top:40px">
+    <div class="avatar-wrap">
+      <div class="avatar-fallback">陈</div>
+    </div>
+    <div class="mgr-text">
+      <div class="mgr-name">陈 俊 杰</div>
+      <div class="mgr-role">Sector Analyst · Manufacturing Research</div>
+      <div class="mgr-title">嘉实基金 · 制造行业研究组行业主分析师 · 硕士研究生</div>
+    </div>
+  </div>
+
+  <div class="mgr-grid">
+    <div class="mgr-cell hot">
+      <div class="k">共管期近 3 年回报</div>
+      <div class="v">+163.87<span class="u">%</span></div>
+      <div class="sub">2023-02-21 ~ 2026-02-05</div>
+    </div>
+    <div class="mgr-cell">
+      <div class="k">独立任职时长</div>
+      <div class="v">85<span class="u">天</span></div>
+      <div class="sub">Since 2026-02-06</div>
+    </div>
+    <div class="mgr-cell">
+      <div class="k">管理规模（本基金）</div>
+      <div class="v">11.50<span class="u">亿</span></div>
+      <div class="sub">截至 2026-03-31</div>
+    </div>
+    <div class="mgr-cell">
+      <div class="k">行业研究背景</div>
+      <div class="v">5<span class="u">年+</span></div>
+      <div class="sub">浙商 / 天风 电子行业</div>
+    </div>
+  </div>
+
+  <div class="mgr-bio">
+    陈俊杰先生，<b>中国国籍 · 硕士研究生</b>。曾任<b>浙商证券电子行业分析师、天风证券电子行业高级分析师</b>。2021 年加入嘉实基金任<b>制造行业研究组行业主分析师</b>。2023 年起任本基金经理；2026 年 4 月起兼管<b>嘉实美国成长股票 QDII</b>。
+  </div>
+
+  <div class="mgr-idea">
+    <div class="mgr-idea-title">投 资 风 格 · 三 个 关 键 词</div>
+    <div class="mgr-idea-row">
+      <div class="mgr-idea-no">Ⅰ</div>
+      <div class="mgr-idea-text"><b>半导体全链路</b>：覆盖设计 / 代工 / 存储 / 设备 / EDA / 光模块 六大环节。</div>
+    </div>
+    <div class="mgr-idea-row">
+      <div class="mgr-idea-no">Ⅱ</div>
+      <div class="mgr-idea-text"><b>从龙头套利 → 全链路分散</b>：一年内 Top10 集中度从 <b>59.7%</b> 降到 <b>40.2%</b>。</div>
+    </div>
+    <div class="mgr-idea-row">
+      <div class="mgr-idea-no">Ⅲ</div>
+      <div class="mgr-idea-text"><b>A 股 + 美股 + 港股 三线</b>：一端 TSM / AVGO / NVDA，一端寒武纪 / 源杰，跨市场覆盖全链路。</div>
+    </div>
+  </div>
+
+  <div class="disclaimer">数据获取 2026.05.02 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="watermark">MANAGER</div>
+  <div class="page-num">03 / 05</div>
+</div>
+
+<!-- ============ 卡片 3 · 季度持仓演化 ============ -->
+<div class="card" id="p2">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">HOLDINGS · EVOLUTION</div>
+    <div class="ph-cn">近 四 季 · 持 仓 演 化</div>
+    <div class="ph-range">2025 Q2 — 2026 Q1</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="q-legend" style="margin-top:26px">
+    <span class="hl-chip"></span>连续 4 季在 Top10 的核心股 · <b>AVGO · MU · NVDA</b>
+  </div>
+
+  <div class="q-grid">
+    <!-- 2025 Q2 -->
+    <div class="q-col">
+      <div class="q-head">2025 · Q2</div>
+      <div class="q-sub">龙头高集中</div>
+      <div class="q-list">
+        <div class="q-item hl"><div class="nm">英伟达 NVDA</div><div class="pct">6.99%</div></div>
+        <div class="q-item"><div class="nm">新思科技 SNPS</div><div class="pct">6.81%</div></div>
+        <div class="q-item hl"><div class="nm">美光 MU</div><div class="pct">6.55%</div></div>
+        <div class="q-item"><div class="nm">德州仪器 TXN</div><div class="pct">6.43%</div></div>
+        <div class="q-item"><div class="nm">超威半导体 AMD</div><div class="pct">6.28%</div></div>
+        <div class="q-item"><div class="nm">华虹半导体 01347</div><div class="pct">5.73%</div></div>
+        <div class="q-item"><div class="nm">高通 QCOM</div><div class="pct">5.64%</div></div>
+        <div class="q-item hl"><div class="nm">博通 AVGO</div><div class="pct">5.47%</div></div>
+      </div>
+    </div>
+    <!-- 2025 Q3 -->
+    <div class="q-col">
+      <div class="q-head">2025 · Q3</div>
+      <div class="q-sub">NVDA / AVGO / TSM</div>
+      <div class="q-list">
+        <div class="q-item hl"><div class="nm">英伟达 NVDA</div><div class="pct">6.91%</div></div>
+        <div class="q-item hl"><div class="nm">博通 AVGO</div><div class="pct">6.39%</div></div>
+        <div class="q-item"><div class="nm">台积电 TSM</div><div class="pct">6.38%</div></div>
+        <div class="q-item"><div class="nm">华虹半导体 01347</div><div class="pct">5.18%</div></div>
+        <div class="q-item"><div class="nm">新思科技 SNPS</div><div class="pct">4.48%</div></div>
+        <div class="q-item"><div class="nm">MPS 芯片电源</div><div class="pct">4.28%</div></div>
+        <div class="q-item hl"><div class="nm">美光 MU</div><div class="pct">4.03%</div></div>
+        <div class="q-item"><div class="nm">德州仪器 TXN</div><div class="pct">3.97%</div></div>
+      </div>
+    </div>
+    <!-- 2025 Q4 -->
+    <div class="q-col">
+      <div class="q-head">2025 · Q4</div>
+      <div class="q-sub">存储 / EDA 加码</div>
+      <div class="q-list">
+        <div class="q-item hl"><div class="nm">英伟达 NVDA</div><div class="pct">7.45%</div></div>
+        <div class="q-item hl"><div class="nm">美光 MU</div><div class="pct">5.64%</div></div>
+        <div class="q-item hl"><div class="nm">博通 AVGO</div><div class="pct">5.53%</div></div>
+        <div class="q-item"><div class="nm">新思科技 SNPS</div><div class="pct">5.17%</div></div>
+        <div class="q-item"><div class="nm">台积电 TSM</div><div class="pct">4.73%</div></div>
+        <div class="q-item"><div class="nm">迈威尔科技 MRVL</div><div class="pct">3.82%</div></div>
+        <div class="q-item"><div class="nm">超威半导体 AMD</div><div class="pct">3.78%</div></div>
+        <div class="q-item"><div class="nm">阿斯麦 ASML</div><div class="pct">3.59%</div></div>
+      </div>
+    </div>
+    <!-- 2026 Q1 -->
+    <div class="q-col latest">
+      <div class="q-head">2026 · Q1</div>
+      <div class="q-sub">全链路分散</div>
+      <div class="q-list">
+        <div class="q-item hl"><div class="nm">博通 AVGO</div><div class="pct">5.37%</div></div>
+        <div class="q-item hl"><div class="nm">美光 MU</div><div class="pct">4.85%</div></div>
+        <div class="q-item"><div class="nm">迈威尔科技 MRVL</div><div class="pct">4.37%</div></div>
+        <div class="q-item"><div class="nm">源杰科技 688498</div><div class="pct">4.25%</div></div>
+        <div class="q-item hl"><div class="nm">英伟达 NVDA</div><div class="pct">3.79%</div></div>
+        <div class="q-item"><div class="nm">阿斯麦 ASML</div><div class="pct">3.70%</div></div>
+        <div class="q-item"><div class="nm">寒武纪 688256</div><div class="pct">3.66%</div></div>
+        <div class="q-item"><div class="nm">科磊 KLAC</div><div class="pct">3.44%</div></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="q-foot">
+    从 <b>NVDA · SNPS · MU · TXN</b>（芯片四王）→ <b>AVGO · MU · MRVL · 源杰 · 阿斯麦 · 寒武纪</b>（全链路十龙），
+    <br/>陈俊杰的持仓一年内从 <b>“龙头集中”</b> 走向 <b>“全链路布局”</b>。
+  </div>
+
+  <div class="disclaimer">数据获取 2026.05.02 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="watermark">HOLDINGS</div>
+  <div class="page-num">02 / 05</div>
+</div>
+
+<!-- ============ 卡片 4 · 投资习惯 ============ -->
+<div class="card" id="p4">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">TRADING · HABITS</div>
+    <div class="ph-cn">陈 俊 杰 · 四 个 交 易 习 惯</div>
+    <div class="ph-range">Derived from 4 quarters</div>
+    <div class="ph-line"></div>
+  </div>
+  
+  <div class="insight-grid" style="margin-top:10px">
+    <div class="icard up">
+      <div class="i-k">核心持仓稳定度</div>
+      <div class="i-v">3<span class="u">/10</span></div>
+      <div class="i-sub">Stable Core · 4Q</div>
+      <div class="i-extra">AVGO · MU · NVDA 连 4 季<br/>半导体三巨头是压舱石</div>
+    </div>
+    <div class="icard down">
+      <div class="i-k">Top3 集中度回落</div>
+      <div class="i-v">14.59<span class="u">%</span></div>
+      <div class="i-sub">-5.76 pp vs 25Q2</div>
+      <div class="i-extra">从龙头集中走向分散<br/>AVGO / MU / MRVL</div>
+    </div>
+    <div class="icard">
+      <div class="i-k">A 股仓位（Top10 内）</div>
+      <div class="i-v">7.91<span class="u">%</span></div>
+      <div class="i-sub">vs 美股 32.24%</div>
+      <div class="i-extra">A 股：源杰 + 寒武纪<br/>美股覆盖设备 / 设计 / 存储</div>
+    </div>
+    <div class="icard down">
+      <div class="i-k">每季换仓股票数</div>
+      <div class="i-v">2<span class="u">~ 4</span></div>
+      <div class="i-sub">Low Turnover</div>
+      <div class="i-extra">最新一季新进 2 只<br/>退出 2 只（滚动优化）</div>
+    </div>
+  </div>
+  
+  <div class="trend-bar">
+    <div class="trend-title">T O P 1 0 · 集 中 度 演 化</div>
+    <div class="trend-row">
+      <div class="trend-cell top10"><div class="q">2025 Q2</div><div class="v">59.7%</div></div>
+      <div class="trend-cell top10"><div class="q">2025 Q3</div><div class="v">48.4%</div></div>
+      <div class="trend-cell top10"><div class="q">2025 Q4</div><div class="v">46.9%</div></div>
+      <div class="trend-cell top10"><div class="q">2026 Q1</div><div class="v">40.2%</div></div>
+    </div>
+    <div class="trend-arrow">↘ ↘ ↘ ↘ &nbsp; 越 持 越 分 散</div>
+  </div>
+  
+  <div class="habit-sum">
+    <b>习惯总结：</b>陈俊杰不做“压单龙头”，而是在 <b>半导体全链路内平衡布局</b>，
+    从芯片四王的 <b>高集中</b> 转向 <b>设计 + 存储 + 设备 + 光模块 + EDA</b> 的全视角配置。
+  </div>
+
+  <div class="disclaimer">数据获取 2026.05.02 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="watermark">HABITS</div>
+  <div class="page-num">04 / 05</div>
+</div>
+
+<!-- ============ 卡片 5 · 下一期推测 ============ -->
+<div class="card" id="p5">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">NEXT · QUARTER · FORECAST</div>
+    <div class="ph-cn">下 一 期 持 仓 · 推 测</div>
+    <div class="ph-range">2026 Q2 &middot; Probable</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="forecast-main">
+    <div class="fm-label">MAIN FORECAST</div>
+    <div class="fm-text">
+      沿 <b>半导体全链路</b> 继续向设备 / 材料 / 光芯片延伸，<br/>
+      <b>AVGO · MU · NVDA</b> 三只核心仓位大概率继续持有。
+    </div>
+  </div>
+
+  <div class="forecast-reasons">
+    <div class="fr-title">三 条 推 理 依 据</div>
+    <div class="fr-row">
+      <div class="fr-no">Ⅰ</div>
+      <div class="fr-text"><b>集中度下行趋势未止</b>：Top10 从 25Q2 <b>59.69% → 48.43% → 46.88% → 40.15%</b>，连续 3 季回落，下一季大概率再降到 <b>35~38%</b>。</div>
+    </div>
+    <div class="fr-row">
+      <div class="fr-no">Ⅱ</div>
+      <div class="fr-text"><b>三大核心股是压舱石</b>：AVGO / MU / NVDA 连续 4 季在 Top10，26Q1 AVGO 新登顶 <b>5.37%</b>，下一季核心仓位继续留存的概率极高。</div>
+    </div>
+    <div class="fr-row">
+      <div class="fr-no">Ⅲ</div>
+      <div class="fr-text"><b>全链路补齐空缺环节</b>：26Q1 新进 <b>源杰（光芯片）</b>、<b>KLAC 科磊（半导体设备）</b>，下一季可能继续加 <b>材料 / EDA / HBM 链</b>，把"设计 + 存储 + 设备 + 光模块 + 代工"六环节全部铺满。</div>
+    </div>
+  </div>
+
+  <div class="risk-tip">
+    ⚠ 本推测仅基于公开季报规律外推，非投资建议<br/>
+    基金持仓每季变动，历史习惯 ≠ 未来动作 · 请理性决策
+  </div>
+
+  <div class="end-tag">
+    <div class="btn">END · 关 注 获 取 下 季 复 盘</div>
+  </div>
+
+  <div class="disclaimer">数据获取 2026.05.02 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="watermark">FORECAST</div>
+  <div class="page-num">05 / 05</div>
+</div>
+
+</body>
+</html>
