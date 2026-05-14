@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>纳斯达克100历年回报率</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#05060b; --bg-1:#0b1020; --bg-2:#141a2e;
+    --text:#e7ecf3; --muted:#8a93a6;
+    --gold:#d4b26a; --gold-soft:#f2e9d2;
+    --up:#ef3b3b; --up-bg:rgba(239,59,59,.15); --up-border:rgba(239,59,59,.4);
+    --down:#17b26a; --down-bg:rgba(23,178,106,.13); --down-border:rgba(23,178,106,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0a0d15}
+  body{
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
+    font-weight:600;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision;
+    color:var(--text);
+    padding:30px 0;
+  }
+
+  .card{
+    width:1080px; height:1440px;
+    margin:24px auto;
+    position:relative;
+    color:var(--text);
+    background:
+      radial-gradient(1400px 800px at 120% -10%,rgba(212,178,106,.10),transparent 60%),
+      radial-gradient(1200px 700px at -20% 40%,rgba(239,59,59,.06),transparent 60%),
+      radial-gradient(1200px 700px at 110% 110%,rgba(23,178,106,.06),transparent 60%),
+      linear-gradient(180deg,#05060b 0%,#0b1020 50%,#070a14 100%);
+    overflow:hidden;
+    border-radius:8px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+  }
+
+  .corner{position:absolute;width:56px;height:56px;border:1.5px solid rgba(212,178,106,.45)}
+  .corner.tl{top:40px;left:40px;border-right:none;border-bottom:none}
+  .corner.tr{top:40px;right:40px;border-left:none;border-bottom:none}
+  .corner.bl{bottom:40px;left:40px;border-right:none;border-top:none}
+  .corner.br{bottom:40px;right:40px;border-left:none;border-top:none}
+
+  /* 页头 */
+  .header{
+    padding:70px 60px 0;
+    text-align:center;
+  }
+  .header .en{
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;
+    letter-spacing:10px;color:var(--gold);font-size:26px;
+  }
+  .header .cn{
+    margin-top:10px;font-size:52px;font-weight:900;letter-spacing:6px;
+    background:linear-gradient(180deg,#ffffff 0%,#f3e3b8 60%,#d4b26a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .header .range{
+    margin-top:8px;font-family:"DM Serif Display",serif;
+    font-size:28px;color:var(--gold-soft);letter-spacing:6px;
+  }
+  .hairline{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px auto 0}
+
+  .legend{
+    margin:14px auto 0;display:flex;justify-content:center;gap:32px;
+    font-size:18px;color:var(--muted);
+  }
+  .legend .chip{display:inline-flex;align-items:center;gap:8px}
+  .ldot{width:12px;height:12px;border-radius:4px}
+  .ldot.up{background:var(--up)}
+  .ldot.down{background:var(--down)}
+
+  /* 方块网格 */
+  .grid{
+    margin:20px 50px 0;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+  }
+  .block{
+    border-radius:16px;
+    padding:18px 10px;
+    text-align:center;
+    position:relative;
+  }
+  .block.up{
+    background:linear-gradient(145deg,rgba(239,59,59,.12),rgba(168,24,24,.24));
+    border:1.5px solid rgba(239,59,59,.4);
+    box-shadow:inset 0 0 12px rgba(239,59,59,.08);
+  }
+  .block.down{
+    background:linear-gradient(145deg,rgba(23,178,106,.10),rgba(11,122,70,.22));
+    border:1.5px solid rgba(23,178,106,.4);
+    box-shadow:inset 0 0 12px rgba(23,178,106,.08);
+  }
+  .block .b-year{
+    font-family:"DM Serif Display",serif;
+    font-size:24px;letter-spacing:1px;
+    color:rgba(255,255,255,.65);
+  }
+  .block .b-pct{
+    margin-top:6px;
+    font-family:"DM Serif Display",serif;
+    font-size:34px;font-weight:700;letter-spacing:0;
+  }
+  .block.up .b-pct{color:#ffdcdc;text-shadow:0 0 12px rgba(239,59,59,.35)}
+  .block.down .b-pct{color:#c7f3dd;text-shadow:0 0 12px rgba(23,178,106,.35)}
+
+  /* 极值高亮 */
+  .block.peak{border-width:2px;box-shadow:0 0 24px rgba(239,59,59,.2),inset 0 0 16px rgba(239,59,59,.12)}
+  .block.peak .b-year{color:var(--gold)}
+  .block.valley{border-width:2px;box-shadow:0 0 24px rgba(23,178,106,.2),inset 0 0 16px rgba(23,178,106,.12)}
+  .block.valley .b-year{color:var(--gold)}
+
+  /* 底部 */
+  .footer{
+    position:absolute;left:0;right:0;bottom:50px;
+    text-align:center;padding:0 60px;
+  }
+  .footer .note{
+    font-size:16px;color:var(--muted);letter-spacing:2px;line-height:1.7;
+  }
+  .footer .note .gold{color:var(--gold);font-family:"DM Serif Display",serif}
+  .watermark{
+    position:absolute;left:60px;bottom:56px;
+    color:rgba(138,147,166,.5);font-size:18px;letter-spacing:4px;
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;
+  }
+</style>
+</head>
+<body>
+
+<div class="card" id="p1">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="header">
+    <div class="en">NASDAQ-100 INDEX · ANNUAL RETURNS</div>
+    <div class="cn">纳斯达克100历年回报率</div>
+    <div class="range">1995 — 2025</div>
+    <div class="hairline"></div>
+  </div>
+
+  <div class="legend">
+    <div class="chip"><span class="ldot up"></span>上涨</div>
+    <div class="chip"><span class="ldot down"></span>下跌</div>
+  </div>
+
+  <div class="grid">
+    <div class="block up">
+      <div class="b-year">1995</div>
+      <div class="b-pct">+42.54%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">1996</div>
+      <div class="b-pct">+42.54%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">1997</div>
+      <div class="b-pct">+20.63%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">1998</div>
+      <div class="b-pct">+85.31%</div>
+    </div>
+    <div class="block up peak">
+      <div class="b-year">1999</div>
+      <div class="b-pct">+101.95%</div>
+    </div>
+    <div class="block down">
+      <div class="b-year">2000</div>
+      <div class="b-pct">-36.84%</div>
+    </div>
+    <div class="block down">
+      <div class="b-year">2001</div>
+      <div class="b-pct">-32.65%</div>
+    </div>
+    <div class="block down">
+      <div class="b-year">2002</div>
+      <div class="b-pct">-37.58%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2003</div>
+      <div class="b-pct">+49.12%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2004</div>
+      <div class="b-pct">+10.44%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2005</div>
+      <div class="b-pct">+1.49%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2006</div>
+      <div class="b-pct">+6.79%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2007</div>
+      <div class="b-pct">+18.67%</div>
+    </div>
+    <div class="block down valley">
+      <div class="b-year">2008</div>
+      <div class="b-pct">-41.89%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2009</div>
+      <div class="b-pct">+53.54%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2010</div>
+      <div class="b-pct">+19.22%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2011</div>
+      <div class="b-pct">+2.70%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2012</div>
+      <div class="b-pct">+16.82%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2013</div>
+      <div class="b-pct">+34.99%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2014</div>
+      <div class="b-pct">+17.94%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2015</div>
+      <div class="b-pct">+8.43%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2016</div>
+      <div class="b-pct">+5.89%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2017</div>
+      <div class="b-pct">+31.52%</div>
+    </div>
+    <div class="block down">
+      <div class="b-year">2018</div>
+      <div class="b-pct">-1.04%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2019</div>
+      <div class="b-pct">+37.96%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2020</div>
+      <div class="b-pct">+47.58%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2021</div>
+      <div class="b-pct">+26.63%</div>
+    </div>
+    <div class="block down valley">
+      <div class="b-year">2022</div>
+      <div class="b-pct">-32.97%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2023</div>
+      <div class="b-pct">+53.81%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2024</div>
+      <div class="b-pct">+24.88%</div>
+    </div>
+    <div class="block up">
+      <div class="b-year">2025</div>
+      <div class="b-pct">+20.17%</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="note">
+      31 年中上涨 <span class="gold">25</span> 年 · 下跌 <span class="gold">6</span> 年 · 胜率 <span class="gold">81%</span>
+    </div>
+  </div>
+
+  <div class="watermark">NASDAQ-100 · 1995 — 2025</div>
+</div>
+
+</body>
+</html>

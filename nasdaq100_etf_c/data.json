@@ -1,0 +1,143 @@
+{
+  "title": "被动型纳斯达克100 ETF (C类) 硬核对比",
+  "date": "2026-05-13",
+  "funds": [
+    {
+      "code": "006479",
+      "name": "广发纳斯达克100ETF联接人民币(QDII)C",
+      "return_1y": "36.79%",
+      "scale": "53.93亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.20%",
+      "fee_total": "1.20%",
+      "limit": "单日10.00元"
+    },
+    {
+      "code": "008971",
+      "name": "大成纳斯达克100ETF联接(QDII)C",
+      "return_1y": "36.65%",
+      "scale": "6.85亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.30%",
+      "fee_total": "1.30%",
+      "limit": "单日500.00元"
+    },
+    {
+      "code": "008008",
+      "name": "国泰纳斯达克100ETF联接(QDII)C",
+      "return_1y": "36.50%",
+      "scale": "12.50亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.25%",
+      "fee_total": "1.25%",
+      "limit": "单日100.00元"
+    },
+    {
+      "code": "008345",
+      "name": "华夏纳斯达克100ETF联接(QDII)C",
+      "return_1y": "36.40%",
+      "scale": "8.30亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.25%",
+      "fee_total": "1.25%",
+      "limit": "单日50.00万"
+    },
+    {
+      "code": "008346",
+      "name": "南方纳斯达克100ETF联接(QDII)C",
+      "return_1y": "36.35%",
+      "scale": "7.80亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.30%",
+      "fee_total": "1.30%",
+      "limit": "单日1000.00万"
+    },
+    {
+      "code": "012888",
+      "name": "易方达纳斯达克100ETF联接(QDII)C",
+      "return_1y": "36.60%",
+      "scale": "15.20亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.20%",
+      "fee_total": "1.20%",
+      "limit": "单日50.00万"
+    },
+    {
+      "code": "016503",
+      "name": "华安纳斯达克100ETF联接(QDII)C",
+      "return_1y": "36.25%",
+      "scale": "4.50亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.40%",
+      "fee_total": "1.40%",
+      "limit": "单日2000.00万"
+    },
+    {
+      "code": "017062",
+      "name": "工银瑞信纳斯达克100ETF联接(QDII)C",
+      "return_1y": "36.15%",
+      "scale": "3.20亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.35%",
+      "fee_total": "1.35%",
+      "limit": "单日500.00万"
+    },
+    {
+      "code": "017245",
+      "name": "招商纳斯达克100ETF联接(QDII)C",
+      "return_1y": "36.30%",
+      "scale": "5.10亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.30%",
+      "fee_total": "1.30%",
+      "limit": "单日100.00万"
+    },
+    {
+      "code": "017008",
+      "name": "博时纳斯达克100ETF联接(QDII)C",
+      "return_1y": "36.05%",
+      "scale": "2.80亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.35%",
+      "fee_total": "1.35%",
+      "limit": "单日200.00万"
+    },
+    {
+      "code": "017106",
+      "name": "汇添富纳斯达克100ETF联接(QDII)C",
+      "return_1y": "36.20%",
+      "scale": "6.30亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.30%",
+      "fee_total": "1.30%",
+      "limit": "单日300.00万"
+    },
+    {
+      "code": "017345",
+      "name": "鹏华纳斯达克100ETF联接(QDII)C",
+      "return_1y": "35.95%",
+      "scale": "2.10亿",
+      "fee_management": "0.80%",
+      "fee_custodian": "0.20%",
+      "fee_service": "0.40%",
+      "fee_total": "1.40%",
+      "limit": "单日100.00万"
+    }
+  ],
+  "tips": [
+    "C类无申购费，适合短中期波段和定投",
+    "综合费率 = 管理费 + 托管费 + 销售服务费",
+    "规模较大的基金流动性更好"
+  ]
+}
