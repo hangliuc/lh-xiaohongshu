@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>QDII 主动基金估值算法 · 回测报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFFFF;
+  --text: #111111;
+  --text-2: #444444;
+  --text-3: #999999;
+  --accent: #0066FF;
+  --green: #00875A;
+  --red: #E03131;
+  --line: #E6E6E6;
+  --line-light: #F2F2F2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #F5F5F5; }
+body {
+  font-family: "Noto Sans SC", "Inter", -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--text);
+  padding: 30px 0;
+}
+.card {
+  width: 1080px; height: 1440px;
+  margin: 24px auto;
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+}
+.page-num {
+  position: absolute; right: 72px; bottom: 64px;
+  font-family: "Inter", sans-serif;
+  font-weight: 300; font-size: 18px;
+  color: var(--text-3); letter-spacing: 4px;
+}
+.footer-line {
+  position: absolute; bottom: 100px; left: 72px; right: 72px;
+  height: 1px; background: var(--line);
+}
+.disclaimer {
+  position: absolute; left: 72px; right: 72px; bottom: 40px;
+  font-size: 15px; color: var(--text-3); letter-spacing: 0.5px;
+  font-weight: 300;
+}
+.bt-table { width: 100%; border-collapse: collapse; }
+.bt-table th {
+  padding: 14px 6px; font-weight: 500; font-size: 15px;
+  color: var(--text-3); text-align: center;
+  border-bottom: 1px solid var(--line); letter-spacing: 1px;
+}
+.bt-table th:first-child { text-align: left; padding-left: 0; }
+.bt-table td {
+  padding: 11px 6px; text-align: center;
+  font-family: "Inter", monospace;
+  font-size: 17px; font-weight: 500; color: var(--text-2);
+  border-bottom: 1px solid var(--line-light);
+}
+.bt-table tr:last-child td { border-bottom: none; }
+.bt-table td:first-child { text-align: left; padding-left: 0; font-weight: 600; color: var(--text); }
+.bt-table .pos { color: var(--red); }
+.bt-table .neg { color: var(--green); }
+.bt-table .zero { color: var(--text-3); }
+.bt-table .actual { font-weight: 700; color: var(--text); }
+.bt-table tr.hl td { background: #FAFAFA; }
+.bt-table .good { background: #ECFDF5; font-weight: 700; color: var(--green); }
+.example {
+  margin-top: 18px; padding: 16px 20px;
+  background: #FAFAFA; border-left: 3px solid var(--accent);
+  font-size: 16px; line-height: 1.9; color: var(--text-2);
+  font-family: "JetBrains Mono", monospace;
+}
+.example .elabel { font-family: "Noto Sans SC", sans-serif; font-weight: 600; color: var(--text); font-size: 16px; margin-bottom: 4px; display: block; }
+.metric-note {
+  margin-top: 16px; padding: 14px 18px; background: #FAFAFA;
+  font-size: 15px; color: var(--text-2); line-height: 1.7;
+}
+.metric-note b { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- ============ P1 · 封面 ============ -->
+<div class="card" id="p1">
+  <div style="padding:96px 72px 0;">
+    <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--accent);letter-spacing:6px;text-transform:uppercase;">QDII ACTIVE FUND · VALUATION ALGORITHM</div>
+    <h1 style="margin-top:28px;font-size:68px;font-weight:900;line-height:1.15;letter-spacing:-2px;">
+      QDII 主动基金<br/>涨幅估算，为什么难？
+    </h1>
+    <p style="margin-top:24px;font-size:26px;font-weight:300;color:var(--text-2);line-height:1.7;">
+      美股 QDII 是 T+2 交易，你可以在净值公布前提前买入/卖出。<br/>
+      但问题是 — 净值要等到晚上才更新，白天怎么判断今天涨了多少？
+    </p>
+    <div style="margin-top:40px;height:1px;background:var(--line);"></div>
+    <!-- 两大死结 -->
+    <div style="margin-top:32px;display:flex;gap:56px;">
+      <div style="flex:1;">
+        <div style="font-family:'Inter',sans-serif;font-size:72px;font-weight:900;color:var(--line);line-height:1;">01</div>
+        <div style="margin-top:-14px;font-size:26px;font-weight:800;color:var(--text);">持仓滞后</div>
+        <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.8;">
+          季报只披露上季度末的持仓快照。<br/>最长滞后 3 个月。<br/>基金经理可能早已大幅调仓。
+        </p>
+      </div>
+      <div style="width:1px;background:var(--line);"></div>
+      <div style="flex:1;">
+        <div style="font-family:'Inter',sans-serif;font-size:72px;font-weight:900;color:var(--line);line-height:1;">02</div>
+        <div style="margin-top:-14px;font-size:26px;font-weight:800;color:var(--text);">长尾不透明</div>
+        <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.8;">
+          前 10 大持仓仅覆盖 52% 净值。<br/>剩余 48% 完全黑箱。<br/>股票 + 现金 + 债券 + 其他基金。
+        </p>
+      </div>
+    </div>
+    <div style="margin-top:36px;height:1px;background:var(--line);"></div>
+    <!-- 痛点 -->
+    <div style="margin-top:28px;">
+      <p style="font-size:21px;font-weight:400;color:var(--text-2);line-height:1.8;">
+        无论你是开发估值小程序、写 Python 脚本、还是做 APP，<br/>
+        最大的痛点都不是数据获取或 UI 设计，<br/>
+        而是<span style="font-weight:800;color:var(--text);">估值算法本身极难做到精准</span>（时差 + 持仓盲区）。
+      </p>
+    </div>
+    <div style="margin-top:28px;height:1px;background:var(--line);"></div>
+    <!-- 结论 -->
+    <div style="margin-top:28px;">
+      <p style="font-size:21px;font-weight:400;color:var(--text-2);line-height:1.7;">
+        我从零设计了 6 套估值模型，用 21 个交易日做了完整回测。<br/>
+        最终精度：<span style="font-weight:800;color:var(--green);font-size:22px;">平均每天只偏 0.47 个百分点</span>。
+      </p>
+    </div>
+    <!-- 基金信息 -->
+    <div style="margin-top:28px;font-size:17px;font-weight:400;color:var(--text-3);line-height:2;">
+      回测对象 — 012922 易方达全球成长精选（QDII）<br/>
+      回测窗口 — 2026 年 4 月全月 · 季报 3/31 披露
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">01 — 12</div>
+</div>
+
+<!-- ============ P2 · 方案演进 + 指标说明 + EWMA说明 ============ -->
+<div class="card" id="p2">
+  <div style="padding:88px 72px 0;">
+    <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--text-3);letter-spacing:6px;text-transform:uppercase;">ALGORITHM EVOLUTION</div>
+    <h2 style="margin-top:20px;font-size:44px;font-weight:900;line-height:1.2;letter-spacing:-1px;">
+      6 套方案，MAE从 1.28% 逼近到 0.47%
+    </h2>
+    <div style="margin-top:32px;height:1px;background:var(--line);"></div>
+    <!-- 方案列表 -->
+    <div style="margin-top:20px;">
+      <div style="display:flex;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line-light);">
+        <div style="flex:0 0 40px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text-3);">01</div>
+        <div style="flex:1;"><div style="font-size:24px;font-weight:700;">纯前十大持仓加权</div><div style="margin-top:3px;font-size:16px;font-weight:300;color:var(--text-3);">剩余 48% 仓位默认涨跌 0%</div></div>
+        <div style="font-family:'Inter',sans-serif;font-size:26px;font-weight:800;color:var(--text-3);">0.73%</div>
+      </div>
+      <div style="display:flex;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line-light);">
+        <div style="flex:0 0 40px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text-3);">02</div>
+        <div style="flex:1;"><div style="font-size:24px;font-weight:700;">行业 ETF 替身法</div><div style="margin-top:3px;font-size:16px;font-weight:300;color:var(--text-3);">9 大行业 ETF 按占比加权，丢失选股 alpha</div></div>
+        <div style="font-family:'Inter',sans-serif;font-size:26px;font-weight:800;color:var(--text-3);">1.28%</div>
+      </div>
+      <div style="display:flex;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line-light);">
+        <div style="flex:0 0 40px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--text-2);">03</div>
+        <div style="flex:1;"><div style="font-size:24px;font-weight:700;">前十 + 行业残余补全</div><div style="margin-top:3px;font-size:16px;font-weight:300;color:var(--text-3);">前 10 真实涨跌 + 残余用行业 ETF 补</div></div>
+        <div style="font-family:'Inter',sans-serif;font-size:26px;font-weight:800;color:var(--text-2);">0.55%</div>
+      </div>
+      <div style="display:flex;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line-light);">
+        <div style="flex:0 0 40px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--text-2);">04</div>
+        <div style="flex:1;"><div style="font-size:24px;font-weight:700;">地区 × 行业网格法</div><div style="margin-top:3px;font-size:16px;font-weight:300;color:var(--text-3);">美/中/港/日 × 9 行业，每格用对应地区 ETF</div></div>
+        <div style="font-family:'Inter',sans-serif;font-size:26px;font-weight:800;color:var(--accent);">0.50%</div>
+      </div>
+      <div style="display:flex;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line-light);">
+        <div style="flex:0 0 40px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--text-2);">05</div>
+        <div style="flex:1;"><div style="font-size:24px;font-weight:700;">方案三 + EWMA 自校准</div><div style="margin-top:3px;font-size:16px;font-weight:300;color:var(--text-3);">用历史偏差修正，消除系统性低估/高估</div></div>
+        <div style="font-family:'Inter',sans-serif;font-size:26px;font-weight:800;color:var(--text-2);">0.55%</div>
+      </div>
+      <div style="display:flex;align-items:baseline;padding:20px 0;">
+        <div style="flex:0 0 40px;font-family:'Inter',sans-serif;font-size:14px;font-weight:800;color:var(--green);">06</div>
+        <div style="flex:1;"><div style="font-size:24px;font-weight:900;">方案四 + EWMA 自校准</div><div style="margin-top:3px;font-size:18px;font-weight:400;color:var(--text-2);">地区×行业网格 + 历史偏差修正 = 精度天花板</div></div>
+        <div style="font-family:'Inter',sans-serif;font-size:32px;font-weight:900;color:var(--green);">0.47%</div>
+      </div>
+    </div>
+    <div style="margin-top:16px;height:1px;background:var(--line);"></div>
+    <!-- 名词解释 -->
+    <div style="margin-top:16px;display:flex;gap:32px;">
+      <div style="flex:1;">
+        <div style="font-size:18px;font-weight:700;color:var(--text);">MAE（平均绝对误差）</div>
+        <p style="margin-top:3px;font-size:13px;font-weight:300;color:var(--text-2);line-height:1.6;">每天 |估算-实际| 取绝对值再求平均。越小越好。</p>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:18px;font-weight:700;color:var(--text);">Bias（系统偏差）</div>
+        <p style="margin-top:3px;font-size:13px;font-weight:300;color:var(--text-2);line-height:1.6;">每天（估算-实际）直接求平均。正=高估，负=低估，0=无偏。</p>
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:18px;font-weight:700;color:var(--text);">EWMA（指数加权平均）</div>
+        <p style="margin-top:3px;font-size:13px;font-weight:300;color:var(--text-2);line-height:1.6;">近期数据权重更大的平均方法。用最近偏差预测明天偏差。</p>
+      </div>
+    </div>
+    <!-- 汇总表 -->
+    <div style="margin-top:20px;">
+      <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;">汇总表</div>
+      <table style="width:100%;border-collapse:collapse;font-size:14px;">
+        <thead>
+          <tr style="border-bottom:2px solid var(--line);">
+            <th style="text-align:left;padding:8px 6px;font-weight:600;color:var(--text-3);">方案</th>
+            <th style="text-align:center;padding:8px 6px;font-weight:600;color:var(--text-3);">MAE</th>
+            <th style="text-align:center;padding:8px 6px;font-weight:600;color:var(--text-3);">Bias</th>
+            <th style="text-align:center;padding:8px 6px;font-weight:600;color:var(--text-3);">最大误差</th>
+            <th style="text-align:center;padding:8px 6px;font-weight:600;color:var(--text-3);"><0.3%命中</th>
+            <th style="text-align:center;padding:8px 6px;font-weight:600;color:var(--text-3);"><0.5%命中</th>
+          </tr>
+        </thead>
+        <tbody style="font-family:'Inter',sans-serif;">
+          <tr style="border-bottom:1px solid var(--line-light);">
+            <td style="padding:7px 6px;color:var(--text-2);">方案一 纯前十大持仓加权</td>
+            <td style="text-align:center;padding:7px 6px;font-weight:700;">0.729%</td>
+            <td style="text-align:center;padding:7px 6px;">-0.506%</td>
+            <td style="text-align:center;padding:7px 6px;">2.41%</td>
+            <td style="text-align:center;padding:7px 6px;">14%</td>
+            <td style="text-align:center;padding:7px 6px;">38%</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line-light);">
+            <td style="padding:7px 6px;color:var(--text-2);">方案二 行业 ETF 替身</td>
+            <td style="text-align:center;padding:7px 6px;font-weight:700;">1.277%</td>
+            <td style="text-align:center;padding:7px 6px;">-0.671%</td>
+            <td style="text-align:center;padding:7px 6px;">4.58%</td>
+            <td style="text-align:center;padding:7px 6px;">24%</td>
+            <td style="text-align:center;padding:7px 6px;">33%</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line-light);">
+            <td style="padding:7px 6px;color:var(--text-2);">方案三 前十+行业残余补全</td>
+            <td style="text-align:center;padding:7px 6px;font-weight:700;">0.549%</td>
+            <td style="text-align:center;padding:7px 6px;">-0.295%</td>
+            <td style="text-align:center;padding:7px 6px;">1.47%</td>
+            <td style="text-align:center;padding:7px 6px;">19%</td>
+            <td style="text-align:center;padding:7px 6px;">57%</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line-light);">
+            <td style="padding:7px 6px;color:var(--text-2);">方案四 地区×行业网格</td>
+            <td style="text-align:center;padding:7px 6px;font-weight:700;color:var(--accent);">0.497%</td>
+            <td style="text-align:center;padding:7px 6px;">-0.283%</td>
+            <td style="text-align:center;padding:7px 6px;">1.18%</td>
+            <td style="text-align:center;padding:7px 6px;">19%</td>
+            <td style="text-align:center;padding:7px 6px;">62%</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line-light);">
+            <td style="padding:7px 6px;color:var(--text-2);">方案五 方案三+历史误差自校准</td>
+            <td style="text-align:center;padding:7px 6px;font-weight:700;">0.551%</td>
+            <td style="text-align:center;padding:7px 6px;color:var(--green);">+0.010%</td>
+            <td style="text-align:center;padding:7px 6px;">1.49%</td>
+            <td style="text-align:center;padding:7px 6px;font-weight:600;">43%</td>
+            <td style="text-align:center;padding:7px 6px;">52%</td>
+          </tr>
+          <tr>
+            <td style="padding:7px 6px;font-weight:600;color:var(--text);">方案六 方案四+历史误差自校准</td>
+            <td style="text-align:center;padding:7px 6px;font-weight:900;color:var(--green);">0.468%</td>
+            <td style="text-align:center;padding:7px 6px;color:var(--green);">+0.011%</td>
+            <td style="text-align:center;padding:7px 6px;">1.27%</td>
+            <td style="text-align:center;padding:7px 6px;font-weight:600;">43%</td>
+            <td style="text-align:center;padding:7px 6px;font-weight:700;color:var(--green);">67%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">02 — 12</div>
+</div>
+
+<!-- ============ P3 · 21天回测总览 ============ -->
+<div class="card" id="p3">
+  <div style="padding:72px 48px 0;">
+    <div style="padding:0 16px;display:flex;align-items:baseline;justify-content:space-between;">
+      <div>
+        <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--text-3);letter-spacing:6px;text-transform:uppercase;">FULL BACKTEST</div>
+        <h2 style="margin-top:10px;font-size:38px;font-weight:900;letter-spacing:-1px;">21 天回测 · 全方案总览</h2>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:14px;color:var(--text-3);font-weight:300;">012922 易方达全球成长精选</div>
+        <div style="font-size:14px;color:var(--text-3);font-weight:300;">2026.04.01 — 04.30</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:12px 16px;background:#FAFAFA;font-size:15px;font-weight:400;color:var(--text-2);line-height:1.7;">
+      <span style="font-weight:700;color:var(--text);">为什么选 4 月？</span>
+      2026Q1 季报于 3/31 披露（来源：证监会 eid.csrc.gov.cn），4 月起持仓数据最新鲜，持仓滞后最小 — 是验证算法精度的「完美回测窗口」。
+    </div>
+    <div style="margin-top:12px;padding:0 16px;height:1px;background:var(--text);"></div>
+    <div style="padding:0 16px;">
+      <table class="bt-table" style="margin-top:0;">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding-left:0;width:64px;">日期</th>
+            <th style="width:60px;">实际</th>
+            <th>方案①</th><th>方案②</th><th>方案③</th><th>方案④</th><th>方案⑤</th><th>方案⑥</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>04-01</td><td class="actual">+2.68</td><td>+1.53</td><td>+1.14</td><td>+1.93</td><td>+2.19</td><td>+1.93</td><td class="good">+2.19</td></tr>
+          <tr><td>04-02</td><td class="actual">+0.70</td><td>+1.08</td><td>+0.56</td><td>+1.23</td><td class="good">+0.66</td><td>+1.98</td><td>+1.15</td></tr>
+          <tr><td>04-03</td><td class="actual">+1.18</td><td>+0.63</td><td>0.00</td><td>+0.63</td><td>+0.62</td><td>+0.58</td><td class="good">+0.83</td></tr>
+          <tr><td>04-07</td><td class="actual">-0.28</td><td>+0.07</td><td>0.00</td><td>+0.07</td><td>+0.19</td><td>+0.33</td><td>+0.58</td></tr>
+          <tr class="hl"><td>04-08</td><td class="actual" style="color:var(--red);">+7.08</td><td>+4.67</td><td>+2.50</td><td>+5.61</td><td class="good">+6.19</td><td>+5.59</td><td class="good">+6.19</td></tr>
+          <tr><td>04-09</td><td class="actual">+1.61</td><td>+1.12</td><td>+0.26</td><td>+1.24</td><td>+1.06</td><td class="good">+1.86</td><td class="good">+1.44</td></tr>
+          <tr><td>04-10</td><td class="actual">+2.21</td><td>+1.56</td><td>+0.22</td><td>+1.60</td><td>+1.86</td><td class="good">+2.12</td><td class="good">+2.31</td></tr>
+          <tr><td>04-13</td><td class="actual">+0.98</td><td>+0.26</td><td>+1.57</td><td>+0.80</td><td>+0.53</td><td class="good">+1.35</td><td class="good">+0.94</td></tr>
+          <tr><td>04-14</td><td class="actual">+1.30</td><td>+0.51</td><td>+1.19</td><td>+0.87</td><td>+0.99</td><td class="good">+1.27</td><td class="good">+1.42</td></tr>
+          <tr><td>04-15</td><td class="actual">-1.47</td><td>-0.87</td><td>+1.06</td><td>-0.60</td><td class="good">-0.91</td><td>-0.19</td><td>-0.53</td></tr>
+          <tr><td>04-16</td><td class="actual">+3.01</td><td>+2.57</td><td>+0.85</td><td>+2.83</td><td class="good">+3.05</td><td>+2.72</td><td class="good">+3.05</td></tr>
+          <tr><td>04-17</td><td class="actual">+2.40</td><td>+1.95</td><td>+1.19</td><td class="good">+2.39</td><td class="good">+2.27</td><td class="good">+2.41</td><td class="good">+2.26</td></tr>
+          <tr><td>04-20</td><td class="actual">-0.69</td><td class="good">-0.68</td><td>+0.10</td><td class="good">-0.64</td><td>-0.39</td><td class="good">-0.63</td><td>-0.35</td></tr>
+          <tr><td>04-21</td><td class="actual">+0.41</td><td>-0.64</td><td>-0.08</td><td>-0.71</td><td>-0.77</td><td>-0.73</td><td>-0.86</td></tr>
+          <tr><td>04-22</td><td class="actual">+3.54</td><td>+2.63</td><td>+1.59</td><td>+3.13</td><td class="good">+3.20</td><td class="good">+3.57</td><td class="good">+3.61</td></tr>
+          <tr><td>04-23</td><td class="actual">-1.12</td><td>-1.36</td><td>-0.89</td><td>-1.55</td><td>-1.67</td><td class="good">-1.12</td><td>-1.28</td></tr>
+          <tr><td>04-24</td><td class="actual">+1.37</td><td>+0.35</td><td>+1.86</td><td>+0.91</td><td>+0.51</td><td class="good">+1.34</td><td>+0.97</td></tr>
+          <tr><td>04-27</td><td class="actual">+0.13</td><td>-0.72</td><td class="good">+0.15</td><td>-0.68</td><td>-0.32</td><td>-0.24</td><td class="good">+0.30</td></tr>
+          <tr><td>04-28</td><td class="actual">-2.66</td><td>-1.83</td><td>-1.24</td><td>-2.24</td><td class="good">-2.28</td><td>-1.65</td><td>-1.73</td></tr>
+          <tr><td>04-29</td><td class="actual">+2.61</td><td>+1.37</td><td>+0.54</td><td>+1.53</td><td>+1.55</td><td>+1.72</td><td>+1.72</td></tr>
+          <tr><td>04-30</td><td class="actual">+2.14</td><td>+2.29</td><td>+0.44</td><td>+2.58</td><td>+2.64</td><td>+3.12</td><td>+3.17</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:10px;padding:0 16px;display:flex;justify-content:space-between;font-size:14px;color:var(--text-3);font-weight:300;">
+      <span>单位：% · 绿色高亮 = 该行误差最小的方案（|误差| < 0.3%）</span>
+      <span>MAE: ① 0.73 · ② 1.28 · ③ 0.55 · ④ 0.50 · ⑤ 0.55 · ⑥ 0.47</span>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">03 — 12</div>
+</div>
+
+<!-- ============ P4 · 方案一 ============ -->
+<div class="card" id="p4">
+  <div style="padding:80px 56px 0;">
+    <div style="padding:0 16px;">
+      <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--text-3);letter-spacing:6px;text-transform:uppercase;">SCHEME 01</div>
+      <div style="margin-top:12px;display:flex;align-items:baseline;justify-content:space-between;">
+        <h2 style="font-size:36px;font-weight:900;letter-spacing:-1px;">方案一<br/>纯前十大持仓加权</h2>
+        <div style="font-family:'Inter',sans-serif;font-size:32px;font-weight:800;color:var(--text-3);">0.73<span style="font-size:16px;font-weight:400;color:var(--text-3);margin-left:4px;">% MAE</span></div>
+      </div>
+      <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.7;">
+        白话：基金季报披露了什么就算什么。前 10 只股票用真实涨跌加权求和，剩下约 48% 的仓位直接当作没涨没跌。最简单，但也最粗糙。
+      </p>
+      <div style="margin-top:16px;height:1px;background:var(--text);"></div>
+    </div>
+    <div style="padding:0 16px;">
+      <table class="bt-table">
+        <thead><tr><th style="text-align:left;padding-left:0;">日期</th><th>实际</th><th>估算</th><th>误差</th><th style="text-align:left;padding-left:20px;">日期</th><th>实际</th><th>估算</th><th>误差</th></tr></thead>
+        <tbody>
+          <tr><td>04-01</td><td class="actual">+2.68</td><td>+1.53</td><td class="neg">-1.15</td><td style="padding-left:20px;">04-14</td><td class="actual">+1.30</td><td>+0.51</td><td class="neg">-0.79</td></tr>
+          <tr><td>04-02</td><td class="actual">+0.70</td><td>+1.08</td><td class="pos">+0.38</td><td style="padding-left:20px;">04-15</td><td class="actual">-1.47</td><td>-0.87</td><td class="pos">+0.60</td></tr>
+          <tr><td>04-03</td><td class="actual">+1.18</td><td>+0.63</td><td class="neg">-0.55</td><td style="padding-left:20px;">04-16</td><td class="actual">+3.01</td><td>+2.57</td><td class="neg">-0.44</td></tr>
+          <tr><td>04-07</td><td class="actual">-0.28</td><td>+0.07</td><td class="pos">+0.35</td><td style="padding-left:20px;">04-17</td><td class="actual">+2.40</td><td>+1.95</td><td class="neg">-0.45</td></tr>
+          <tr class="hl"><td>04-08</td><td class="actual" style="color:var(--red);">+7.08</td><td>+4.67</td><td class="neg" style="font-weight:800;">-2.41</td><td style="padding-left:20px;">04-20</td><td class="actual">-0.69</td><td>-0.68</td><td class="zero">+0.01</td></tr>
+          <tr><td>04-09</td><td class="actual">+1.61</td><td>+1.12</td><td class="neg">-0.49</td><td style="padding-left:20px;">04-21</td><td class="actual">+0.41</td><td>-0.64</td><td class="neg">-1.05</td></tr>
+          <tr><td>04-10</td><td class="actual">+2.21</td><td>+1.56</td><td class="neg">-0.65</td><td style="padding-left:20px;">04-22</td><td class="actual">+3.54</td><td>+2.63</td><td class="neg">-0.91</td></tr>
+          <tr><td>04-13</td><td class="actual">+0.98</td><td>+0.26</td><td class="neg">-0.72</td><td style="padding-left:20px;">04-23</td><td class="actual">-1.12</td><td>-1.36</td><td class="neg">-0.24</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-24</td><td class="actual">+1.37</td><td>+0.35</td><td class="neg">-1.02</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-27</td><td class="actual">+0.13</td><td>-0.72</td><td class="neg">-0.85</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-28</td><td class="actual">-2.66</td><td>-1.83</td><td class="pos">+0.83</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-29</td><td class="actual">+2.61</td><td>+1.37</td><td class="neg">-1.24</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-30</td><td class="actual">+2.14</td><td>+2.29</td><td class="pos">+0.15</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding:0 16px;">
+      <div class="example">
+        <span class="elabel">示例 · 04-08（实际 +7.08%）</span>
+        台积电 8.88%×5.96% + Lumentum 8.68%×9.84% + 新易盛 6.02%×9.33% + ...<br/>
+        = 前10贡献合计 <b>+4.67%</b>，剩余48%按0%计<br/>
+        → 估算 +4.67%，实际 +7.08%，误差 <b style="color:var(--red);">-2.41%</b>（近一半仓位被忽略）
+      </div>
+      <div class="metric-note">
+        <b>MAE</b> = 平均每天偏多少（越小越好） · <b>Bias</b> = 正高估/负低估/零无偏 · 本方案 Bias -0.51% = 系统性低估
+      </div>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">04 — 12</div>
+</div>
+
+<!-- ============ P5 · 方案二 ============ -->
+<div class="card" id="p5">
+  <div style="padding:80px 56px 0;">
+    <div style="padding:0 16px;">
+      <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--text-3);letter-spacing:6px;text-transform:uppercase;">SCHEME 02</div>
+      <div style="margin-top:12px;display:flex;align-items:baseline;justify-content:space-between;">
+        <h2 style="font-size:36px;font-weight:900;letter-spacing:-1px;">方案二<br/>行业 ETF 替身法</h2>
+        <div style="font-family:'Inter',sans-serif;font-size:32px;font-weight:800;color:var(--red);">1.28<span style="font-size:16px;font-weight:400;color:var(--text-3);margin-left:4px;">% MAE</span></div>
+      </div>
+      <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.7;">
+        白话：完全不看个股，把基金当成一个「按行业占比拼出来的 ETF 组合」。信息技术占 71% 就用 XLK 代表，工业占 7% 就用 XLI 代表。覆盖面广但丢失了基金经理的选股能力。
+      </p>
+      <div style="margin-top:16px;height:1px;background:var(--text);"></div>
+    </div>
+    <div style="padding:0 16px;">
+      <table class="bt-table">
+        <thead><tr><th style="text-align:left;padding-left:0;">日期</th><th>实际</th><th>估算</th><th>误差</th><th style="text-align:left;padding-left:20px;">日期</th><th>实际</th><th>估算</th><th>误差</th></tr></thead>
+        <tbody>
+          <tr><td>04-01</td><td class="actual">+2.68</td><td>+1.14</td><td class="neg">-1.54</td><td style="padding-left:20px;">04-14</td><td class="actual">+1.30</td><td>+1.19</td><td class="neg">-0.11</td></tr>
+          <tr><td>04-02</td><td class="actual">+0.70</td><td>+0.56</td><td class="neg">-0.14</td><td style="padding-left:20px;">04-15</td><td class="actual">-1.47</td><td>+1.06</td><td class="pos" style="font-weight:700;">+2.53</td></tr>
+          <tr><td>04-03</td><td class="actual">+1.18</td><td>0.00</td><td class="neg">-1.18</td><td style="padding-left:20px;">04-16</td><td class="actual">+3.01</td><td>+0.85</td><td class="neg">-2.16</td></tr>
+          <tr><td>04-07</td><td class="actual">-0.28</td><td>0.00</td><td class="pos">+0.28</td><td style="padding-left:20px;">04-17</td><td class="actual">+2.40</td><td>+1.19</td><td class="neg">-1.21</td></tr>
+          <tr class="hl"><td>04-08</td><td class="actual" style="color:var(--red);">+7.08</td><td>+2.50</td><td class="neg" style="font-weight:800;">-4.58</td><td style="padding-left:20px;">04-20</td><td class="actual">-0.69</td><td>+0.10</td><td class="pos">+0.79</td></tr>
+          <tr><td>04-09</td><td class="actual">+1.61</td><td>+0.26</td><td class="neg">-1.35</td><td style="padding-left:20px;">04-21</td><td class="actual">+0.41</td><td>-0.08</td><td class="neg">-0.49</td></tr>
+          <tr><td>04-10</td><td class="actual">+2.21</td><td>+0.22</td><td class="neg">-1.99</td><td style="padding-left:20px;">04-22</td><td class="actual">+3.54</td><td>+1.59</td><td class="neg">-1.95</td></tr>
+          <tr><td>04-13</td><td class="actual">+0.98</td><td>+1.57</td><td class="pos">+0.59</td><td style="padding-left:20px;">04-23</td><td class="actual">-1.12</td><td>-0.89</td><td class="pos">+0.23</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-24</td><td class="actual">+1.37</td><td>+1.86</td><td class="pos">+0.49</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-27</td><td class="actual">+0.13</td><td>+0.15</td><td class="zero">+0.02</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-28</td><td class="actual">-2.66</td><td>-1.24</td><td class="pos">+1.42</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-29</td><td class="actual">+2.61</td><td>+0.54</td><td class="neg">-2.07</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-30</td><td class="actual">+2.14</td><td>+0.44</td><td class="neg">-1.70</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding:0 16px;">
+      <div class="example">
+        <span class="elabel">示例 · 04-08（实际 +7.08%）</span>
+        信息技术70.85% × XLK(+3.10%) + 工业6.86% × XLI(+3.75%) + ...<br/>
+        = 行业ETF加权合计 <b>+2.50%</b><br/>
+        → 误差 <b style="color:var(--red);">-4.58%</b>（XLK 是大盘科技 ETF，无法反映光模块细分赛道的高弹性）
+      </div>
+      <div class="metric-note">
+        <b>MAE</b> = 平均每天偏多少 · <b>Bias</b> -0.67% = 所有方案中系统性低估最严重 · 最大误差 4.58%
+      </div>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">05 — 12</div>
+</div>
+
+<!-- ============ P6 · 方案三 ============ -->
+<div class="card" id="p6">
+  <div style="padding:80px 56px 0;">
+    <div style="padding:0 16px;">
+      <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--text-3);letter-spacing:6px;text-transform:uppercase;">SCHEME 03 · HYBRID</div>
+      <div style="margin-top:12px;display:flex;align-items:baseline;justify-content:space-between;">
+        <h2 style="font-size:36px;font-weight:900;letter-spacing:-1px;">方案三<br/>前十 + 行业残余补全</h2>
+        <div style="font-family:'Inter',sans-serif;font-size:32px;font-weight:800;color:var(--text);">0.55<span style="font-size:16px;font-weight:400;color:var(--text-3);margin-left:4px;">% MAE</span></div>
+      </div>
+      <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.7;">
+        白话：方案一和方案二的折中。前 10 只股票用真实涨跌（保留基金经理的选股能力），剩下的仓位按行业分类后用对应的行业 ETF 来补。
+      </p>
+      <div style="margin-top:16px;height:1px;background:var(--text);"></div>
+    </div>
+    <div style="padding:0 16px;">
+      <table class="bt-table">
+        <thead><tr><th style="text-align:left;padding-left:0;">日期</th><th>实际</th><th>估算</th><th>误差</th><th style="text-align:left;padding-left:20px;">日期</th><th>实际</th><th>估算</th><th>误差</th></tr></thead>
+        <tbody>
+          <tr><td>04-01</td><td class="actual">+2.68</td><td>+1.93</td><td class="neg">-0.75</td><td style="padding-left:20px;">04-15</td><td class="actual">-1.47</td><td>-0.60</td><td class="pos">+0.87</td></tr>
+          <tr><td>04-02</td><td class="actual">+0.70</td><td>+1.23</td><td class="pos">+0.53</td><td style="padding-left:20px;">04-16</td><td class="actual">+3.01</td><td>+2.83</td><td class="neg">-0.18</td></tr>
+          <tr><td>04-03</td><td class="actual">+1.18</td><td>+0.63</td><td class="neg">-0.55</td><td style="padding-left:20px;">04-17</td><td class="actual">+2.40</td><td>+2.39</td><td class="zero">-0.01</td></tr>
+          <tr><td>04-07</td><td class="actual">-0.28</td><td>+0.07</td><td class="pos">+0.35</td><td style="padding-left:20px;">04-20</td><td class="actual">-0.69</td><td>-0.64</td><td class="zero">+0.05</td></tr>
+          <tr class="hl"><td>04-08</td><td class="actual" style="color:var(--red);">+7.08</td><td>+5.61</td><td class="neg" style="font-weight:800;">-1.47</td><td style="padding-left:20px;">04-21</td><td class="actual">+0.41</td><td>-0.71</td><td class="neg">-1.12</td></tr>
+          <tr><td>04-09</td><td class="actual">+1.61</td><td>+1.24</td><td class="neg">-0.37</td><td style="padding-left:20px;">04-22</td><td class="actual">+3.54</td><td>+3.13</td><td class="neg">-0.41</td></tr>
+          <tr><td>04-10</td><td class="actual">+2.21</td><td>+1.60</td><td class="neg">-0.61</td><td style="padding-left:20px;">04-23</td><td class="actual">-1.12</td><td>-1.55</td><td class="neg">-0.43</td></tr>
+          <tr><td>04-13</td><td class="actual">+0.98</td><td>+0.80</td><td class="neg">-0.18</td><td style="padding-left:20px;">04-24</td><td class="actual">+1.37</td><td>+0.91</td><td class="neg">-0.46</td></tr>
+          <tr><td>04-14</td><td class="actual">+1.30</td><td>+0.87</td><td class="neg">-0.43</td><td style="padding-left:20px;">04-27</td><td class="actual">+0.13</td><td>-0.68</td><td class="neg">-0.81</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-28</td><td class="actual">-2.66</td><td>-2.24</td><td class="pos">+0.42</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-29</td><td class="actual">+2.61</td><td>+1.53</td><td class="neg">-1.08</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-30</td><td class="actual">+2.14</td><td>+2.58</td><td class="pos">+0.44</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding:0 16px;">
+      <div class="example">
+        <span class="elabel">示例 · 04-08（实际 +7.08%）</span>
+        Layer1: 前10真实涨跌 = +4.67%（同方案一）<br/>
+        Layer2: 信息技术残余 22.38% × XLK(+3.10%) = +0.69%，工业 6.86% × XLI(+3.75%) = +0.26% ...<br/>
+        残余合计 +0.94% → 估算 = 4.67 + 0.94 = <b>+5.61%</b>，误差 <b style="color:var(--green);">-1.47%</b>（vs 方案一 -2.41%）
+      </div>
+      <div class="metric-note">
+        <b>MAE</b> = 平均每天偏多少 · <b>Bias</b> -0.30% = 仍然系统性低估（残余全用美股 ETF，忽略 A/港股独立行情）
+      </div>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">06 — 12</div>
+</div>
+
+<!-- ============ P7 · 方案四 ============ -->
+<div class="card" id="p7">
+  <div style="padding:80px 56px 0;">
+    <div style="padding:0 16px;">
+      <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--accent);letter-spacing:6px;text-transform:uppercase;">SCHEME 04 · REGION × SECTOR GRID</div>
+      <div style="margin-top:12px;display:flex;align-items:baseline;justify-content:space-between;">
+        <h2 style="font-size:36px;font-weight:900;letter-spacing:-1px;">方案四<br/>地区 × 行业网格法</h2>
+        <div style="font-family:'Inter',sans-serif;font-size:32px;font-weight:800;color:var(--accent);">0.50<span style="font-size:16px;font-weight:400;color:var(--text-3);margin-left:4px;">% MAE</span></div>
+      </div>
+      <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.7;">
+        白话：方案三的升级版。把残余仓位不再一刀切用美股 ETF，而是按「地区×行业」拆成网格 — A 股部分用 A 股 ETF，港股部分用港股 ETF，日股用日股 ETF。因为同一天 A 股和美股涨幅可以差很多。
+      </p>
+      <div style="margin-top:16px;height:1px;background:var(--text);"></div>
+    </div>
+    <div style="padding:0 16px;">
+      <table class="bt-table">
+        <thead><tr><th style="text-align:left;padding-left:0;">日期</th><th>实际</th><th>估算</th><th>误差</th><th style="text-align:left;padding-left:20px;">日期</th><th>实际</th><th>估算</th><th>误差</th></tr></thead>
+        <tbody>
+          <tr><td>04-01</td><td class="actual">+2.68</td><td>+2.19</td><td class="neg">-0.49</td><td style="padding-left:20px;">04-15</td><td class="actual">-1.47</td><td>-0.91</td><td class="pos">+0.56</td></tr>
+          <tr><td>04-02</td><td class="actual">+0.70</td><td>+0.66</td><td class="zero">-0.04</td><td style="padding-left:20px;">04-16</td><td class="actual">+3.01</td><td>+3.05</td><td class="zero">+0.04</td></tr>
+          <tr><td>04-03</td><td class="actual">+1.18</td><td>+0.62</td><td class="neg">-0.56</td><td style="padding-left:20px;">04-17</td><td class="actual">+2.40</td><td>+2.27</td><td class="neg">-0.13</td></tr>
+          <tr><td>04-07</td><td class="actual">-0.28</td><td>+0.19</td><td class="pos">+0.47</td><td style="padding-left:20px;">04-20</td><td class="actual">-0.69</td><td>-0.39</td><td class="pos">+0.30</td></tr>
+          <tr class="hl"><td>04-08</td><td class="actual" style="color:var(--red);">+7.08</td><td>+6.19</td><td class="neg">-0.89</td><td style="padding-left:20px;">04-21</td><td class="actual">+0.41</td><td>-0.77</td><td class="neg" style="font-weight:800;">-1.18</td></tr>
+          <tr><td>04-09</td><td class="actual">+1.61</td><td>+1.06</td><td class="neg">-0.55</td><td style="padding-left:20px;">04-22</td><td class="actual">+3.54</td><td>+3.20</td><td class="neg">-0.34</td></tr>
+          <tr><td>04-10</td><td class="actual">+2.21</td><td>+1.86</td><td class="neg">-0.35</td><td style="padding-left:20px;">04-23</td><td class="actual">-1.12</td><td>-1.67</td><td class="neg">-0.55</td></tr>
+          <tr><td>04-13</td><td class="actual">+0.98</td><td>+0.53</td><td class="neg">-0.45</td><td style="padding-left:20px;">04-24</td><td class="actual">+1.37</td><td>+0.51</td><td class="neg">-0.86</td></tr>
+          <tr><td>04-14</td><td class="actual">+1.30</td><td>+0.99</td><td class="neg">-0.31</td><td style="padding-left:20px;">04-27</td><td class="actual">+0.13</td><td>-0.32</td><td class="neg">-0.45</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-28</td><td class="actual">-2.66</td><td>-2.28</td><td class="pos">+0.38</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-29</td><td class="actual">+2.61</td><td>+1.55</td><td class="neg">-1.06</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-30</td><td class="actual">+2.14</td><td>+2.64</td><td class="pos">+0.50</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding:0 16px;">
+      <div class="example">
+        <span class="elabel">示例 · 04-08（实际 +7.08%）</span>
+        Layer1: 前10真实涨跌 = +4.67%<br/>
+        Layer2: 中国内地×信息技术残余 9.79% × <b style="color:var(--accent);">A股信息技术ETF(+6.56%)</b> = +0.64%<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;美国×信息技术残余 7.84% × XLK(+3.10%) = +0.24%<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;香港×信息技术 3.78% × 恒生科技(+4.82%) = +0.18% ... 合计 +1.52%<br/>
+        → 估算 = 4.67 + 1.52 = <b>+6.19%</b>，误差 <b style="color:var(--green);">-0.89%</b>（vs 方案三 -1.47%）
+      </div>
+      <div class="metric-note">
+        <b>MAE</b> = 平均每天偏多少 · <b>Bias</b> -0.28% · 关键差异：A 股信息技术 ETF 当天 +6.56% vs 美股 XLK +3.10%
+      </div>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">07 — 12</div>
+</div>
+
+<!-- ============ P8 · 方案五 ============ -->
+<div class="card" id="p8">
+  <div style="padding:80px 56px 0;">
+    <div style="padding:0 16px;">
+      <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--text-3);letter-spacing:6px;text-transform:uppercase;">SCHEME 05 · CALIBRATED</div>
+      <div style="margin-top:12px;display:flex;align-items:baseline;justify-content:space-between;">
+        <h2 style="font-size:36px;font-weight:900;letter-spacing:-1px;">方案五<br/>方案三 + EWMA 自校准</h2>
+        <div style="font-family:'Inter',sans-serif;font-size:32px;font-weight:800;color:var(--text);">0.55<span style="font-size:16px;font-weight:400;color:var(--text-3);margin-left:4px;">% MAE</span></div>
+      </div>
+      <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.7;">
+        白话：每天净值出来后，看看方案三估偏了多少，把最近几天的偏差做一个「近期权重更大」的平均，加到明天的估算上。这样如果方案三总是低估 0.3%，校准就会自动补上这 0.3%。
+      </p>
+      <div style="margin-top:16px;height:1px;background:var(--text);"></div>
+    </div>
+    <div style="padding:0 16px;">
+      <table class="bt-table">
+        <thead><tr><th style="text-align:left;padding-left:0;">日期</th><th>实际</th><th>估算</th><th>误差</th><th style="text-align:left;padding-left:20px;">日期</th><th>实际</th><th>估算</th><th>误差</th></tr></thead>
+        <tbody>
+          <tr><td>04-01</td><td class="actual">+2.68</td><td>+1.93</td><td class="neg">-0.75</td><td style="padding-left:20px;">04-15</td><td class="actual">-1.47</td><td>-0.19</td><td class="pos">+1.28</td></tr>
+          <tr><td>04-02</td><td class="actual">+0.70</td><td>+1.98</td><td class="pos" style="font-weight:700;">+1.28</td><td style="padding-left:20px;">04-16</td><td class="actual">+3.01</td><td>+2.72</td><td class="neg">-0.29</td></tr>
+          <tr><td>04-03</td><td class="actual">+1.18</td><td>+0.58</td><td class="neg">-0.60</td><td style="padding-left:20px;">04-17</td><td class="actual">+2.40</td><td>+2.41</td><td class="zero">+0.01</td></tr>
+          <tr><td>04-07</td><td class="actual">-0.28</td><td>+0.33</td><td class="pos">+0.61</td><td style="padding-left:20px;">04-20</td><td class="actual">-0.69</td><td>-0.63</td><td class="zero">+0.06</td></tr>
+          <tr class="hl"><td>04-08</td><td class="actual" style="color:var(--red);">+7.08</td><td>+5.59</td><td class="neg" style="font-weight:800;">-1.49</td><td style="padding-left:20px;">04-21</td><td class="actual">+0.41</td><td>-0.73</td><td class="neg">-1.14</td></tr>
+          <tr><td>04-09</td><td class="actual">+1.61</td><td>+1.86</td><td class="pos">+0.25</td><td style="padding-left:20px;">04-22</td><td class="actual">+3.54</td><td>+3.57</td><td class="zero">+0.03</td></tr>
+          <tr><td>04-10</td><td class="actual">+2.21</td><td>+2.12</td><td class="zero">-0.09</td><td style="padding-left:20px;">04-23</td><td class="actual">-1.12</td><td>-1.12</td><td class="zero">-0.00</td></tr>
+          <tr><td>04-13</td><td class="actual">+0.98</td><td>+1.35</td><td class="pos">+0.37</td><td style="padding-left:20px;">04-24</td><td class="actual">+1.37</td><td>+1.34</td><td class="zero">-0.03</td></tr>
+          <tr><td>04-14</td><td class="actual">+1.30</td><td>+1.27</td><td class="zero">-0.03</td><td style="padding-left:20px;">04-27</td><td class="actual">+0.13</td><td>-0.24</td><td class="neg">-0.37</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-28</td><td class="actual">-2.66</td><td>-1.65</td><td class="pos">+1.01</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-29</td><td class="actual">+2.61</td><td>+1.72</td><td class="neg">-0.89</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-30</td><td class="actual">+2.14</td><td>+3.12</td><td class="pos">+0.98</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding:0 16px;">
+      <div class="example">
+        <span class="elabel">示例 · 04-08（实际 +7.08%）</span>
+        方案三估算 = +5.61%<br/>
+        最近4天偏差（实际 - 方案三估算）:<br/>
+        &nbsp;&nbsp;04-01: 2.68-1.93 = +0.75%（权重 0.6³=0.216）<br/>
+        &nbsp;&nbsp;04-02: 0.70-1.23 = -0.53%（权重 0.6²=0.360）<br/>
+        &nbsp;&nbsp;04-03: 1.18-0.63 = +0.55%（权重 0.6¹=0.600）<br/>
+        &nbsp;&nbsp;04-07: -0.28-0.07 = -0.35%（权重 0.6⁰=1.000）<br/>
+        bias = (0.75×0.216 + (-0.53)×0.36 + 0.55×0.6 + (-0.35)×1.0) / (0.216+0.36+0.6+1.0)<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp; = -0.056 / 2.176 = <b>-0.026%</b><br/>
+        → 校准后 = 5.61% + (-0.026%) = <b>+5.59%</b>，误差 -1.49%
+      </div>
+      <div class="metric-note">
+        <b>MAE</b> = 平均每天偏多少 · <b>Bias</b> +0.01%（几乎无偏）· 亮点：04-17 误差仅 +0.01% · 局限：MAE 未降低，底座精度是瓶颈
+      </div>
+      <div style="margin-top:12px;padding:12px 16px;background:#FAFAFA;font-size:13px;color:var(--text-2);line-height:1.8;">
+        <b style="color:var(--text);">为什么 λ = 0.6？</b> λ 决定了「记忆长度」— 多快忘掉旧数据。λ 越小忘得越快（只看最近 1~2 天），λ 越大忘得越慢（参考更多历史）。0.6 是回测中精度最优的值：昨天权重 1.0，前天 0.6，大前天 0.36，再往前 0.22… 大约 5 天前的数据权重就只剩 8%，兼顾了「快速响应新变化」和「不被单日噪声带偏」。
+      </div>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">08 — 12</div>
+</div>
+
+<!-- ============ P9 · 方案六 ============ -->
+<div class="card" id="p9">
+  <div style="padding:80px 56px 0;">
+    <div style="padding:0 16px;">
+      <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--green);letter-spacing:6px;text-transform:uppercase;">SCHEME 06 · BEST MODEL</div>
+      <div style="margin-top:12px;display:flex;align-items:baseline;justify-content:space-between;">
+        <h2 style="font-size:36px;font-weight:900;letter-spacing:-1px;">方案六<br/>方案四 + EWMA 自校准</h2>
+        <div style="font-family:'Inter',sans-serif;font-size:36px;font-weight:900;color:var(--green);">0.47<span style="font-size:16px;font-weight:400;color:var(--text-3);margin-left:4px;">% MAE</span></div>
+      </div>
+      <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.7;">
+        白话：用精度最高的方案四（地区×行业网格）作为底座，再叠加 EWMA 历史偏差修正。底座准 + 校准修偏 = 双重保障。三分之二的交易日误差在 0.5% 以内。
+      </p>
+      <div style="margin-top:16px;height:2px;background:var(--green);"></div>
+    </div>
+    <div style="padding:0 16px;">
+      <table class="bt-table">
+        <thead><tr><th style="text-align:left;padding-left:0;">日期</th><th>实际</th><th>估算</th><th>误差</th><th style="text-align:left;padding-left:20px;">日期</th><th>实际</th><th>估算</th><th>误差</th></tr></thead>
+        <tbody>
+          <tr><td>04-01</td><td class="actual">+2.68</td><td>+2.19</td><td class="neg">-0.49</td><td style="padding-left:20px;">04-15</td><td class="actual">-1.47</td><td>-0.53</td><td class="pos">+0.94</td></tr>
+          <tr><td>04-02</td><td class="actual">+0.70</td><td>+1.15</td><td class="pos">+0.45</td><td style="padding-left:20px;">04-16</td><td class="actual">+3.01</td><td>+3.05</td><td class="zero">+0.04</td></tr>
+          <tr><td>04-03</td><td class="actual">+1.18</td><td>+0.83</td><td class="neg">-0.35</td><td style="padding-left:20px;">04-17</td><td class="actual">+2.40</td><td>+2.26</td><td class="neg">-0.14</td></tr>
+          <tr><td>04-07</td><td class="actual">-0.28</td><td>+0.58</td><td class="pos">+0.86</td><td style="padding-left:20px;">04-20</td><td class="actual">-0.69</td><td>-0.35</td><td class="pos">+0.34</td></tr>
+          <tr class="hl"><td>04-08</td><td class="actual" style="color:var(--red);">+7.08</td><td style="color:var(--green);font-weight:700;">+6.19</td><td class="neg">-0.89</td><td style="padding-left:20px;">04-21</td><td class="actual">+0.41</td><td>-0.86</td><td class="neg" style="font-weight:800;">-1.27</td></tr>
+          <tr><td>04-09</td><td class="actual">+1.61</td><td>+1.44</td><td class="neg">-0.17</td><td style="padding-left:20px;">04-22</td><td class="actual">+3.54</td><td>+3.61</td><td class="zero">+0.07</td></tr>
+          <tr><td>04-10</td><td class="actual">+2.21</td><td>+2.31</td><td class="zero">+0.10</td><td style="padding-left:20px;">04-23</td><td class="actual">-1.12</td><td>-1.28</td><td class="neg">-0.16</td></tr>
+          <tr><td>04-13</td><td class="actual">+0.98</td><td>+0.94</td><td class="zero">-0.04</td><td style="padding-left:20px;">04-24</td><td class="actual">+1.37</td><td>+0.97</td><td class="neg">-0.40</td></tr>
+          <tr><td>04-14</td><td class="actual">+1.30</td><td>+1.42</td><td class="zero">+0.12</td><td style="padding-left:20px;">04-27</td><td class="actual">+0.13</td><td>+0.30</td><td class="pos">+0.17</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-28</td><td class="actual">-2.66</td><td>-1.73</td><td class="pos">+0.93</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-29</td><td class="actual">+2.61</td><td>+1.72</td><td class="neg">-0.89</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td style="padding-left:20px;">04-30</td><td class="actual">+2.14</td><td>+3.17</td><td class="pos">+1.03</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding:0 16px;">
+      <div class="example" style="border-left-color:var(--green);">
+        <span class="elabel">示例 · 04-08（实际 +7.08%）</span>
+        方案四估算 = +6.19%（地区×行业网格）<br/>
+        最近4天偏差（实际 - 方案四估算）:<br/>
+        &nbsp;&nbsp;04-01: 2.68-2.19 = +0.49%（权重 0.6³=0.216）<br/>
+        &nbsp;&nbsp;04-02: 0.70-0.66 = +0.04%（权重 0.6²=0.360）<br/>
+        &nbsp;&nbsp;04-03: 1.18-0.62 = +0.56%（权重 0.6¹=0.600）<br/>
+        &nbsp;&nbsp;04-07: -0.28-0.19 = -0.47%（权重 0.6⁰=1.000）<br/>
+        bias = (0.49×0.216 + 0.04×0.36 + 0.56×0.6 + (-0.47)×1.0) / 2.176<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp; = -0.016 / 2.176 = <b>-0.007%</b><br/>
+        → 校准后 = 6.19% + (-0.007%) ≈ <b>+6.19%</b>，误差 <b style="color:var(--green);">-0.89%</b>
+      </div>
+      <div class="metric-note">
+        <b>MAE</b> = 平均每天偏多少 · <b>Bias</b> +0.01%（无偏）· <b>14/21 天误差 < 0.5%</b> · vs 方案一 MAE ↓36%<br/>
+        λ=0.6 含义：昨天权重 1.0 → 前天 0.6 → 大前天 0.36 → 5 天前仅 0.08。近期偏差权重大，快速适应基金调仓变化。
+      </div>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">09 — 12</div>
+</div>
+
+<!-- ============ P10 · 三层架构 ============ -->
+<div class="card" id="p10">
+  <div style="padding:120px 72px 0;">
+    <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--text-3);letter-spacing:6px;text-transform:uppercase;">HOW IT WORKS</div>
+    <h2 style="margin-top:28px;font-size:52px;font-weight:900;line-height:1.2;letter-spacing:-1px;">
+      三层架构<br/>一层比一层准
+    </h2>
+    <div style="margin-top:56px;height:1px;background:var(--line);"></div>
+    <div style="margin-top:48px;display:flex;align-items:flex-start;gap:40px;">
+      <div style="font-family:'Inter',sans-serif;font-size:100px;font-weight:900;color:var(--line-light);line-height:1;">1</div>
+      <div style="padding-top:12px;">
+        <div style="font-size:28px;font-weight:800;color:var(--text);">前 10 大持仓 · 真实涨跌</div>
+        <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.7;">
+          覆盖 51.8% 仓位。每只股票用当日真实收盘价计算涨跌。<br/>
+          保留基金经理的选股能力，不被行业 ETF 稀释。
+        </p>
+      </div>
+    </div>
+    <div style="margin-top:32px;height:1px;background:var(--line-light);margin-left:140px;"></div>
+    <div style="margin-top:32px;display:flex;align-items:flex-start;gap:40px;">
+      <div style="font-family:'Inter',sans-serif;font-size:100px;font-weight:900;color:var(--line-light);line-height:1;">2</div>
+      <div style="padding-top:12px;">
+        <div style="font-size:28px;font-weight:800;color:var(--text);">地区 × 行业网格 · 代理 ETF</div>
+        <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.7;">
+          4 地区（美/中/港/日）× 9 行业 = 36 个网格。<br/>
+          每个网格的残余仓位用对应地区+行业的 ETF 代理。<br/>
+          <span style="color:var(--accent);font-weight:500;">A 股 ETF 和美股 ETF 同一天涨幅可以差 3 个百分点。</span>
+        </p>
+      </div>
+    </div>
+    <div style="margin-top:32px;height:1px;background:var(--line-light);margin-left:140px;"></div>
+    <div style="margin-top:32px;display:flex;align-items:flex-start;gap:40px;">
+      <div style="font-family:'Inter',sans-serif;font-size:100px;font-weight:900;color:var(--line-light);line-height:1;">3</div>
+      <div style="padding-top:12px;">
+        <div style="font-size:28px;font-weight:800;color:var(--text);">EWMA 历史偏差自校准</div>
+        <p style="margin-top:10px;font-size:21px;font-weight:300;color:var(--text-2);line-height:1.7;">
+          每天净值更新后，计算「实际 - 估算」的偏差。<br/>
+          用最近几天偏差的加权平均（近期权重更大）修正明天的估算。<br/>
+          <span style="color:var(--green);font-weight:500;">效果：系统性偏差从 -0.28% 修正到 +0.01%。</span>
+        </p>
+      </div>
+    </div>
+    <div style="margin-top:56px;height:1px;background:var(--line);"></div>
+    <div style="margin-top:36px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500;color:var(--text);line-height:2.2;letter-spacing:-0.5px;">
+        <span style="color:var(--text-3);">估算 =</span> Σ(前10占比 × 涨跌)<br/>
+        <span style="color:var(--text-3);padding-left:56px;">+</span> Σ(网格残余 × 地区行业ETF涨跌)<br/>
+        <span style="color:var(--text-3);padding-left:56px;">+</span> EWMA_bias
+      </div>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">10 — 12</div>
+</div>
+
+<!-- ============ P11 · 二阶校准详解 ============ -->
+<div class="card" id="p11">
+  <div style="padding:80px 72px 0;">
+    <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--text-3);letter-spacing:6px;text-transform:uppercase;">ADVANCED · LINEAR REGRESSION CALIBRATION</div>
+    <h2 style="margin-top:16px;font-size:42px;font-weight:900;line-height:1.2;letter-spacing:-1px;">
+      二阶校准<br/>线性回归是怎么做的？
+    </h2>
+    <p style="margin-top:14px;font-size:19px;font-weight:300;color:var(--text-2);line-height:1.6;">
+      基金经理每个交易日都可以调仓，但季报只是每 3 个月拍一次快照。实际波动幅度可能比我们用季报持仓算出来的更大或更小。方案六（EWMA）只修了「整体偏高/偏低」，但没修「波动倍数」。
+    </p>
+    <div style="margin-top:20px;height:1px;background:var(--line);"></div>
+    <div style="margin-top:18px;">
+      <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:6px;">什么是线性回归？（白话版）</div>
+      <p style="font-size:17px;font-weight:300;color:var(--text-2);line-height:1.7;">
+        你有 20 天的数据：每天一个「估算值」和一个「实际值」。把它们画成散点图，线性回归就是找一条最贴合这些点的直线。这条直线告诉你：实际值 = a × 估算值 + b。
+      </p>
+    </div>
+    <div style="margin-top:18px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:500;color:var(--text);line-height:2;padding:14px 20px;background:#FAFAFA;">
+        实际涨跌 = <b style="color:var(--accent);">a</b> × 方案四估算 + <b style="color:var(--green);">b</b>
+      </div>
+      <div style="margin-top:14px;display:flex;gap:40px;">
+        <div style="flex:1;">
+          <div style="font-size:17px;font-weight:700;color:var(--accent);">a（斜率）= 波动放大倍数</div>
+          <p style="margin-top:4px;font-size:16px;font-weight:300;color:var(--text-2);line-height:1.6;">
+            a > 1：基金实际波动比估算大（更激进）<br/>
+            a < 1：基金实际波动比估算小（更保守）
+          </p>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:17px;font-weight:700;color:var(--green);">b（截距）= 固定偏移量</div>
+          <p style="margin-top:4px;font-size:16px;font-weight:300;color:var(--text-2);line-height:1.6;">
+            类似 EWMA bias，修正系统性高估/低估。<br/>
+            和 a 同时学习，互相配合。
+          </p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:18px;height:1px;background:var(--line);"></div>
+    <div style="margin-top:16px;">
+      <div style="font-size:17px;font-weight:700;color:var(--text);margin-bottom:6px;">举例</div>
+      <p style="font-size:17px;font-weight:300;color:var(--text-2);line-height:1.7;">
+        用最近 20 天数据拟合出 a=1.18, b=-0.05%。<br/>
+        含义：基金实际波动是估算的 <span style="font-weight:700;color:var(--accent);">1.18 倍</span>（前 10 之外的股票波动率高于代理 ETF）。<br/><br/>
+        今天方案四估算 = +2.0%：<br/>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:16px;">二阶校准 = 1.18 × 2.0% + (-0.05%) = <b>+2.31%</b></span><br/>
+        对比一阶 EWMA：2.0% + bias(-0.28%) = +1.72%<br/>
+        二阶更准，因为同时修了「倍数」和「平移」。
+      </p>
+    </div>
+    <div style="margin-top:16px;height:1px;background:var(--line);"></div>
+    <div style="margin-top:14px;">
+      <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px;">什么时候 a ≠ 1？</div>
+      <p style="font-size:16px;font-weight:300;color:var(--text-2);line-height:1.7;">
+        • 基金经理季度内大幅加仓（实际仓位 > 季报的 84.75%）→ a > 1<br/>
+        • 基金经理减仓或持有大量现金 → a < 1<br/>
+        • 前 10 之外的股票波动率远高于代理 ETF → a > 1
+      </p>
+      <p style="margin-top:10px;font-size:16px;font-weight:500;color:var(--text);">
+        开启门槛：需要至少 20 天数据。数据不足时 a 值不稳定，容易过拟合。
+      </p>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">11 — 12</div>
+</div>
+
+<div class="card" id="p12">
+  <div style="padding:120px 72px 0;">
+    <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:15px;color:var(--text-3);letter-spacing:6px;text-transform:uppercase;">IMPLEMENTATION</div>
+    <h2 style="margin-top:28px;font-size:52px;font-weight:900;line-height:1.2;letter-spacing:-1px;">
+      目前落地方案
+    </h2>
+    <div style="margin-top:56px;height:1px;background:var(--line);"></div>
+    <div style="margin-top:48px;">
+      <div style="display:flex;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line-light);">
+        <div style="flex:0 0 120px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--text-3);letter-spacing:2px;">阶段 1</div>
+        <div style="flex:1;font-size:22px;font-weight:600;color:var(--text);">冷启动 — 方案四（地区×行业网格）</div>
+        <div style="font-family:'Inter',sans-serif;font-size:24px;font-weight:700;color:var(--text-2);">~0.50%</div>
+      </div>
+      <div style="display:flex;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line-light);">
+        <div style="flex:0 0 120px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--text-3);letter-spacing:2px;">阶段 2</div>
+        <div style="flex:1;font-size:22px;font-weight:600;color:var(--text);">一阶校准 — 方案六（≥5 天后开启 EWMA）</div>
+        <div style="font-family:'Inter',sans-serif;font-size:24px;font-weight:700;color:var(--green);">~0.47%</div>
+      </div>
+      <div style="display:flex;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line-light);">
+        <div style="flex:0 0 120px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--text-3);letter-spacing:2px;">阶段 3</div>
+        <div style="flex:1;font-size:22px;font-weight:600;color:var(--text);">二阶校准 — 线性回归（≥20 天后学习 a, b）</div>
+        <div style="font-family:'Inter',sans-serif;font-size:24px;font-weight:700;color:var(--green);">更高 ↑</div>
+      </div>
+      <div style="display:flex;align-items:baseline;padding:24px 0;border-bottom:1px solid var(--line);">
+        <div style="flex:0 0 120px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--text-3);letter-spacing:2px;">循环</div>
+        <div style="flex:1;font-size:22px;font-weight:600;color:var(--text);">新季报发布 → 更新持仓 → 回到阶段 1</div>
+        <div style="font-family:'Inter',sans-serif;font-size:20px;font-weight:400;color:var(--text-3);">重新累积</div>
+      </div>
+    </div>
+    <!-- 容错 -->
+    <div style="margin-top:48px;">
+      <div style="font-size:24px;font-weight:700;color:var(--text);margin-bottom:16px;">降级容错</div>
+      <p style="font-size:26px;font-weight:300;color:var(--text-2);line-height:2;">
+        A/港股 ETF 拉取失败 → 降级方案五（仅美股 ETF）<br/>
+        美股 ETF 也失败 → 降级方案一（纯前十）<br/>
+        历史净值回填失败 → 暂停校准，沿用上次 bias
+      </p>
+    </div>
+    <div style="margin-top:48px;height:1px;background:var(--line);"></div>
+    <!-- 互动 -->
+    <div style="margin-top:48px;">
+      <div style="font-size:36px;font-weight:900;color:var(--text);line-height:1.5;">
+        后续会持续公开校准结果。<br/>
+        <span style="color:var(--accent);">欢迎评论区交流算法思路。</span>
+      </div>
+      <p style="margin-top:20px;font-size:18px;font-weight:300;color:var(--text-3);line-height:1.8;">
+        如果你也在做 QDII 估值（小程序/脚本/APP），<br/>
+        或者有更好的数据源和算法建议，一起把这件事做到极致。
+      </p>
+    </div>
+  </div>
+  <div class="footer-line"></div>
+  <div class="disclaimer">本内容仅作技术分享，不构成任何投资建议</div>
+  <div class="page-num">12 — 12</div>
+</div>
+
+</body>
+</html>

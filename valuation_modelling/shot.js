@@ -1,8 +1,9 @@
+// shot.js —— 批量截图：QDII 主动基金估值算法回测报告（浅色版）
 const path = require('path');
 const puppeteer = require('puppeteer');
 
 const tasks = [
-  { file: 'QDII_RULES.html', prefix: 'QDII_RULES', pages: 5 },
+  { file: 'QDII_ACTIVE_REDESIGN.html', prefix: 'QDII_ACTIVE_REDESIGN', pages: 12 },
 ];
 
 (async () => {
@@ -16,17 +17,18 @@ const tasks = [
     const fileUrl = 'file://' + path.resolve(__dirname, t.file);
     const page = await browser.newPage();
     console.log(`\n[${t.prefix}] 打开:`, t.file);
-    await page.goto(fileUrl, { waitUntil: 'networkidle0' });
-    await page.evaluateHandle('document.fonts.ready');
-    await new Promise(r => setTimeout(r, 600));
+    await page.goto(fileUrl, { waitUntil: 'networkidle0', timeout: 60000 });
+    await page.evaluateHandle('document.fonts.ready').catch(() => {});
+    await new Promise(r => setTimeout(r, 800));
 
     for (let i = 1; i <= t.pages; i++) {
       const sel = '#p' + i;
       const el = await page.$(sel);
       if (!el) { console.warn('  × 未找到', sel); continue; }
-      const out = path.resolve(__dirname, `${t.prefix}_0${i}.png`);
+      const num = String(i).padStart(2, '0');
+      const out = path.resolve(__dirname, `${t.prefix}_${num}.png`);
       await el.screenshot({ path: out });
-      console.log('  ✓', `${t.prefix}_0${i}.png`);
+      console.log('  ✓', `${t.prefix}_${num}.png`);
     }
     await page.close();
   }

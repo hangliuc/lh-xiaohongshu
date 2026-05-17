@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>QDII 基金交易规则全解</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0e0e10;
+  --ink-2: #2c2c30;
+  --ink-3: #5a5a60;
+  --ink-4: #9a9aa0;
+  --line: #d8d4cc;
+  --line-2: #ece8df;
+  --paper: #faf7f0;
+  --paper-2: #f3eee2;
+  --accent: #b8460e;
+  --blue: #1e4a8a;
+  --gold: #b8902c;
+  --green: #2d7a4f;
+  --red: #c4382e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #d4cfc2; }
+body {
+  font-family: "Noto Sans SC", "Inter", -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: var(--ink);
+  padding: 30px 0;
+}
+.card {
+  width: 1080px; height: 1440px;
+  margin: 24px auto;
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+.disclaimer {
+  position: absolute;
+  left: 88px; right: 88px; bottom: 48px;
+  font-size: 12px;
+  color: var(--ink-4);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- ============ P1 · 封面 ============ -->
+<div class="card" id="p1">
+  <div style="position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#1e4a8a 0%,#1e4a8a 33%,#c4382e 33%,#c4382e 66%,#2d7a4f 66%,#2d7a4f 100%);"></div>
+
+  <div style="padding:100px 88px 0;">
+    <!-- 顶部 -->
+    <div style="display:flex;justify-content:space-between;align-items:baseline;font-family:'Inter',sans-serif;">
+      <div style="font-size:13px;font-weight:600;letter-spacing:4px;color:var(--ink-3);">INVESTOR · ESSENTIALS</div>
+      <div style="font-size:13px;font-weight:600;letter-spacing:3px;color:var(--ink-4);">2026</div>
+    </div>
+
+    <!-- 主标题 -->
+    <div style="margin-top:120px;">
+      <div style="font-family:'Inter',sans-serif;font-size:16px;font-weight:600;letter-spacing:6px;color:var(--accent);text-transform:uppercase;">A Complete Guide</div>
+      <h1 style="margin-top:36px;font-family:'Inter',sans-serif;font-size:148px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-6px;">QDII</h1>
+      <h1 style="margin-top:20px;font-size:72px;font-weight:900;color:var(--ink);line-height:1.15;letter-spacing:-2px;">基金交易规则全解</h1>
+      <div style="margin-top:36px;width:100px;height:5px;background:var(--accent);"></div>
+      <p style="margin-top:40px;font-size:26px;font-weight:300;color:var(--ink-2);line-height:1.7;">
+        一篇讲透跨境基金的买卖逻辑
+      </p>
+      <p style="margin-top:6px;font-size:20px;font-weight:300;color:var(--ink-3);line-height:1.7;">
+        交易时差 · 多市场涨幅计算
+      </p>
+
+      <!-- 基金示例标签 -->
+      <div style="margin-top:56px;">
+        <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:var(--ink-4);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;">QDII FUND EXAMPLES</div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <div style="padding:10px 18px;background:#fff;border:1px solid var(--line);font-size:15px;font-weight:600;color:var(--ink-2);">易方达全球成长精选</div>
+          <div style="padding:10px 18px;background:#fff;border:1px solid var(--line);font-size:15px;font-weight:600;color:var(--ink-2);">广发全球精选</div>
+          <div style="padding:10px 18px;background:#fff;border:1px solid var(--line);font-size:15px;font-weight:600;color:var(--ink-2);">建信新兴市场混合</div>
+          <div style="padding:10px 18px;background:#fff;border:1px solid var(--line);font-size:15px;font-weight:600;color:var(--ink-2);">天弘全球高端制造</div>
+          <div style="padding:10px 18px;background:#fff;border:1px solid var(--line);font-size:15px;font-weight:600;color:var(--ink-2);">浦银安盛全球智能科技</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer">仅作信息分享，不构成任何投资建议</div>
+</div>
+
+<!-- ============ P2 · QDII 是什么 ============ -->
+<div class="card" id="p2">
+  <div style="position:absolute;top:0;left:0;right:0;height:6px;background:var(--blue);"></div>
+  <div style="padding:72px 88px 0;">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:4px;color:var(--accent);text-transform:uppercase;">CHAPTER 01 — DEFINITION</div>
+      <div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-4);letter-spacing:3px;">02 / 06</div>
+    </div>
+    <h2 style="margin-top:18px;font-size:56px;font-weight:900;color:var(--ink);line-height:1.15;letter-spacing:-2px;">QDII 基金是什么？</h2>
+    <p style="margin-top:14px;font-size:20px;font-weight:300;color:var(--ink-3);">合格境内机构投资者 · Qualified Domestic Institutional Investor</p>
+    <div style="margin-top:24px;width:80px;height:4px;background:var(--ink);"></div>
+
+    <!-- 定义 -->
+    <div style="margin-top:40px;padding:32px 40px;background:var(--paper-2);border-left:6px solid var(--blue);">
+      <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--blue);letter-spacing:3px;margin-bottom:14px;">DEFINITION</div>
+      <p style="font-size:24px;color:var(--ink);line-height:1.7;font-weight:500;">
+        你拿<b style="color:var(--accent);">人民币</b>交给有资质的基金公司，<br/>
+        它帮你换汇，投资到<b style="color:var(--accent);">海外市场</b>的股票或债券。
+      </p>
+      <p style="margin-top:16px;font-size:17px;color:var(--ink-3);line-height:1.7;">
+        你不用自己换汇，不占用个人 5 万美元额度 — 基金公司用它的 QDII 牌照搞定一切。
+      </p>
+    </div>
+
+    <!-- 类比 -->
+    <div style="margin-top:40px;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:3px;margin-bottom:18px;">▎ 一个生活类比</div>
+      <div style="display:grid;grid-template-columns:1fr 48px 1fr;gap:20px;align-items:stretch;">
+        <div style="padding:28px 28px;background:#fff;border:1px solid var(--line);">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:var(--ink-4);letter-spacing:2px;margin-bottom:12px;">SCENE A</div>
+          <div style="font-size:21px;font-weight:800;color:var(--ink);line-height:1.4;">想买日本电饭煲</div>
+          <p style="margin-top:12px;font-size:16px;color:var(--ink-3);line-height:1.7;">但你没有日元，<br/>也没法去日本</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;">
+          <div style="font-family:'Inter',sans-serif;font-size:32px;font-weight:300;color:var(--accent);">→</div>
+        </div>
+        <div style="padding:28px 28px;background:var(--ink);color:#fff;">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:700;color:#888;letter-spacing:2px;margin-bottom:12px;">SCENE B</div>
+          <div style="font-size:21px;font-weight:800;color:#fff;line-height:1.4;">QDII = 有资质的代购</div>
+          <p style="margin-top:12px;font-size:16px;color:#bbb;line-height:1.7;">你给人民币，<br/>它帮你买回来</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关键数据 -->
+    <div style="margin-top:40px;padding-top:28px;border-top:2px solid var(--ink);">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
+        <div style="padding:0 28px 0 0;border-right:1px solid var(--line);">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:var(--ink-4);letter-spacing:3px;">外汇额度</div>
+          <div style="margin-top:12px;font-size:36px;font-weight:900;color:var(--green);font-family:'Inter',sans-serif;">不占用</div>
+          <div style="margin-top:8px;font-size:15px;color:var(--ink-3);line-height:1.5;">个人 5 万美元额度不受影响</div>
+        </div>
+        <div style="padding:0 28px;border-right:1px solid var(--line);">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:var(--ink-4);letter-spacing:3px;">起购金额</div>
+          <div style="margin-top:12px;font-size:36px;font-weight:900;color:var(--ink);font-family:'Inter',sans-serif;">¥ 10</div>
+          <div style="margin-top:8px;font-size:15px;color:var(--ink-3);line-height:1.5;">多数平台最低 10 元起买</div>
+        </div>
+        <div style="padding:0 0 0 28px;">
+          <div style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:var(--ink-4);letter-spacing:3px;">覆盖市场</div>
+          <div style="margin-top:12px;font-size:36px;font-weight:900;color:var(--blue);font-family:'Inter',sans-serif;">全球</div>
+          <div style="margin-top:8px;font-size:15px;color:var(--ink-3);line-height:1.5;">美 / 港 / 欧 / 日 / 新兴市场</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 常见品种 -->
+    <div style="margin-top:40px;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:3px;margin-bottom:16px;">▎ 常见 QDII 品种</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);"><div style="font-size:19px;font-weight:800;color:var(--ink);">纳斯达克 100</div><div style="margin-top:8px;font-size:14px;color:var(--ink-3);">美国科技龙头</div></div>
+        <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);"><div style="font-size:19px;font-weight:800;color:var(--ink);">标普 500</div><div style="margin-top:8px;font-size:14px;color:var(--ink-3);">美国大盘蓝筹</div></div>
+        <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);"><div style="font-size:19px;font-weight:800;color:var(--ink);">恒生科技</div><div style="margin-top:8px;font-size:14px;color:var(--ink-3);">港股互联网</div></div>
+        <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);"><div style="font-size:19px;font-weight:800;color:var(--ink);">日经 225</div><div style="margin-top:8px;font-size:14px;color:var(--ink-3);">日本大盘指数</div></div>
+        <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);"><div style="font-size:19px;font-weight:800;color:var(--ink);">全球精选主动</div><div style="margin-top:8px;font-size:14px;color:var(--ink-3);">基金经理选股</div></div>
+        <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);"><div style="font-size:19px;font-weight:800;color:var(--ink);">黄金 / 原油</div><div style="margin-top:8px;font-size:14px;color:var(--ink-3);">大宗商品 QDII</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">仅作信息分享，不构成任何投资建议</div>
+</div>
+
+<!-- ============ P3 · QDII vs 普通基金（原 P4，现在先展示规则） ============ -->
+<div class="card" id="p3">
+  <div style="position:absolute;top:0;left:0;right:0;height:6px;background:var(--ink);"></div>
+  <div style="padding:72px 88px 0;">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:4px;color:var(--ink);text-transform:uppercase;">CHAPTER 02 — TRADING RULES</div>
+      <div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-4);letter-spacing:3px;">03 / 06</div>
+    </div>
+    <h2 style="margin-top:18px;font-size:56px;font-weight:900;color:var(--ink);line-height:1.15;letter-spacing:-2px;">QDII vs 普通基金</h2>
+    <p style="margin-top:14px;font-size:20px;font-weight:300;color:var(--ink-3);">同样下单买基金，QDII 在每个环节都会慢一拍。</p>
+    <div style="margin-top:24px;width:80px;height:4px;background:var(--ink);"></div>
+
+    <!-- 对比表 -->
+    <div style="margin-top:32px;background:#fff;border:1px solid var(--line);">
+      <table style="width:100%;border-collapse:collapse;font-size:17px;">
+        <thead>
+          <tr style="background:var(--paper-2);">
+            <th style="padding:16px 24px;text-align:left;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--ink-3);letter-spacing:2px;border-bottom:2px solid var(--ink);width:22%;">对比项</th>
+            <th style="padding:16px 24px;text-align:left;font-family:'Inter',sans-serif;font-size:12px;font-weight:800;color:var(--blue);letter-spacing:2px;border-bottom:2px solid var(--ink);width:40%;">QDII 基金</th>
+            <th style="padding:16px 24px;text-align:left;font-family:'Inter',sans-serif;font-size:12px;font-weight:800;color:var(--ink);letter-spacing:2px;border-bottom:2px solid var(--ink);width:38%;">普通国内基金</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--line-2);">
+            <td style="padding:14px 24px;font-weight:800;color:var(--ink);">投资范围</td>
+            <td style="padding:14px 24px;color:var(--ink-2);">美股、港股、欧洲、日本</td>
+            <td style="padding:14px 24px;color:var(--ink-2);">A 股、国内债券</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line-2);background:#fdfbf6;">
+            <td style="padding:14px 24px;font-weight:800;color:var(--ink);">申购确认</td>
+            <td style="padding:14px 24px;"><span style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:var(--red);">T+2</span> <span style="font-size:14px;color:var(--ink-3);">工作日</span></td>
+            <td style="padding:14px 24px;"><span style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:var(--green);">T+1</span> <span style="font-size:14px;color:var(--ink-3);">工作日</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line-2);">
+            <td style="padding:14px 24px;font-weight:800;color:var(--ink);">赎回到账</td>
+            <td style="padding:14px 24px;"><span style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:var(--red);">T+4 ~ T+10</span></td>
+            <td style="padding:14px 24px;"><span style="font-family:'Inter',sans-serif;font-size:22px;font-weight:900;color:var(--green);">T+1 ~ T+3</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line-2);background:#fdfbf6;">
+            <td style="padding:14px 24px;font-weight:800;color:var(--ink);">净值公布</td>
+            <td style="padding:14px 24px;color:var(--ink-2);">T+1 晚间（次日才出）</td>
+            <td style="padding:14px 24px;color:var(--ink-2);">当晚 20:00 — 22:00</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line-2);">
+            <td style="padding:14px 24px;font-weight:800;color:var(--ink);">汇率影响</td>
+            <td style="padding:14px 24px;"><span style="color:var(--accent);font-weight:800;">有</span> <span style="color:var(--ink-3);font-size:14px;">— 美元 / 港币波动</span></td>
+            <td style="padding:14px 24px;color:var(--ink-3);">无</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--line-2);background:#fdfbf6;">
+            <td style="padding:14px 24px;font-weight:800;color:var(--ink);">节假日</td>
+            <td style="padding:14px 24px;color:var(--ink-2);">A 股 + 海外双重影响</td>
+            <td style="padding:14px 24px;color:var(--ink-2);">仅 A 股节假日</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 24px;font-weight:800;color:var(--ink);">限购</td>
+            <td style="padding:14px 24px;color:var(--ink-2);">常见（外汇额度有限）</td>
+            <td style="padding:14px 24px;color:var(--ink-2);">少见</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 场景对比 -->
+    <div style="margin-top:32px;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:3px;margin-bottom:16px;">▎ 场景：周一 14:00 申购 1 万元，何时能拿回现金？</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="padding:22px 26px;background:#fff;border:2px solid var(--green);">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;">
+            <div style="font-size:19px;font-weight:900;color:var(--ink);">国内股票基金</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--green);">FAST</div>
+          </div>
+          <div style="font-size:15px;color:var(--ink-2);line-height:1.9;">
+            <b style="color:var(--ink);">周一</b> 15:00 收盘 → 算净值<br/>
+            <b style="color:var(--ink);">周二</b> 份额到账<br/>
+            <b style="color:var(--ink);">周二</b> 卖出 → 周三钱到账
+          </div>
+          <div style="margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:17px;font-weight:800;color:var(--green);">全程 ≈ 2 个工作日</div>
+        </div>
+        <div style="padding:22px 26px;background:#fff;border:2px solid var(--red);">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;">
+            <div style="font-size:19px;font-weight:900;color:var(--ink);">美股 QDII 基金</div>
+            <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--red);">SLOW</div>
+          </div>
+          <div style="font-size:15px;color:var(--ink-2);line-height:1.9;">
+            <b style="color:var(--ink);">周一晚</b> 美股收盘 → 算净值<br/>
+            <b style="color:var(--ink);">周三</b> 份额到账<br/>
+            <b style="color:var(--ink);">周三</b> 卖出 → 下周一/二到账
+          </div>
+          <div style="margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:17px;font-weight:800;color:var(--red);">全程 ≈ 7 — 10 个工作日</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 注释 -->
+    <div style="margin-top:24px;padding:20px 28px;background:var(--paper-2);">
+      <p style="font-size:16px;color:var(--ink);line-height:1.7;font-weight:500;">
+        <b style="color:var(--accent);">注：</b>港股 QDII（如 012349 xx恒生科技）因时区接近，申购确认可做到 T+1，赎回也更快。<br/>
+        <span style="color:var(--ink-3);font-size:14px;">美股 QDII 因跨 12h 时差 + 跨境结算，是最慢的一类。</span>
+      </p>
+    </div>
+  </div>
+  <div class="disclaimer">仅作信息分享，不构成任何投资建议</div>
+</div>
+
+<!-- ============ P4 · 交易时间 & 时差（解释为什么 T+2） ============ -->
+<div class="card" id="p4">
+  <div style="position:absolute;top:0;left:0;right:0;height:6px;background:var(--accent);"></div>
+  <div style="padding:72px 88px 0;">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:4px;color:var(--accent);text-transform:uppercase;">CHAPTER 03 — WHY T+2</div>
+      <div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-4);letter-spacing:3px;">04 / 06</div>
+    </div>
+    <h2 style="margin-top:18px;font-size:52px;font-weight:900;color:var(--ink);line-height:1.15;letter-spacing:-2px;">为什么 QDII 是 T+2？</h2>
+    <p style="margin-top:14px;font-size:20px;font-weight:300;color:var(--ink-3);">根源在时差 — 你下单时，美股还没开盘。</p>
+    <div style="margin-top:24px;width:80px;height:4px;background:var(--accent);"></div>
+
+    <!-- 各市场交易时间表格 -->
+    <div style="margin-top:36px;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:3px;margin-bottom:16px;">▎ 各市场交易时间（北京时间）</div>
+      <div style="background:#fff;border:1px solid var(--line);">
+        <table style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr style="background:var(--paper-2);">
+              <th style="padding:16px 24px;text-align:left;font-size:13px;font-weight:700;color:var(--ink-3);border-bottom:2px solid var(--ink);width:20%;">市场</th>
+              <th style="padding:16px 24px;text-align:left;font-size:13px;font-weight:700;color:var(--ink-3);border-bottom:2px solid var(--ink);width:35%;">交易时间</th>
+              <th style="padding:16px 24px;text-align:left;font-size:13px;font-weight:700;color:var(--ink-3);border-bottom:2px solid var(--ink);width:45%;">说明</th>
+            </tr>
+          </thead>
+          <tbody style="font-size:17px;">
+            <tr style="border-bottom:1px solid var(--line-2);">
+              <td style="padding:16px 24px;font-weight:800;color:var(--red);">A 股</td>
+              <td style="padding:16px 24px;font-family:'Inter',sans-serif;font-weight:700;color:var(--ink);">9:30 — 15:00</td>
+              <td style="padding:16px 24px;color:var(--ink-3);">全年固定不变</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--line-2);background:#fdfbf6;">
+              <td style="padding:16px 24px;font-weight:800;color:var(--gold);">港股</td>
+              <td style="padding:16px 24px;font-family:'Inter',sans-serif;font-weight:700;color:var(--ink);">9:30 — 16:00</td>
+              <td style="padding:16px 24px;color:var(--ink-3);">全年固定不变</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--line-2);">
+              <td style="padding:16px 24px;font-weight:800;color:var(--blue);">美股<br/><span style="font-size:12px;font-weight:500;color:var(--ink-3);">夏令时</span></td>
+              <td style="padding:16px 24px;font-family:'Inter',sans-serif;font-weight:700;color:var(--blue);">21:30 — 次日 04:00</td>
+              <td style="padding:16px 24px;color:var(--ink-3);">3 月第二个周日 起</td>
+            </tr>
+            <tr>
+              <td style="padding:16px 24px;font-weight:800;color:var(--ink);">美股<br/><span style="font-size:12px;font-weight:500;color:var(--ink-3);">冬令时</span></td>
+              <td style="padding:16px 24px;font-family:'Inter',sans-serif;font-weight:700;color:var(--ink);">22:30 — 次日 05:00</td>
+              <td style="padding:16px 24px;color:var(--ink-3);">11 月第一个周日 起</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 时间条形图 -->
+    <div style="margin-top:32px;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:3px;margin-bottom:16px;">▎ 一天之内的时间分布（夏令时）</div>
+      <div style="background:#fff;border:1px solid var(--line);padding:24px 28px;">
+        <!-- 刻度 -->
+        <div style="display:flex;margin-bottom:6px;font-family:'Inter',sans-serif;font-size:11px;color:var(--ink-4);font-weight:600;">
+          <div style="width:72px;"></div>
+          <div style="flex:1;display:flex;justify-content:space-between;">
+            <span>9:00</span><span>12:00</span><span>15:00</span><span>18:00</span><span>21:00</span><span>24:00</span><span style="color:var(--accent);">03:00</span><span style="color:var(--accent);">06:00</span>
+          </div>
+        </div>
+        <!-- A 股 -->
+        <div style="display:flex;align-items:center;margin-bottom:10px;">
+          <div style="width:72px;font-size:14px;font-weight:800;color:var(--ink);">A 股</div>
+          <div style="flex:1;height:26px;background:var(--paper-2);position:relative;">
+            <div style="position:absolute;left:2.4%;width:28.6%;top:0;bottom:0;background:var(--red);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;">9:30 — 15:00</div>
+          </div>
+        </div>
+        <!-- 港股 -->
+        <div style="display:flex;align-items:center;margin-bottom:10px;">
+          <div style="width:72px;font-size:14px;font-weight:800;color:var(--ink);">港股</div>
+          <div style="flex:1;height:26px;background:var(--paper-2);position:relative;">
+            <div style="position:absolute;left:2.4%;width:31%;top:0;bottom:0;background:var(--gold);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;">9:30 — 16:00</div>
+          </div>
+        </div>
+        <!-- 美股 -->
+        <div style="display:flex;align-items:center;">
+          <div style="width:72px;font-size:14px;font-weight:800;color:var(--ink);">美股</div>
+          <div style="flex:1;height:26px;background:var(--paper-2);position:relative;">
+            <div style="position:absolute;left:59.5%;width:31%;top:0;bottom:0;background:var(--blue);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;">21:30 — 次日 04:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 核心矛盾 -->
+    <div style="margin-top:32px;padding:28px 36px;background:var(--paper-2);border-left:6px solid var(--accent);">
+      <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--accent);letter-spacing:3px;margin-bottom:12px;">KEY CONFLICT</div>
+      <p style="font-size:20px;color:var(--ink);line-height:1.8;font-weight:500;">
+        你在 A 股交易时间（<b>9:30 — 15:00</b>）下单买美股 QDII，<br/>
+        但美股要等到<b style="color:var(--accent);">当晚 21:30 才开盘</b>，<b style="color:var(--accent);">次日凌晨 4 点才收盘</b>。
+      </p>
+      <p style="margin-top:12px;font-size:17px;color:var(--ink-3);line-height:1.7;">
+        你下单的时候，美股市场都还没开始交易。今晚涨还是跌？没人知道。<br/>
+        这就是<b style="color:var(--ink);">「未知价原则」</b>— 你下单时不知道成交价格，成交净值要等美股收盘后才能算出。
+      </p>
+    </div>
+
+    <!-- 对比感受 -->
+    <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="padding:22px 24px;background:#fff;border:1px solid var(--line);">
+        <div style="font-size:16px;font-weight:800;color:var(--ink);margin-bottom:8px;">买国内基金</div>
+        <div style="font-size:15px;color:var(--ink-3);line-height:1.7;">下午 2 点买 → 3 点收盘出净值</div>
+        <div style="margin-top:6px;font-size:16px;font-weight:700;color:var(--green);">等 1 小时知道结果</div>
+      </div>
+      <div style="padding:22px 24px;background:#fff;border:1px solid var(--line);">
+        <div style="font-size:16px;font-weight:800;color:var(--ink);margin-bottom:8px;">买美股 QDII</div>
+        <div style="font-size:15px;color:var(--ink-3);line-height:1.7;">下午 2 点买 → 次日凌晨 4 点收盘</div>
+        <div style="margin-top:6px;font-size:16px;font-weight:700;color:var(--red);">等 14 小时才知道结果</div>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">仅作信息分享，不构成任何投资建议</div>
+</div>
+
+<!-- ============ P5 · 涨幅计算 ============ -->
+<div class="card" id="p5">
+  <div style="position:absolute;top:0;left:0;right:0;height:6px;background:var(--green);"></div>
+  <div style="padding:64px 88px 0;">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:4px;color:var(--green);text-transform:uppercase;">CHAPTER 04 — NAV CALCULATION</div>
+      <div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-4);letter-spacing:3px;">05 / 06</div>
+    </div>
+    <h2 style="margin-top:18px;font-size:50px;font-weight:900;color:var(--ink);line-height:1.15;letter-spacing:-2px;">A + 港 + 美 涨幅怎么算？</h2>
+    <p style="margin-top:12px;font-size:18px;font-weight:300;color:var(--ink-3);">关键：三个市场收盘时间不同，全部凑齐后才能算净值。</p>
+    <div style="margin-top:20px;width:80px;height:4px;background:var(--green);"></div>
+
+    <!-- 三市场收盘时间 -->
+    <div style="margin-top:28px;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:3px;margin-bottom:14px;">▎ 三个市场的收盘时间（北京时间）</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+        <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--red);">
+          <div style="font-size:17px;font-weight:900;color:var(--ink);">A 股</div>
+          <div style="margin-top:10px;font-family:'Inter',sans-serif;font-size:28px;font-weight:900;color:var(--red);">15:00</div>
+          <div style="margin-top:6px;font-size:13px;color:var(--ink-3);">当日收盘</div>
+        </div>
+        <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--gold);">
+          <div style="font-size:17px;font-weight:900;color:var(--ink);">港股</div>
+          <div style="margin-top:10px;font-family:'Inter',sans-serif;font-size:28px;font-weight:900;color:var(--gold);">16:00</div>
+          <div style="margin-top:6px;font-size:13px;color:var(--ink-3);">当日收盘</div>
+        </div>
+        <div style="padding:20px 22px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--blue);">
+          <div style="font-size:17px;font-weight:900;color:var(--ink);">美股</div>
+          <div style="margin-top:10px;font-family:'Inter',sans-serif;font-size:28px;font-weight:900;color:var(--blue);">次日 04:00</div>
+          <div style="margin-top:6px;font-size:13px;color:var(--ink-3);">夏令时 · 次日凌晨</div>
+        </div>
+      </div>
+      <p style="margin-top:10px;font-size:14px;color:var(--ink-3);">基金公司必须等三个市场全部收盘后，才能计算 T 日净值。</p>
+    </div>
+
+    <!-- 实例 -->
+    <div style="margin-top:28px;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ink-3);letter-spacing:3px;margin-bottom:14px;">▎ 实例：2026.05.15（周四）某 QDII 基金涨跌计算</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+        <div style="padding:18px 20px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <div style="font-size:16px;font-weight:900;color:var(--ink);">A 股部分</div>
+            <div style="font-size:12px;color:var(--ink-3);">仓位 20%</div>
+          </div>
+          <div style="margin-top:8px;font-size:12px;color:var(--ink-3);">5/15 当天 15:00 收盘</div>
+          <div style="margin-top:6px;font-size:12px;color:var(--ink-3);">宁德时代、比亚迪等</div>
+          <div style="margin-top:12px;font-family:'Inter',sans-serif;font-size:30px;font-weight:900;color:var(--red);">+1.0%</div>
+        </div>
+        <div style="padding:18px 20px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--gold);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <div style="font-size:16px;font-weight:900;color:var(--ink);">港股部分</div>
+            <div style="font-size:12px;color:var(--ink-3);">仓位 30%</div>
+          </div>
+          <div style="margin-top:8px;font-size:12px;color:var(--ink-3);">5/15 当天 16:00 收盘</div>
+          <div style="margin-top:6px;font-size:12px;color:var(--ink-3);">腾讯、美团等</div>
+          <div style="margin-top:12px;font-family:'Inter',sans-serif;font-size:30px;font-weight:900;color:var(--gold);">+1.5%</div>
+        </div>
+        <div style="padding:18px 20px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--blue);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <div style="font-size:16px;font-weight:900;color:var(--ink);">美股部分</div>
+            <div style="font-size:12px;color:var(--ink-3);">仓位 50%</div>
+          </div>
+          <div style="margin-top:8px;font-size:12px;color:var(--accent);font-weight:600;">5/16 凌晨 04:00 收盘</div>
+          <div style="margin-top:6px;font-size:12px;color:var(--ink-3);">英伟达、苹果等</div>
+          <div style="margin-top:12px;font-family:'Inter',sans-serif;font-size:30px;font-weight:900;color:var(--blue);">+2.0%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 计算过程 -->
+    <div style="margin-top:24px;padding:24px 32px;background:var(--paper-2);">
+      <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--ink-3);letter-spacing:2px;margin-bottom:14px;">CALCULATION · 等 5/16 凌晨美股收盘后才能计算</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:17px;color:var(--ink-2);line-height:2.2;">
+        <div><span style="color:var(--red);font-weight:700;">A 股贡献</span> &nbsp;= +1.0% × 20% = <b style="color:var(--ink);">+0.20%</b></div>
+        <div><span style="color:var(--gold);font-weight:700;">港股贡献</span> = +1.5% × 30% = <b style="color:var(--ink);">+0.45%</b></div>
+        <div><span style="color:var(--blue);font-weight:700;">美股贡献</span> = +2.0% × 50% = <b style="color:var(--ink);">+1.00%</b></div>
+        <div style="margin-top:12px;padding-top:12px;border-top:2px solid var(--ink);">
+          <span style="font-family:'Noto Sans SC',sans-serif;font-weight:700;color:var(--ink);font-size:18px;">5/15 基金涨幅 ≈ </span><span style="font-size:28px;font-weight:900;color:var(--green);">+1.65%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 净值公布时间 -->
+    <div style="margin-top:20px;padding:20px 28px;background:#fff;border-left:6px solid var(--accent);">
+      <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:2px;margin-bottom:8px;">TIMELINE</div>
+      <p style="font-size:16px;color:var(--ink);line-height:1.8;">
+        <b>5/15 下午</b> A 股 15:00 收、港股 16:00 收 → <b>5/16 凌晨 04:00</b> 美股收盘<br/>
+        → 基金公司开始计算净值 → <b style="color:var(--accent);">5/16 晚间</b>才公布 5/15 的净值<br/>
+        这就是 QDII「T+1 晚出净值」的根本原因。
+      </p>
+    </div>
+
+    <!-- 汇率 -->
+    <div style="margin-top:18px;padding:18px 28px;background:var(--paper-2);">
+      <p style="font-size:15px;color:var(--ink);line-height:1.7;">
+        <b style="color:var(--accent);">汇率影响：</b>QDII 净值以人民币计价。若当天美元贬值 0.3%，实际收益 ≈ 1.65% − 0.3% = 1.35%。<br/>
+        <span style="color:var(--ink-3);">反之美元升值时你会额外赚到汇率收益 — 这就是为什么纳指涨 1%，你的基金可能涨 0.8% 或 1.3%。</span>
+      </p>
+    </div>
+  </div>
+  <div class="disclaimer">仅作信息分享，不构成任何投资建议</div>
+</div>
+
+<!-- ============ P6 · 总结 ============ -->
+<div class="card" id="p6">
+  <div style="position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#1e4a8a 0%,#1e4a8a 33%,#c4382e 33%,#c4382e 66%,#2d7a4f 66%,#2d7a4f 100%);"></div>
+  <div style="padding:72px 88px 0;">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:4px;color:var(--accent);text-transform:uppercase;">SUMMARY & TIPS</div>
+      <div style="font-family:'Inter',sans-serif;font-size:12px;color:var(--ink-4);letter-spacing:3px;">06 / 06</div>
+    </div>
+    <h2 style="margin-top:18px;font-size:56px;font-weight:900;color:var(--ink);line-height:1.15;letter-spacing:-2px;">一图看懂 + 实操建议</h2>
+    <div style="margin-top:24px;width:80px;height:4px;background:var(--ink);"></div>
+
+    <!-- 4 个核心要点 -->
+    <div style="margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="padding:24px 28px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--blue);">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">
+          <div style="font-family:'Inter',sans-serif;font-size:40px;font-weight:900;color:var(--blue);line-height:1;">01</div>
+          <div style="font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:var(--blue);letter-spacing:2px;">DEFINITION</div>
+        </div>
+        <div style="font-size:19px;font-weight:900;color:var(--ink);margin-bottom:8px;">QDII = 出海通道</div>
+        <p style="font-size:14px;color:var(--ink-3);line-height:1.7;">人民币买入，基金公司换汇投海外。不占个人 5 万美元额度。</p>
+      </div>
+      <div style="padding:24px 28px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--accent);">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">
+          <div style="font-family:'Inter',sans-serif;font-size:40px;font-weight:900;color:var(--accent);line-height:1;">02</div>
+          <div style="font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:var(--accent);letter-spacing:2px;">TIME ZONE</div>
+        </div>
+        <div style="font-size:19px;font-weight:900;color:var(--ink);margin-bottom:8px;">时差决定一切</div>
+        <p style="font-size:14px;color:var(--ink-3);line-height:1.7;">夏令时 21:30—次日 04:00，冬令时 22:30—次日 05:00。下单时美股还没开盘。</p>
+      </div>
+      <div style="padding:24px 28px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--red);">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">
+          <div style="font-family:'Inter',sans-serif;font-size:40px;font-weight:900;color:var(--red);line-height:1;">03</div>
+          <div style="font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:var(--red);letter-spacing:2px;">UNKNOWN PRICE</div>
+        </div>
+        <div style="font-size:19px;font-weight:900;color:var(--ink);margin-bottom:8px;">未知价 = 公平机制</div>
+        <p style="font-size:14px;color:var(--ink-3);line-height:1.7;">所有人面对同样的不确定性，没人能"先看结果再下注"，保护长期持有人。</p>
+      </div>
+      <div style="padding:24px 28px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--green);">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">
+          <div style="font-family:'Inter',sans-serif;font-size:40px;font-weight:900;color:var(--green);line-height:1;">04</div>
+          <div style="font-family:'Inter',sans-serif;font-size:10px;font-weight:700;color:var(--green);letter-spacing:2px;">CALCULATION</div>
+        </div>
+        <div style="font-size:19px;font-weight:900;color:var(--ink);margin-bottom:8px;">涨幅 = 加权 + 汇率</div>
+        <p style="font-size:14px;color:var(--ink-3);line-height:1.7;">三市场按持仓比例加权求和，等美股收盘后才能算出，再叠加汇率变动。</p>
+      </div>
+    </div>
+
+    <!-- 实操建议 -->
+    <div style="margin-top:32px;padding:28px 32px;background:var(--paper-2);">
+      <div style="font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:var(--accent);letter-spacing:3px;margin-bottom:16px;">▎ 5 条实操建议</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <span style="flex:0 0 24px;font-family:'Inter',sans-serif;font-size:18px;font-weight:900;color:var(--accent);">→</span>
+          <span style="font-size:17px;color:var(--ink);line-height:1.6;"><b>别追涨杀跌</b> — 你看到美股涨了想买，但成交价是明天的净值，可能已回调</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <span style="flex:0 0 24px;font-family:'Inter',sans-serif;font-size:18px;font-weight:900;color:var(--accent);">→</span>
+          <span style="font-size:17px;color:var(--ink);line-height:1.6;"><b>定投更合适</b> — 未知价让择时几乎无效，定投反而能平滑成本</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <span style="flex:0 0 24px;font-family:'Inter',sans-serif;font-size:18px;font-weight:900;color:var(--accent);">→</span>
+          <span style="font-size:17px;color:var(--ink);line-height:1.6;"><b>关注限购</b> — 热门 QDII 常限额 100—5000 元/天，大额需要拆分（我每天更新限额动态，关注不迷路）</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <span style="flex:0 0 24px;font-family:'Inter',sans-serif;font-size:18px;font-weight:900;color:var(--accent);">→</span>
+          <span style="font-size:17px;color:var(--ink);line-height:1.6;"><b>留意汇率</b> — 人民币升值期 QDII 收益会被汇率吃掉一部分</span>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <span style="flex:0 0 24px;font-family:'Inter',sans-serif;font-size:18px;font-weight:900;color:var(--accent);">→</span>
+          <span style="font-size:17px;color:var(--ink);line-height:1.6;"><b>预留流动性</b> — 赎回最慢 10 个工作日，急用钱别全放 QDII</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部 -->
+    <div style="position:absolute;left:88px;right:88px;bottom:80px;">
+      <div style="height:1px;background:var(--line);margin-bottom:18px;"></div>
+      <div style="text-align:center;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ink-4);letter-spacing:3px;">— END —</div>
+    </div>
+  </div>
+  <div class="disclaimer">仅作信息分享，不构成任何投资建议</div>
+</div>
+
+</body>
+</html>
