@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>上证指数历史十大单日涨幅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#05060b; --bg-1:#0b1020; --bg-2:#141a2e;
+    --text:#e7ecf3; --muted:#8a93a6;
+    --gold:#d4b26a; --gold-soft:#f2e9d2;
+    --up:#ef3b3b; --up-bg:rgba(239,59,59,.15); --up-border:rgba(239,59,59,.4);
+    --down:#0e7c47; --down-bg:rgba(23,178,106,.13); --down-border:rgba(23,178,106,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0a0d15}
+  body{font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;font-weight:600;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision;color:var(--text);padding:30px 0}
+
+  .card{
+    width:1080px; height:1440px;
+    margin:24px auto;
+    position:relative;
+    color:var(--text);
+    background:
+      radial-gradient(1400px 800px at 120% -10%,rgba(212,178,106,.10),transparent 60%),
+      radial-gradient(1200px 700px at -20% 40%,rgba(239,59,59,.06),transparent 60%),
+      radial-gradient(1200px 700px at 110% 110%,rgba(23,178,106,.06),transparent 60%),
+      linear-gradient(180deg,#05060b 0%,#0b1020 50%,#070a14 100%);
+    overflow:hidden;
+    border-radius:8px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+  }
+
+  .bg-watermark{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;pointer-events:none;overflow:hidden}
+  .bg-watermark-inner{position:absolute;top:-10%;left:-10%;width:120%;height:120%;transform:rotate(-28deg);display:flex;flex-direction:column;gap:96px;padding-top:40px}
+  .bg-watermark-line{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:24px;letter-spacing:10px;color:rgba(212,178,106,.07);white-space:nowrap;line-height:1}
+
+  .corner{position:absolute;width:56px;height:56px;border:1.5px solid rgba(212,178,106,.45);z-index:3}
+  .corner.tl{top:40px;left:40px;border-right:none;border-bottom:none}
+  .corner.tr{top:40px;right:40px;border-left:none;border-bottom:none}
+  .corner.bl{bottom:40px;left:40px;border-right:none;border-top:none}
+  .corner.br{bottom:40px;right:40px;border-left:none;border-top:none}
+
+  .header{padding:60px 60px 0;text-align:center;position:relative;z-index:3}
+  .header .en{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;letter-spacing:8px;color:var(--gold);font-size:22px}
+  .header .cn{margin-top:6px;font-size:46px;font-weight:900;letter-spacing:6px;
+    background:linear-gradient(180deg,#ffffff 0%,#f3e3b8 60%,#d4b26a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .header .range{margin-top:4px;font-family:"DM Serif Display",serif;font-size:22px;color:var(--gold-soft);letter-spacing:6px}
+  .hairline{width:140px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px auto 0}
+  .legend{margin:12px auto 0;display:flex;justify-content:center;gap:24px;font-size:14px;color:var(--muted);letter-spacing:2px}
+  .legend .ldot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:middle}
+  .legend .ldot.down{background:var(--down)}
+  .legend .ldot.up{background:var(--up)}
+
+  .list{margin:22px 56px 0;display:flex;flex-direction:column;gap:8px;position:relative;z-index:3}
+
+  .row{
+    display:grid;
+    grid-template-columns: 64px 132px 1fr 130px 130px 140px;
+    align-items:center;
+    gap:6px;
+    padding:14px 22px;
+    border-radius:14px;
+    border:1.5px solid rgba(239,59,59,.4);
+    box-shadow:inset 0 0 12px rgba(239,59,59,.08);
+    min-height:90px;
+  }
+  .row.peak{
+    border-width:2px;
+    border-color:rgba(212,178,106,.7);
+    box-shadow:0 0 28px rgba(212,178,106,.22),inset 0 0 16px rgba(239,59,59,.18);
+  }
+
+  /* === 1→10 由浅到深（顶部最浅、底部最深）=== */
+  .list .row:nth-child(1) {background:linear-gradient(145deg,rgba(168,24,24,.07),rgba(76,9,9,.11));}
+  .list .row:nth-child(2) {background:linear-gradient(145deg,rgba(168,24,24,.10),rgba(76,9,9,.15));}
+  .list .row:nth-child(3) {background:linear-gradient(145deg,rgba(168,24,24,.13),rgba(76,9,9,.20));}
+  .list .row:nth-child(4) {background:linear-gradient(145deg,rgba(168,24,24,.17),rgba(76,9,9,.25));}
+  .list .row:nth-child(5) {background:linear-gradient(145deg,rgba(168,24,24,.21),rgba(76,9,9,.31));}
+  .list .row:nth-child(6) {background:linear-gradient(145deg,rgba(168,24,24,.26),rgba(76,9,9,.38));}
+  .list .row:nth-child(7) {background:linear-gradient(145deg,rgba(168,24,24,.32),rgba(76,9,9,.46));}
+  .list .row:nth-child(8) {background:linear-gradient(145deg,rgba(168,24,24,.38),rgba(76,9,9,.55));}
+  .list .row:nth-child(9) {background:linear-gradient(145deg,rgba(168,24,24,.46),rgba(76,9,9,.66));}
+  .list .row:nth-child(10){background:linear-gradient(145deg,rgba(168,24,24,.55),rgba(76,9,9,.78));}
+
+  .c-rank{font-family:"DM Serif Display",serif;font-size:30px;color:var(--gold);letter-spacing:1px;line-height:1;text-align:left;opacity:.92}
+  .row.peak .c-rank{text-shadow:0 0 14px rgba(212,178,106,.45);opacity:1}
+
+  .c-date{font-family:"DM Serif Display",serif;font-size:22px;color:rgba(255,255,255,.9);letter-spacing:1.5px;line-height:1.1}
+
+  .c-event{
+    font-family:"Noto Serif SC",serif;font-weight:600;
+    font-size:16px;color:var(--gold-soft);
+    letter-spacing:1.5px;line-height:1.4;
+    padding-left:12px;
+    border-left:1px solid rgba(212,178,106,.35);
+  }
+
+  .c-close{font-family:"DM Serif Display",serif;font-size:20px;color:rgba(255,255,255,.82);letter-spacing:1px;line-height:1.1;text-align:right}
+  .c-close .lbl{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:10px;color:var(--muted);letter-spacing:3px;font-weight:600;margin-bottom:3px}
+
+  .c-net{font-family:"DM Serif Display",serif;font-size:20px;color:#ffdcdc;letter-spacing:1px;line-height:1.1;text-align:right;text-shadow:0 0 10px rgba(239,59,59,.25)}
+  .c-net .lbl{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:10px;color:var(--muted);letter-spacing:3px;font-weight:600;margin-bottom:3px}
+
+  .c-pct{font-family:"DM Serif Display",serif;font-size:32px;font-weight:700;line-height:1;color:#ffdcdc;text-shadow:0 0 12px rgba(239,59,59,.35);text-align:right;letter-spacing:.5px}
+  .row.peak .c-pct{font-size:36px;color:#ffe9e9;text-shadow:0 0 14px rgba(239,59,59,.45)}
+
+  .seal{position:absolute;left:50%;top:54%;z-index:2;transform:translate(-50%,-50%) rotate(-18deg);pointer-events:none;text-align:center}
+  .seal .seal-label{font-size:12px;color:rgba(212,178,106,.16);letter-spacing:6px;margin-bottom:4px}
+  .seal .seal-code{font-family:"Noto Serif SC",serif;font-weight:900;font-size:38px;color:rgba(212,178,106,.12);letter-spacing:8px}
+  .seal .seal-sub{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:14px;color:rgba(212,178,106,.16);letter-spacing:6px;margin-top:4px}
+
+  .disclaimer{position:absolute;left:140px;right:140px;bottom:22px;text-align:center;font-size:12px;color:rgba(207,214,228,.5);letter-spacing:1px;z-index:3}
+  .watermark{position:absolute;left:0;right:0;bottom:46px;text-align:center;color:rgba(212,178,106,.6);font-size:18px;letter-spacing:6px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;z-index:3}
+</style>
+</head>
+<body>
+
+<div class="card" id="p1">
+  <div class="bg-watermark">
+    <div class="bg-watermark-inner">
+      <div class="bg-watermark-line">HRunning 制图 · SSE COMPOSITE BEST DAYS · HRunning 制图 · SSE BEST DAYS · HRunning</div>
+      <div class="bg-watermark-line">HRunning · 上证指数历史十大单日涨幅 · HRunning · 上证指数 · 大 A · HRunning</div>
+      <div class="bg-watermark-line">HRunning 制图 · SSE COMPOSITE BEST DAYS · HRunning 制图 · SSE BEST DAYS · HRunning</div>
+      <div class="bg-watermark-line">HRunning · 上证指数历史十大单日涨幅 · HRunning · 上证指数 · 大 A · HRunning</div>
+      <div class="bg-watermark-line">HRunning 制图 · SSE COMPOSITE BEST DAYS · HRunning 制图 · SSE BEST DAYS · HRunning</div>
+      <div class="bg-watermark-line">HRunning · 上证指数历史十大单日涨幅 · HRunning · 上证指数 · 大 A · HRunning</div>
+      <div class="bg-watermark-line">HRunning 制图 · SSE COMPOSITE BEST DAYS · HRunning 制图 · SSE BEST DAYS · HRunning</div>
+      <div class="bg-watermark-line">HRunning · 上证指数历史十大单日涨幅 · HRunning · 上证指数 · 大 A · HRunning</div>
+      <div class="bg-watermark-line">HRunning 制图 · SSE COMPOSITE BEST DAYS · HRunning 制图 · SSE BEST DAYS · HRunning</div>
+    </div>
+  </div>
+
+  <div class="seal">
+    <div class="seal-label">小 红 书</div>
+    <div class="seal-code">HRunning</div>
+    <div class="seal-sub">ORIGINAL CONTENT</div>
+  </div>
+
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="header">
+    <div class="en">SSE COMPOSITE · BEST SINGLE DAYS</div>
+    <div class="cn">上证指数十大单日涨幅</div>
+    <div class="range">1990 — 2026</div>
+    <div class="hairline"></div>
+    <div class="legend">
+      <span><span class="ldot up"></span>红涨</span>
+      <span><span class="ldot down"></span>绿跌</span>
+      <span style="color:rgba(212,178,106,.6)">按收盘涨幅排序 · 数据来源 Yahoo Finance</span>
+    </div>
+  </div>
+
+  <div class="list">
+    <div class="row peak">
+      <div class="c-rank">01</div>
+      <div class="c-date">2001.10.23</div>
+      <div class="c-event">国有股暂停减持 · 政策大底</div>
+      <div class="c-close"><span class="lbl">CLOSE</span>1,670.56</div>
+      <div class="c-net"><span class="lbl">CHG</span>+149.94</div>
+      <div class="c-pct">+9.86%</div>
+    </div>
+
+    <div class="row">
+      <div class="c-rank">02</div>
+      <div class="c-date">2008.09.19</div>
+      <div class="c-event">印花税单边征收 · 汇金增持</div>
+      <div class="c-close"><span class="lbl">CLOSE</span>2,075.09</div>
+      <div class="c-net"><span class="lbl">CHG</span>+179.30</div>
+      <div class="c-pct">+9.46%</div>
+    </div>
+
+    <div class="row">
+      <div class="c-rank">03</div>
+      <div class="c-date">2008.04.24</div>
+      <div class="c-event">印花税下调 · 暂停大小非</div>
+      <div class="c-close"><span class="lbl">CLOSE</span>3,583.03</div>
+      <div class="c-net"><span class="lbl">CHG</span>+304.72</div>
+      <div class="c-pct">+9.29%</div>
+    </div>
+
+    <div class="row">
+      <div class="c-rank">04</div>
+      <div class="c-date">2002.06.24</div>
+      <div class="c-event">国务院叫停减持 · 6·24 行情</div>
+      <div class="c-close"><span class="lbl">CLOSE</span>1,707.31</div>
+      <div class="c-net"><span class="lbl">CHG</span>+144.51</div>
+      <div class="c-pct">+9.25%</div>
+    </div>
+
+    <div class="row">
+      <div class="c-rank">05</div>
+      <div class="c-date">2000.02.14</div>
+      <div class="c-event">B 股开放 · 春节后红包</div>
+      <div class="c-close"><span class="lbl">CLOSE</span>1,673.94</div>
+      <div class="c-net"><span class="lbl">CHG</span>+138.91</div>
+      <div class="c-pct">+9.05%</div>
+    </div>
+
+    <div class="row">
+      <div class="c-rank">06</div>
+      <div class="c-date">2005.06.08</div>
+      <div class="c-event">救市新政 · 998 点附近反转</div>
+      <div class="c-close"><span class="lbl">CLOSE</span>1,115.58</div>
+      <div class="c-net"><span class="lbl">CHG</span>+84.65</div>
+      <div class="c-pct">+8.21%</div>
+    </div>
+
+    <div class="row">
+      <div class="c-rank">07</div>
+      <div class="c-date">2008.02.04</div>
+      <div class="c-event">春节前抢反弹 · 巨量反包</div>
+      <div class="c-close"><span class="lbl">CLOSE</span>4,672.17</div>
+      <div class="c-net"><span class="lbl">CHG</span>+351.07</div>
+      <div class="c-pct">+8.13%</div>
+    </div>
+
+    <div class="row">
+      <div class="c-rank">08</div>
+      <div class="c-date">2024.09.30</div>
+      <div class="c-event">9·24 政策组合拳 · 节前狂欢</div>
+      <div class="c-close"><span class="lbl">CLOSE</span>3,336.50</div>
+      <div class="c-net"><span class="lbl">CHG</span>+248.97</div>
+      <div class="c-pct">+8.06%</div>
+    </div>
+
+    <div class="row">
+      <div class="c-rank">09</div>
+      <div class="c-date">2008.09.22</div>
+      <div class="c-event">9·19 政策延续 · 大底反弹</div>
+      <div class="c-close"><span class="lbl">CLOSE</span>2,236.41</div>
+      <div class="c-net"><span class="lbl">CHG</span>+161.32</div>
+      <div class="c-pct">+7.77%</div>
+    </div>
+
+    <div class="row">
+      <div class="c-rank">10</div>
+      <div class="c-date">2008.08.20</div>
+      <div class="c-event">维稳预期 · 周期股暴涨</div>
+      <div class="c-close"><span class="lbl">CLOSE</span>2,523.28</div>
+      <div class="c-net"><span class="lbl">CHG</span>+178.81</div>
+      <div class="c-pct">+7.63%</div>
+    </div>
+  </div>
+
+  <div class="disclaimer">数据更新 2026.06 · 仅作历史信息分享，不构成任何投资建议</div>
+  <div class="watermark">@HRunning 制图</div>
+</div>
+
+</body>
+</html>

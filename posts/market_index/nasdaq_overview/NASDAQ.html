@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>纳斯达克指数 · 小红书图文笔记</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#05060b; --bg-1:#0b1020; --bg-2:#141a2e;
+    --line:rgba(255,255,255,.08);
+    --text:#e7ecf3; --muted:#8a93a6;
+    --gold:#d4b26a; --gold-soft:#f2e9d2;
+    --up:#ef3b3b; --up-deep:#a81818;
+    --down:#17b26a; --down-deep:#0b7a46;
+    --crisis:#ff5a5f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0a0d15}
+  body{
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
+    font-weight:600;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision;
+    color:var(--text);
+    padding:30px 0;
+  }
+  .mono{font-family:"DM Serif Display","Playfair Display",Georgia,serif}
+  .serif-en{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+  .italic{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+
+  /* 小红书标准尺寸 1080×1440 (3:4) */
+  .card{
+    width:1080px; height:1440px;
+    margin:24px auto;
+    position:relative;
+    color:var(--text);
+    background:
+      radial-gradient(1400px 800px at 120% -10%,rgba(212,178,106,.16),transparent 60%),
+      radial-gradient(1200px 700px at -20% 30%,rgba(239,59,59,.12),transparent 60%),
+      radial-gradient(1200px 700px at 120% 110%,rgba(23,178,106,.10),transparent 60%),
+      linear-gradient(180deg,#05060b 0%,#0b1020 50%,#070a14 100%);
+    overflow:hidden;
+    border-radius:8px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+  }
+
+  /* 角标 */
+  .corner{position:absolute;width:72px;height:72px;border:1.5px solid rgba(212,178,106,.55)}
+  .corner.tl{top:54px;left:54px;border-right:none;border-bottom:none}
+  .corner.tr{top:54px;right:54px;border-left:none;border-bottom:none}
+  .corner.bl{bottom:54px;left:54px;border-right:none;border-top:none}
+  .corner.br{bottom:54px;right:54px;border-left:none;border-top:none}
+
+  .page-num{
+    position:absolute;right:80px;bottom:78px;
+    font-family:"DM Serif Display",serif;color:var(--gold);
+    font-size:28px;letter-spacing:4px;z-index:2;
+  }
+  .watermark{
+    position:absolute;left:80px;bottom:82px;
+    color:var(--muted);font-size:24px;letter-spacing:5px;
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;z-index:2;
+  }
+
+  /* ============ 卡片 1 · 封面 ============ */
+  .bg-word{
+    position:absolute;font-family:"DM Serif Display",serif;
+    font-size:560px;line-height:.85;color:transparent;
+    -webkit-text-stroke:1px rgba(212,178,106,.10);
+    letter-spacing:-20px;top:520px;left:-60px;
+    pointer-events:none;user-select:none;
+  }
+  .cover-top{position:absolute;top:130px;left:0;right:0;text-align:center}
+  .brand{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;letter-spacing:14px;color:var(--gold);font-size:34px;margin-left:14px}
+  .brand-sub{margin-top:18px;color:var(--muted);letter-spacing:10px;font-size:18px}
+  .hairline{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:28px auto 0}
+
+  .cover-center{position:absolute;top:360px;left:0;right:0;text-align:center;padding:0 50px}
+  .main-title{
+    font-family:"Noto Serif SC",serif;font-weight:900;
+    line-height:1.1;letter-spacing:4px;
+  }
+  .main-title .h-brand{
+    display:inline-block;
+    font-size:160px;
+    letter-spacing:14px;
+    background:linear-gradient(180deg,#ffffff 0%,#f3e3b8 55%,#d4b26a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 50px rgba(212,178,106,.22);
+    padding-bottom:20px;
+  }
+  .kw-row{
+    margin-top:24px;
+    display:flex;justify-content:center;align-items:center;gap:24px;
+    line-height:1;
+  }
+  .kw{
+    font-family:"Noto Serif SC",serif;font-weight:900;
+    font-size:112px;letter-spacing:6px;
+    padding:10px 30px 14px;
+    border-radius:32px;                     /* 方形椭圆 */
+    position:relative;
+  }
+  .kw.up{
+    color:#ffdcdc;
+    background:linear-gradient(135deg,rgba(239,59,59,.22),rgba(168,24,24,.45));
+    border:2px solid rgba(239,59,59,.55);
+    box-shadow:0 0 40px rgba(239,59,59,.25),inset 0 0 20px rgba(239,59,59,.2);
+    text-shadow:0 0 24px rgba(239,59,59,.45);
+  }
+  .kw.down{
+    color:#c7f3dd;
+    background:linear-gradient(135deg,rgba(23,178,106,.22),rgba(11,122,70,.45));
+    border:2px solid rgba(23,178,106,.55);
+    box-shadow:0 0 40px rgba(23,178,106,.25),inset 0 0 20px rgba(23,178,106,.2);
+    text-shadow:0 0 24px rgba(23,178,106,.45);
+  }
+  .kw-x{
+    font-family:"DM Serif Display",serif;font-style:italic;
+    font-size:88px;color:var(--gold);
+    text-shadow:0 0 24px rgba(212,178,106,.55);
+  }
+  .sub-en{margin-top:40px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:36px;color:var(--gold);letter-spacing:2px}
+  .years-range{margin-top:22px;font-family:"DM Serif Display",serif;font-size:52px;letter-spacing:8px;color:var(--gold-soft)}
+  .years-range .sep{color:var(--gold);margin:0 20px;font-size:46px;vertical-align:middle}
+
+  .stats{position:absolute;left:100px;right:100px;bottom:260px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .stat{
+    border:1px solid rgba(212,178,106,.35);
+    border-radius:28px;                     /* 方形椭圆 */
+    padding:32px 18px 28px;text-align:center;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.4));
+  }
+  .stat .k{font-family:"Noto Serif SC",serif;font-size:22px;color:#cfd6e4;letter-spacing:3px}
+  .stat .v{margin-top:14px;font-family:"DM Serif Display",serif;font-size:66px;line-height:1;letter-spacing:1px}
+  .stat .v .u{font-size:36px;margin-left:2px}
+  .stat.best .v{color:var(--up);text-shadow:0 0 24px rgba(239,59,59,.35)}
+  .stat.worst .v{color:var(--down);text-shadow:0 0 24px rgba(23,178,106,.35)}
+  .stat.count .v{color:var(--gold)}
+  .stat .y{margin-top:12px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:26px;color:var(--muted);letter-spacing:4px}
+
+  .cover-bottom{position:absolute;left:0;right:0;bottom:140px;text-align:center}
+  .tag-dashed{display:inline-block;padding:12px 34px;border:1px dashed rgba(239,90,95,.5);border-radius:22px;color:#ffb3b6;font-size:22px;letter-spacing:6px}
+  .cover-hint{margin-top:22px;color:var(--muted);font-size:22px;letter-spacing:6px}
+
+  /* ============ 卡片 2 & 3 · 年度数据 ============ */
+  .page-header{padding:110px 80px 0;text-align:center;position:relative;z-index:1}
+  .ph-en{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;letter-spacing:10px;color:var(--gold);font-size:30px}
+  .ph-cn{margin-top:14px;font-size:54px;font-weight:900;letter-spacing:6px}
+  .ph-range{margin-top:10px;font-family:"DM Serif Display",serif;font-size:36px;color:var(--gold-soft);letter-spacing:6px}
+  .ph-line{width:160px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 0}
+
+  .legend{
+    margin:34px auto 0;display:flex;justify-content:center;gap:40px;
+    font-size:22px;color:var(--muted);
+  }
+  .legend .chip{display:inline-flex;align-items:center;gap:14px}
+  .dot{width:14px;height:14px;border-radius:50%;box-shadow:0 0 10px currentColor}
+  .dot.up{background:var(--up);color:var(--up)}
+  .dot.down{background:var(--down);color:var(--down)}
+
+  .years{position:relative;padding:30px 80px 0;margin-top:10px}
+  .spine{position:absolute;left:50%;top:30px;bottom:30px;width:1px;background:linear-gradient(180deg,transparent,rgba(212,178,106,.35),transparent);transform:translateX(-.5px);z-index:0}
+  .row{position:relative;display:grid;grid-template-columns:1fr 140px 1fr;align-items:center;padding:9px 0;z-index:1}
+  .year{text-align:center;font-family:"DM Serif Display",serif;font-size:30px;color:#cfd6e4;letter-spacing:2px;position:relative}
+  .year::before{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:var(--gold);transform:translate(-50%,-50%);box-shadow:0 0 10px rgba(212,178,106,.7)}
+  .year span{background:var(--bg-0);padding:4px 14px;position:relative;z-index:1;border-radius:14px}
+
+  /* 方形椭圆胶囊 —— 圆角矩形 */
+  .pill{
+    height:58px;
+    border-radius:20px;                     /* 方形椭圆 */
+    display:flex;align-items:center;justify-content:center;
+    font-family:"DM Serif Display",serif;font-size:28px;font-weight:600;letter-spacing:1px;
+    border:1px solid transparent;white-space:nowrap;
+    position:relative;
+  }
+  .pill.up{
+    background:linear-gradient(135deg,rgba(239,59,59,.22),rgba(168,24,24,.38));
+    border-color:rgba(239,59,59,.5);color:#ffdcdc;
+    box-shadow:0 0 24px rgba(239,59,59,.18),inset 0 0 12px rgba(239,59,59,.18);
+  }
+  .pill.down{
+    background:linear-gradient(135deg,rgba(23,178,106,.20),rgba(11,122,70,.36));
+    border-color:rgba(23,178,106,.5);color:#c7f3dd;
+    box-shadow:0 0 24px rgba(23,178,106,.18),inset 0 0 12px rgba(23,178,106,.18);
+  }
+  .pill.empty{background:transparent;border:none;box-shadow:none}
+  .cell.left{display:flex;justify-content:flex-end;padding-right:20px}
+  .cell.right{display:flex;justify-content:flex-start;padding-left:20px}
+  .w-xs{width:150px}.w-s{width:200px}.w-m{width:240px}.w-l{width:280px}.w-xl{width:320px}
+
+  .foot-tip{
+    margin:26px 80px 0;
+    padding:18px 24px;
+    border:1px dashed rgba(212,178,106,.35);
+    border-radius:22px;                    /* 方形椭圆 */
+    background:linear-gradient(135deg,rgba(212,178,106,.06),rgba(10,14,26,.3));
+    text-align:center;
+    color:#cfd6e4;font-size:20px;letter-spacing:4px;
+  }
+  .foot-tip .gold{color:var(--gold);font-family:"DM Serif Display",serif}
+
+  /* ============ 卡片 4 · 三次巨大回撤 ============ */
+  .crisis-wrap{padding:30px 80px 0}
+  .ccard{
+    position:relative;border-radius:28px;            /* 方形椭圆 */
+    padding:30px 40px 30px 140px;
+    background:linear-gradient(135deg,rgba(239,59,59,.10),rgba(10,12,22,.6));
+    border:1px solid rgba(239,59,59,.3);
+    margin-bottom:22px;overflow:hidden;
+  }
+  .ccard::before{
+    content:attr(data-no);
+    position:absolute;left:40px;top:50%;transform:translateY(-50%);
+    width:76px;height:76px;border-radius:22px;        /* 方形椭圆 */
+    display:flex;align-items:center;justify-content:center;
+    font-family:"DM Serif Display",serif;font-size:40px;font-weight:700;
+    color:#1a0808;
+    background:radial-gradient(circle at 30% 30%,#ffe1ac,var(--gold));
+    box-shadow:0 0 20px rgba(212,178,106,.45);
+  }
+  .ccard .cyear{font-family:"DM Serif Display",serif;font-size:26px;color:#ffd0d2;letter-spacing:4px}
+  .ccard .ctitle{margin-top:8px;font-size:36px;font-weight:900;color:#fff;letter-spacing:2px}
+  .ccard .cdesc{margin-top:10px;font-size:20px;color:#cfd6e4;letter-spacing:1px;line-height:1.6}
+  .ccard .cpct{
+    position:absolute;right:40px;top:50%;transform:translateY(-50%);
+    font-family:"DM Serif Display",serif;font-size:56px;font-weight:700;
+    color:var(--down);text-shadow:0 0 18px rgba(23,178,106,.35);
+    letter-spacing:1px;
+  }
+
+  .summary{
+    margin:24px 80px 0;padding:28px 36px;
+    border:1px solid rgba(212,178,106,.3);border-radius:28px;  /* 方形椭圆 */
+    background:linear-gradient(180deg,rgba(20,26,46,.55),rgba(10,14,26,.3));
+    text-align:center;
+  }
+  .summary .s-title{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:700;font-size:32px;color:var(--gold);letter-spacing:8px;margin-bottom:18px}
+  .summary .s-text{font-size:20px;color:#cfd6e4;line-height:1.8;letter-spacing:2px}
+  .summary .s-text b{color:#fff}
+
+  /* ============ 卡片 5 · 数据洞察 ============ */
+  .insight-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+    padding:20px 80px 0;margin-top:30px;
+  }
+  .icard{
+    border-radius:28px;                    /* 方形椭圆 */
+    padding:34px 28px;text-align:center;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.45));
+    border:1px solid rgba(212,178,106,.3);
+    position:relative;overflow:hidden;
+  }
+  .icard.up{border-color:rgba(239,59,59,.45);background:linear-gradient(180deg,rgba(80,20,20,.45),rgba(10,14,26,.55))}
+  .icard.down{border-color:rgba(23,178,106,.45);background:linear-gradient(180deg,rgba(12,60,40,.45),rgba(10,14,26,.55))}
+  .icard .i-k{font-size:22px;color:#cfd6e4;letter-spacing:3px;font-weight:600}
+  .icard .i-v{
+    margin-top:16px;
+    font-family:"DM Serif Display",serif;
+    font-size:96px;line-height:1;letter-spacing:1px;color:var(--gold);
+    text-shadow:0 0 22px rgba(212,178,106,.3);
+  }
+  .icard.up .i-v{color:var(--up);text-shadow:0 0 22px rgba(239,59,59,.35)}
+  .icard.down .i-v{color:var(--down);text-shadow:0 0 22px rgba(23,178,106,.35)}
+  .icard .i-v .u{font-size:40px;margin-left:4px}
+  .icard .i-sub{margin-top:14px;color:var(--muted);font-size:18px;letter-spacing:3px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+
+  .insight-bar{
+    margin:30px 80px 0;padding:30px 36px;
+    border-radius:28px;
+    background:linear-gradient(135deg,rgba(239,59,59,.12),rgba(23,178,106,.10));
+    border:1px solid rgba(212,178,106,.3);
+  }
+  .ib-title{text-align:center;font-size:22px;color:var(--gold);letter-spacing:6px;margin-bottom:18px}
+  .ib-row{display:flex;align-items:center;gap:18px;margin-top:14px}
+  .ib-no{
+    flex:0 0 48px;height:48px;border-radius:16px;    /* 方形椭圆 */
+    display:flex;align-items:center;justify-content:center;
+    font-family:"DM Serif Display",serif;font-size:24px;color:#1a0808;
+    background:radial-gradient(circle at 30% 30%,#ffe1ac,var(--gold));
+    box-shadow:0 0 14px rgba(212,178,106,.4);
+  }
+  .ib-text{color:#e7ecf3;font-size:22px;line-height:1.5;letter-spacing:1px}
+  .ib-text b{color:var(--gold)}
+  .end-tag{
+    margin:30px 80px 0;
+    text-align:center;
+  }
+  /* 卡片2/3 年度行较多，需压缩间距避免超出卡片高度 */
+  #p2 .page-header,#p3 .page-header{padding-top:80px}
+  #p2 .legend,#p3 .legend{margin-top:24px}
+  #p2 .years,#p3 .years{padding-top:16px}
+  #p2 .row,#p3 .row{padding:5px 0}
+  #p2 .foot-tip,#p3 .foot-tip{margin-top:18px;padding:14px 24px}
+  .end-tag .btn{
+    display:inline-block;padding:14px 40px;
+    border:1px solid rgba(212,178,106,.5);border-radius:22px;   /* 方形椭圆 */
+    color:var(--gold-soft);font-size:22px;letter-spacing:6px;
+    background:linear-gradient(135deg,rgba(212,178,106,.10),transparent);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ============ 卡片 1 · 封面 ============ -->
+<div class="card" id="p1">
+  <div class="bg-word">IXIC</div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="cover-top">
+    <div class="brand">NASDAQ COMPOSITE</div>
+    <div class="brand-sub">纳 斯 达 克 综 合 指 数</div>
+    <div class="hairline"></div>
+  </div>
+
+  <div class="cover-center">
+    <div class="main-title">
+      <div class="h-brand">纳斯达克</div>
+      <div class="kw-row">
+        <span class="kw up">收益率</span>
+        <span class="kw-x">×</span>
+        <span class="kw down">回&nbsp;撤</span>
+      </div>
+    </div>
+    <div class="sub-en">Annual Returns &amp; Drawdowns</div>
+    <div class="years-range">1999 <span class="sep">◆</span> 2025</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat best">
+      <div class="k">最高年涨幅</div>
+      <div class="v">+85.59<span class="u">%</span></div>
+      <div class="y">1999</div>
+    </div>
+    <div class="stat worst">
+      <div class="k">最大年回撤</div>
+      <div class="v">-40.54<span class="u">%</span></div>
+      <div class="y">2008</div>
+    </div>
+    <div class="stat count">
+      <div class="k">历史级危机</div>
+      <div class="v">3<span class="u"> 次</span></div>
+      <div class="y">IN 27 YEARS</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="tag-dashed">← 滑动查看 · 27 年全景 →</div>
+    <div class="cover-hint">红 涨 · 绿 跌 · 暗 黑 金 融 志</div>
+  </div>
+
+  <div class="watermark">NASDAQ · 1999 — 2025</div>
+  <div class="page-num">01 / 05</div>
+</div>
+
+<!-- ============ 卡片 2 · 年度数据 1999–2011 ============ -->
+<div class="card" id="p2">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header">
+    <div class="ph-en">PART · Ⅰ</div>
+    <div class="ph-cn">年度收益率 · 上篇</div>
+    <div class="ph-range">1999 — 2011</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="legend">
+    <div class="chip"><span class="dot up"></span>上涨（正收益）</div>
+    <div class="chip"><span class="dot down"></span>下跌（负收益）</div>
+  </div>
+
+  <div class="years">
+    <div class="spine"></div>
+
+    <div class="row">
+      <div class="cell left"><div class="pill up w-xl">+85.59%</div></div>
+      <div class="year"><span>1999</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill empty"></div></div>
+      <div class="year"><span>2000</span></div>
+      <div class="cell right"><div class="pill down w-l">-39.29%</div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill empty"></div></div>
+      <div class="year"><span>2001</span></div>
+      <div class="cell right"><div class="pill down w-m">-21.05%</div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill empty"></div></div>
+      <div class="year"><span>2002</span></div>
+      <div class="cell right"><div class="pill down w-l">-31.53%</div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-l">+50.01%</div></div>
+      <div class="year"><span>2003</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-s">+8.59%</div></div>
+      <div class="year"><span>2004</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-xs">+1.37%</div></div>
+      <div class="year"><span>2005</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-m">+9.52%</div></div>
+      <div class="year"><span>2006</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-m">+9.81%</div></div>
+      <div class="year"><span>2007</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill empty"></div></div>
+      <div class="year"><span>2008</span></div>
+      <div class="cell right"><div class="pill down w-xl">-40.54%</div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-xl">+43.89%</div></div>
+      <div class="year"><span>2009</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-l">+16.91%</div></div>
+      <div class="year"><span>2010</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill empty"></div></div>
+      <div class="year"><span>2011</span></div>
+      <div class="cell right"><div class="pill down w-xs">-1.80%</div></div>
+    </div>
+  </div>
+  <div class="watermark">PART · Ⅰ</div>
+  <div class="page-num">02 / 05</div>
+</div>
+
+<!-- ============ 卡片 3 · 年度数据 2012–2025 ============ -->
+<div class="card" id="p3">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header">
+    <div class="ph-en">PART · Ⅱ</div>
+    <div class="ph-cn">年度收益率 · 下篇</div>
+    <div class="ph-range">2012 — 2025</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="legend">
+    <div class="chip"><span class="dot up"></span>上涨（正收益）</div>
+    <div class="chip"><span class="dot down"></span>下跌（负收益）</div>
+  </div>
+
+  <div class="years">
+    <div class="spine"></div>
+
+    <div class="row">
+      <div class="cell left"><div class="pill up w-l">+15.91%</div></div>
+      <div class="year"><span>2012</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-xl">+38.32%</div></div>
+      <div class="year"><span>2013</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-l">+13.40%</div></div>
+      <div class="year"><span>2014</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-s">+5.73%</div></div>
+      <div class="year"><span>2015</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-m">+7.50%</div></div>
+      <div class="year"><span>2016</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-xl">+28.24%</div></div>
+      <div class="year"><span>2017</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill empty"></div></div>
+      <div class="year"><span>2018</span></div>
+      <div class="cell right"><div class="pill down w-s">-3.88%</div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-xl">+35.23%</div></div>
+      <div class="year"><span>2019</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-xl">+43.64%</div></div>
+      <div class="year"><span>2020</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-l">+21.39%</div></div>
+      <div class="year"><span>2021</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill empty"></div></div>
+      <div class="year"><span>2022</span></div>
+      <div class="cell right"><div class="pill down w-xl">-33.10%</div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-xl">+43.42%</div></div>
+      <div class="year"><span>2023</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-xl">+28.64%</div></div>
+      <div class="year"><span>2024</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+    <div class="row">
+      <div class="cell left"><div class="pill up w-l">+20.36%</div></div>
+      <div class="year"><span>2025</span></div>
+      <div class="cell right"><div class="pill empty"></div></div>
+    </div>
+  </div>
+
+
+  <div class="watermark">PART · Ⅱ</div>
+  <div class="page-num">03 / 05</div>
+</div>
+
+<!-- ============ 卡片 4 · 三次巨大回撤 ============ -->
+<div class="card" id="p4">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header">
+    <div class="ph-en">THREE · GREAT · DRAWDOWNS</div>
+    <div class="ph-cn">三 次 巨 大 回 撤</div>
+    <div class="ph-range">Historical · Collapses</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="crisis-wrap" style="margin-top:20px">
+    <div class="ccard" data-no="Ⅰ">
+      <div class="cyear">2000 — 2002</div>
+      <div class="ctitle">互联网泡沫破裂</div>
+      <div class="cdesc">科技股信仰崩塌，三年连跌，估值回归理性。</div>
+      <div class="cpct">-80%+</div>
+    </div>
+
+    <div class="ccard" data-no="Ⅱ">
+      <div class="cyear">2008</div>
+      <div class="ctitle">次贷危机引发全球金融海啸</div>
+      <div class="cdesc">流动性枯竭，全球市场同步崩盘，信用体系重构。</div>
+      <div class="cpct">-41.89%</div>
+    </div>
+
+    <div class="ccard" data-no="Ⅲ">
+      <div class="cyear">2022</div>
+      <div class="ctitle">恶性通胀与美联储激进加息</div>
+      <div class="cdesc">高估值成长股杀估值，无风险利率抬升带来重塑。</div>
+      <div class="cpct">-32.97%</div>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="s-title">长 期 主 义 · 的 启 示</div>
+    <div class="s-text">
+      27 年里出现过 <b>3 次</b> 毁灭性回撤，<br/>
+      也出现过 <b>+85.59%</b> 的年度奇迹。<br/>
+      风险与机遇 · 始终并肩而行。
+    </div>
+  </div>
+
+  <div class="end-tag">
+    <div class="btn">滑动查看 · 数据洞察 →</div>
+  </div>
+
+  <div class="watermark">CRISIS</div>
+  <div class="page-num">04 / 05</div>
+</div>
+
+<!-- ============ 卡片 5 · 数据洞察 ============ -->
+<div class="card" id="p5">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header">
+    <div class="ph-en">INSIGHT · THE BIG PICTURE</div>
+    <div class="ph-cn">数 据 洞 察</div>
+    <div class="ph-range">27 Years · Nasdaq</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="insight-grid">
+    <div class="icard up">
+      <div class="i-k">上涨胜率</div>
+      <div class="i-v">74<span class="u">%</span></div>
+      <div class="i-sub">20 / 27 years up</div>
+    </div>
+    <div class="icard">
+      <div class="i-k">最大连涨</div>
+      <div class="i-v">6<span class="u"> 年</span></div>
+      <div class="i-sub">2012 — 2017</div>
+    </div>
+    <div class="icard up">
+      <div class="i-k">单年最高</div>
+      <div class="i-v">+85.59<span class="u">%</span></div>
+      <div class="i-sub">1999 · Dot-com peak</div>
+    </div>
+    <div class="icard down">
+      <div class="i-k">单年最深</div>
+      <div class="i-v">-40.54<span class="u">%</span></div>
+      <div class="i-sub">2008 · Global crisis</div>
+    </div>
+  </div>
+
+  <div class="insight-bar">
+    <div class="ib-title">三 条 投 资 启 示</div>
+    <div class="ib-row">
+      <div class="ib-no">Ⅰ</div>
+      <div class="ib-text">长期持有，<b>胜率 &gt; 70%</b>。短期波动较大，时间是好朋友。</div>
+    </div>
+    <div class="ib-row">
+      <div class="ib-no">Ⅱ</div>
+      <div class="ib-text">财富增长依赖<b>大牛市</b>，错过 6 个最好的年份则收益大幅打折。</div>
+    </div>
+    <div class="ib-row">
+      <div class="ib-no">Ⅲ</div>
+      <div class="ib-text">历史已证明，<b>危机后必有反弹</b>。下跌时的定投或是最好的机会。</div>
+    </div>
+  </div>
+
+  <div class="end-tag">
+    <div class="btn">END · 感 谢 阅 读</div>
+  </div>
+
+  <div class="watermark">FINALE</div>
+  <div class="page-num">05 / 05</div>
+</div>
+
+</body>
+</html>

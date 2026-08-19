@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>银华海外数字经济 · 小红书图文笔记</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#05060b; --bg-1:#0b1020; --bg-2:#141a2e;
+    --line:rgba(255,255,255,.08);
+    --text:#e7ecf3; --muted:#8a93a6;
+    --gold:#d4b26a; --gold-soft:#f2e9d2;
+    --up:#ef3b3b; --up-deep:#a81818;
+    --down:#17b26a; --down-deep:#0b7a46;
+    --blue:#5b8bff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0a0d15}
+  body{
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
+    font-weight:600;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision;
+    color:var(--text);
+    padding:30px 0;
+  }
+  .mono{font-family:"DM Serif Display","Playfair Display",Georgia,serif}
+  .serif-en{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+
+  /* 小红书标准尺寸 1080×1440 */
+  .card{
+    width:1080px; height:1440px;
+    margin:24px auto;
+    position:relative;
+    color:var(--text);
+    background:
+      radial-gradient(1400px 800px at 120% -10%,rgba(212,178,106,.16),transparent 60%),
+      radial-gradient(1200px 700px at -20% 30%,rgba(91,139,255,.12),transparent 60%),
+      radial-gradient(1200px 700px at 120% 110%,rgba(23,178,106,.10),transparent 60%),
+      linear-gradient(180deg,#05060b 0%,#0b1020 50%,#070a14 100%);
+    overflow:hidden;
+    border-radius:8px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+  }
+
+  /* 角标 */
+  .corner{position:absolute;width:72px;height:72px;border:1.5px solid rgba(212,178,106,.55)}
+  .corner.tl{top:54px;left:54px;border-right:none;border-bottom:none}
+  .corner.tr{top:54px;right:54px;border-left:none;border-bottom:none}
+  .corner.bl{bottom:54px;left:54px;border-right:none;border-top:none}
+  .corner.br{bottom:54px;right:54px;border-left:none;border-top:none}
+
+  .page-num{
+    position:absolute;right:80px;bottom:78px;
+    font-family:"DM Serif Display",serif;color:var(--gold);
+    font-size:28px;letter-spacing:4px;z-index:2;
+  }
+  .watermark{
+    position:absolute;left:80px;bottom:82px;
+    color:var(--muted);font-size:24px;letter-spacing:5px;
+    font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;z-index:2;
+  }
+
+  /* 共用页头 */
+  .page-header{padding:100px 80px 0;text-align:center;position:relative;z-index:1}
+  .ph-en{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;letter-spacing:10px;color:var(--gold);font-size:28px}
+  .ph-cn{margin-top:14px;font-size:50px;font-weight:900;letter-spacing:6px}
+  .ph-range{margin-top:10px;font-family:"DM Serif Display",serif;font-size:30px;color:var(--gold-soft);letter-spacing:4px}
+  .ph-line{width:160px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto 0}
+
+  /* ============ 卡片 1 · 封面 ============ */
+  .bg-word{
+    position:absolute;font-family:"DM Serif Display",serif;
+    font-size:520px;line-height:.85;color:transparent;
+    -webkit-text-stroke:1px rgba(91,139,255,.10);
+    letter-spacing:-16px;top:540px;left:-40px;
+    pointer-events:none;user-select:none;
+  }
+  .cover-top{position:absolute;top:120px;left:0;right:0;text-align:center}
+  .brand{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;letter-spacing:12px;color:var(--gold);font-size:32px;margin-left:12px}
+  .brand-sub{margin-top:16px;color:var(--muted);letter-spacing:8px;font-size:18px}
+  .hairline{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px auto 0}
+
+  .cover-center{position:absolute;top:310px;left:0;right:0;text-align:center;padding:0 50px}
+  .main-title{
+    font-family:"Noto Serif SC",serif;font-weight:900;
+    line-height:1.1;letter-spacing:2px;
+  }
+  .main-title .h-brand{
+    display:inline-block;
+    font-size:88px;
+    letter-spacing:8px;
+    background:linear-gradient(180deg,#ffffff 0%,#f2e9d2 55%,#d4b26a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 40px rgba(212,178,106,.22);
+    padding-bottom:12px;
+  }
+  .main-title .h-sub{
+    display:inline-block;margin-top:14px;
+    font-size:42px;letter-spacing:8px;color:#cfd6e4;
+    font-weight:700;line-height:1.55;
+  }
+  .kw-row{
+    margin-top:28px;
+    display:flex;justify-content:center;align-items:center;gap:18px;
+    line-height:1;
+  }
+  .kw-tag{
+    display:inline-block;padding:16px 28px;
+    border-radius:26px;
+    font-family:"Noto Serif SC",serif;font-weight:700;
+    font-size:32px;letter-spacing:4px;
+    background:linear-gradient(135deg,rgba(91,139,255,.18),rgba(212,178,106,.04));
+    border:1px solid rgba(91,139,255,.45);
+    color:var(--gold-soft);
+    box-shadow:0 0 20px rgba(91,139,255,.12),inset 0 0 12px rgba(212,178,106,.08);
+  }
+  .years-range{margin-top:34px;font-family:"DM Serif Display",serif;font-size:42px;letter-spacing:6px;color:var(--gold-soft)}
+  .years-range .sep{color:var(--gold);margin:0 16px;font-size:36px;vertical-align:middle}
+
+  .stats{position:absolute;left:80px;right:80px;bottom:260px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .stat{
+    border:1px solid rgba(212,178,106,.35);
+    border-radius:28px;
+    padding:30px 14px 26px;text-align:center;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.4));
+  }
+  .stat .k{font-family:"Noto Serif SC",serif;font-size:20px;color:#cfd6e4;letter-spacing:3px}
+  .stat .v{margin-top:14px;font-family:"DM Serif Display",serif;font-size:60px;line-height:1;letter-spacing:1px}
+  .stat .v .u{font-size:32px;margin-left:2px}
+  .stat.best .v{color:var(--up);text-shadow:0 0 20px rgba(239,59,59,.35)}
+  .stat.mid .v{color:var(--gold)}
+  .stat.since .v{color:var(--gold-soft)}
+  .stat .y{margin-top:10px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:22px;color:var(--muted);letter-spacing:3px}
+
+  .cover-bottom{position:absolute;left:0;right:0;bottom:140px;text-align:center}
+  .tag-dashed{display:inline-block;padding:12px 30px;border:1px dashed rgba(212,178,106,.5);border-radius:22px;color:#ffe8c4;font-size:20px;letter-spacing:6px}
+  .cover-hint{margin-top:20px;color:var(--muted);font-size:20px;letter-spacing:6px}
+
+  /* ============ 卡片 2 · 季度持仓演化 ============ */
+  .q-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+    padding:14px 46px 0;margin-top:18px;
+  }
+  .q-col{
+    border:1px solid rgba(212,178,106,.3);
+    border-radius:16px;
+    background:linear-gradient(180deg,rgba(20,26,46,.6),rgba(10,14,26,.4));
+    padding:14px 10px 12px;
+    display:flex;flex-direction:column;
+  }
+  .q-col.latest{border-color:rgba(91,139,255,.55);background:linear-gradient(180deg,rgba(20,40,60,.4),rgba(10,14,26,.55))}
+  .q-head{text-align:center;font-family:"DM Serif Display",serif;font-size:20px;color:var(--gold);letter-spacing:2px}
+  .q-col.latest .q-head{color:#dbe8ff}
+  .q-sub{text-align:center;font-size:13px;color:var(--muted);letter-spacing:2px;margin-top:3px;font-family:"Cormorant Garamond",serif;font-style:italic}
+  .q-list{margin-top:10px;display:flex;flex-direction:column;gap:5px}
+  .q-item{
+    border-radius:10px;
+    padding:6px 8px;
+    background:rgba(20,26,46,.5);
+    border:1px solid rgba(255,255,255,.04);
+    position:relative;
+  }
+  .q-item .nm{font-size:14px;color:#e7ecf3;letter-spacing:.3px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .q-item .pct{margin-top:2px;font-family:"DM Serif Display",serif;font-size:16px;color:var(--gold)}
+  .q-item.hl{border-color:rgba(212,178,106,.55);background:linear-gradient(135deg,rgba(212,178,106,.18),rgba(10,14,26,.4))}
+  .q-item.hl .pct{color:var(--gold-soft);text-shadow:0 0 10px rgba(212,178,106,.45)}
+
+  .q-legend{
+    margin:16px 80px 0;text-align:center;font-size:17px;color:var(--muted);letter-spacing:3px;
+  }
+  .q-legend .hl-chip{display:inline-block;width:16px;height:16px;border-radius:5px;background:linear-gradient(135deg,#f3e9d2,#d4b26a);vertical-align:middle;margin-right:6px}
+
+  .q-foot{
+    margin:14px 80px 0;padding:16px 28px;
+    border:1px solid rgba(212,178,106,.3);border-radius:22px;
+    background:linear-gradient(180deg,rgba(20,26,46,.55),rgba(10,14,26,.3));
+    text-align:center;color:#cfd6e4;font-size:17px;line-height:1.6;letter-spacing:1px;
+  }
+  .q-foot b{color:var(--gold)}
+
+  /* ============ 卡片 3 · 基金经理名片 ============ */
+  .mgr-top{display:flex;align-items:center;gap:40px;padding:60px 80px 0}
+  .avatar-wrap{
+    width:180px;height:180px;flex:0 0 180px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#f3e9d2,#d4b26a);
+    padding:3px;
+    box-shadow:0 0 30px rgba(212,178,106,.35);
+  }
+  .avatar{width:100%;height:100%;border-radius:50%;background:#0b1020;object-fit:cover;display:block}
+  .avatar-fallback{
+    width:100%;height:100%;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#141a2e,#0b1020);
+    font-family:"Noto Serif SC",serif;font-weight:900;
+    font-size:88px;color:var(--gold);letter-spacing:4px;
+  }
+  .mgr-text{flex:1}
+  .mgr-name{font-size:72px;font-weight:900;letter-spacing:4px;line-height:1}
+  .mgr-role{margin-top:14px;font-size:22px;color:var(--gold);letter-spacing:3px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+  .mgr-title{margin-top:10px;font-size:22px;color:#cfd6e4;letter-spacing:2px}
+
+  .mgr-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
+    padding:40px 80px 0;
+  }
+  .mgr-cell{
+    border:1px solid rgba(212,178,106,.3);
+    border-radius:24px;
+    padding:24px 26px;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.4));
+  }
+  .mgr-cell .k{font-size:20px;color:#cfd6e4;letter-spacing:3px}
+  .mgr-cell .v{margin-top:12px;font-family:"DM Serif Display",serif;font-size:52px;line-height:1;color:var(--gold)}
+  .mgr-cell.hot .v{color:var(--up);text-shadow:0 0 18px rgba(239,59,59,.35)}
+  .mgr-cell .u{font-size:28px;margin-left:4px;color:var(--gold-soft)}
+  .mgr-cell .sub{margin-top:10px;color:var(--muted);font-size:18px;letter-spacing:2px}
+
+  .mgr-bio{
+    margin:28px 80px 0;
+    padding:26px 30px;
+    border:1px dashed rgba(212,178,106,.35);
+    border-radius:24px;
+    background:linear-gradient(135deg,rgba(212,178,106,.06),rgba(10,14,26,.3));
+    color:#e7ecf3;font-size:20px;line-height:1.8;letter-spacing:1px;
+  }
+  .mgr-bio b{color:var(--gold)}
+
+  .mgr-idea{margin:24px 80px 0}
+  .mgr-idea-title{text-align:center;font-size:22px;color:var(--gold);letter-spacing:6px;margin-bottom:16px}
+  .mgr-idea-row{display:flex;gap:16px;align-items:flex-start;margin-top:12px}
+  .mgr-idea-no{
+    flex:0 0 40px;height:40px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"DM Serif Display",serif;font-size:20px;color:#1a0808;
+    background:radial-gradient(circle at 30% 30%,#ffe1ac,var(--gold));
+    box-shadow:0 0 12px rgba(212,178,106,.4);
+  }
+  .mgr-idea-text{color:#e7ecf3;font-size:20px;line-height:1.5;letter-spacing:1px}
+  .mgr-idea-text b{color:var(--gold)}
+
+  /* ============ 卡片 4 · 投资习惯 ============ */
+  .insight-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:22px;
+    padding:30px 80px 0;margin-top:20px;
+  }
+  .icard{
+    border-radius:26px;
+    padding:30px 26px;text-align:center;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.45));
+    border:1px solid rgba(212,178,106,.3);
+    position:relative;overflow:hidden;
+    min-height:220px;
+  }
+  .icard.up{border-color:rgba(91,139,255,.45);background:linear-gradient(180deg,rgba(20,40,60,.45),rgba(10,14,26,.55))}
+  .icard.down{border-color:rgba(23,178,106,.45);background:linear-gradient(180deg,rgba(12,60,40,.45),rgba(10,14,26,.55))}
+  .icard .i-k{font-size:22px;color:#cfd6e4;letter-spacing:3px;font-weight:600}
+  .icard .i-v{
+    margin-top:14px;
+    font-family:"DM Serif Display",serif;
+    font-size:82px;line-height:1;letter-spacing:1px;color:var(--gold);
+    text-shadow:0 0 22px rgba(212,178,106,.3);
+  }
+  .icard.up .i-v{color:var(--blue);text-shadow:0 0 22px rgba(91,139,255,.35)}
+  .icard.down .i-v{color:var(--down);text-shadow:0 0 22px rgba(23,178,106,.35)}
+  .icard .i-v .u{font-size:34px;margin-left:4px}
+  .icard .i-sub{margin-top:14px;color:var(--muted);font-size:18px;letter-spacing:2px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+  .icard .i-extra{margin-top:8px;color:#cfd6e4;font-size:16px;letter-spacing:1px;line-height:1.5}
+
+  .trend-bar{
+    margin:22px 80px 0;padding:22px 28px;
+    border-radius:24px;
+    background:linear-gradient(135deg,rgba(91,139,255,.10),rgba(212,178,106,.10));
+    border:1px solid rgba(212,178,106,.3);
+  }
+  .trend-title{text-align:center;font-size:20px;color:var(--gold);letter-spacing:6px;margin-bottom:12px}
+  .trend-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .trend-cell{text-align:center}
+  .trend-cell .q{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:16px;color:var(--muted);letter-spacing:1px}
+  .trend-cell .v{margin-top:4px;font-family:"DM Serif Display",serif;font-size:32px;color:var(--blue)}
+  .trend-cell.top10 .v{color:var(--gold-soft)}
+  .trend-arrow{text-align:center;margin-top:10px;color:var(--blue);font-size:22px;letter-spacing:8px}
+
+  .habit-sum{
+    margin:20px 80px 0;padding:22px 30px;
+    border:1px dashed rgba(212,178,106,.35);border-radius:24px;
+    background:linear-gradient(135deg,rgba(212,178,106,.06),rgba(10,14,26,.3));
+    text-align:center;color:#e7ecf3;font-size:19px;line-height:1.7;letter-spacing:1px;
+  }
+  .habit-sum b{color:var(--gold)}
+
+  /* ============ 卡片 5 · 下一期推测 ============ */
+  .forecast-main{
+    margin:40px 80px 0;padding:40px 40px;
+    border-radius:28px;
+    background:linear-gradient(135deg,rgba(91,139,255,.14),rgba(212,178,106,.10));
+    border:1px solid rgba(91,139,255,.35);
+    text-align:center;
+  }
+  .forecast-main .fm-label{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:24px;color:var(--gold);letter-spacing:6px}
+  .forecast-main .fm-text{
+    margin-top:18px;
+    font-size:36px;font-weight:900;line-height:1.4;letter-spacing:2px;
+    color:#fff;
+  }
+  .forecast-main .fm-text b{color:#dbe8ff;background:linear-gradient(135deg,rgba(91,139,255,.28),rgba(20,14,26,.18));padding:4px 10px;border-radius:12px}
+
+  .forecast-reasons{
+    margin:26px 80px 0;padding:28px 30px;
+    border:1px solid rgba(212,178,106,.3);border-radius:28px;
+    background:linear-gradient(180deg,rgba(20,26,46,.6),rgba(10,14,26,.4));
+  }
+  .fr-title{text-align:center;font-size:22px;color:var(--gold);letter-spacing:6px;margin-bottom:18px}
+  .fr-row{display:flex;gap:16px;align-items:flex-start;margin-top:12px}
+  .fr-no{
+    flex:0 0 48px;height:48px;border-radius:16px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"DM Serif Display",serif;font-size:22px;color:#1a0808;
+    background:radial-gradient(circle at 30% 30%,#ffe1ac,var(--gold));
+    box-shadow:0 0 12px rgba(212,178,106,.4);
+  }
+  .fr-text{color:#e7ecf3;font-size:20px;line-height:1.5;letter-spacing:1px}
+  .fr-text b{color:var(--gold)}
+
+  .risk-tip{
+    margin:24px 80px 0;padding:18px 26px;
+    border-radius:22px;
+    border:1px solid rgba(23,178,106,.4);
+    background:linear-gradient(135deg,rgba(23,178,106,.12),rgba(10,14,26,.3));
+    text-align:center;color:#c7f3dd;font-size:18px;letter-spacing:3px;line-height:1.6;
+  }
+  .end-tag{margin:24px 80px 0;text-align:center}
+  .end-tag .btn{
+    display:inline-block;padding:14px 40px;
+    border:1px solid rgba(212,178,106,.5);border-radius:22px;
+    color:var(--gold-soft);font-size:22px;letter-spacing:6px;
+    background:linear-gradient(135deg,rgba(212,178,106,.10),transparent);
+  }
+
+  /* 全站免责声明 */
+  .disclaimer{
+    position:absolute;left:140px;right:140px;bottom:22px;
+    text-align:center;font-size:13px;color:rgba(207,214,228,.55);
+    letter-spacing:2px;font-family:"Noto Serif SC",serif;font-weight:400;
+    z-index:3;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ============ 卡片 1 · 封面 ============ -->
+<div class="card" id="p1">
+  <div class="bg-word">DIGITAL</div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="cover-top">
+    <div class="brand">YINHUA · OVERSEAS DIGITAL</div>
+    <div class="brand-sub">银 华 · 海 外 数 字 经 济</div>
+    <div class="hairline"></div>
+  </div>
+
+  <div class="cover-center">
+    <div class="main-title">
+      <div class="h-brand">银华海外数字经济</div>
+      <div class="h-sub">QDII 混合 · 016702<br/>基金经理 马君</div>
+    </div>
+    <div class="kw-row">
+      <span class="kw-tag">量化选股</span>
+      <span class="kw-tag">美股科技</span>
+      <span class="kw-tag">英伟达</span>
+    </div>
+    <div class="years-range">016702 <span class="sep">◆</span> 2023 — 2026</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat best">
+      <div class="k">近 1 年收益</div>
+      <div class="v">+48.17<span class="u">%</span></div>
+      <div class="y">PAST 12 MONTHS</div>
+    </div>
+    <div class="stat best">
+      <div class="k">近 3 年收益</div>
+      <div class="v">+106.34<span class="u">%</span></div>
+      <div class="y">3-YEAR TOTAL</div>
+    </div>
+    <div class="stat since">
+      <div class="k">成立来回报</div>
+      <div class="v">+104.44<span class="u">%</span></div>
+      <div class="y">SINCE 2023-03-15</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="tag-dashed">← 滑动查看 · 马君的持仓密码 →</div>
+    <div class="cover-hint">经 理 · 持 仓 · 习 惯 · 推 测</div>
+  </div>
+
+  <div class="disclaimer">数据获取 2026-05-13 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="watermark">YINHUA · 016702</div>
+  <div class="page-num">01 / 05</div>
+</div>
+
+<!-- ============ 卡片 2 · 季度持仓演化（2025Q2-2026Q1） ============ -->
+<div class="card" id="p2">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">HOLDINGS · EVOLUTION</div>
+    <div class="ph-cn">近 四 季 · 持 仓 演 化</div>
+    <div class="ph-range">2025 Q2 — 2026 Q1</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="q-legend" style="margin-top:26px">
+    <span class="hl-chip"></span>连续四季在 Top10 的核心底仓
+  </div>
+
+  <div class="q-grid">
+    <!-- 2025 Q2 -->
+    <div class="q-col">
+      <div class="q-head">2025 · Q2</div>
+      <div class="q-sub">英伟达登顶</div>
+      <div class="q-list">
+        <div class="q-item hl"><div class="nm">英伟达 NVDA</div><div class="pct">9.42%</div></div>
+        <div class="q-item hl"><div class="nm">微软 MSFT</div><div class="pct">8.67%</div></div>
+        <div class="q-item hl"><div class="nm">谷歌-A GOOGL</div><div class="pct">7.46%</div></div>
+        <div class="q-item hl"><div class="nm">亚马逊 AMZN</div><div class="pct">6.53%</div></div>
+        <div class="q-item"><div class="nm">Meta META</div><div class="pct">6.26%</div></div>
+        <div class="q-item hl"><div class="nm">博通 AVGO</div><div class="pct">5.87%</div></div>
+        <div class="q-item hl"><div class="nm">苹果 AAPL</div><div class="pct">5.48%</div></div>
+        <div class="q-item"><div class="nm">奈飞 NFLX</div><div class="pct">5.18%</div></div>
+        <div class="q-item"><div class="nm">美光科技 MU</div><div class="pct">3.63%</div></div>
+        <div class="q-item hl"><div class="nm">特斯拉 TSLA</div><div class="pct">2.83%</div></div>
+      </div>
+    </div>
+    <!-- 2025 Q3 -->
+    <div class="q-col">
+      <div class="q-head">2025 · Q3</div>
+      <div class="q-sub">微软紧随其后</div>
+      <div class="q-list">
+        <div class="q-item hl"><div class="nm">英伟达 NVDA</div><div class="pct">9.26%</div></div>
+        <div class="q-item hl"><div class="nm">微软 MSFT</div><div class="pct">8.87%</div></div>
+        <div class="q-item hl"><div class="nm">谷歌-A GOOGL</div><div class="pct">8.53%</div></div>
+        <div class="q-item hl"><div class="nm">苹果 AAPL</div><div class="pct">8.48%</div></div>
+        <div class="q-item hl"><div class="nm">亚马逊 AMZN</div><div class="pct">6.80%</div></div>
+        <div class="q-item"><div class="nm">Meta META</div><div class="pct">5.74%</div></div>
+        <div class="q-item hl"><div class="nm">博通 AVGO</div><div class="pct">4.46%</div></div>
+        <div class="q-item hl"><div class="nm">特斯拉 TSLA</div><div class="pct">3.64%</div></div>
+        <div class="q-item"><div class="nm">迈威尔科技 MRVL</div><div class="pct">2.38%</div></div>
+        <div class="q-item"><div class="nm">台积电 TSM</div><div class="pct">2.17%</div></div>
+      </div>
+    </div>
+    <!-- 2025 Q4 -->
+    <div class="q-col">
+      <div class="q-head">2025 · Q4</div>
+      <div class="q-sub">前四巨头稳定</div>
+      <div class="q-list">
+        <div class="q-item hl"><div class="nm">英伟达 NVDA</div><div class="pct">9.43%</div></div>
+        <div class="q-item hl"><div class="nm">谷歌-A GOOGL</div><div class="pct">9.16%</div></div>
+        <div class="q-item hl"><div class="nm">微软 MSFT</div><div class="pct">8.84%</div></div>
+        <div class="q-item hl"><div class="nm">苹果 AAPL</div><div class="pct">8.50%</div></div>
+        <div class="q-item hl"><div class="nm">亚马逊 AMZN</div><div class="pct">6.75%</div></div>
+        <div class="q-item"><div class="nm">Meta META</div><div class="pct">5.79%</div></div>
+        <div class="q-item hl"><div class="nm">博通 AVGO</div><div class="pct">4.85%</div></div>
+        <div class="q-item hl"><div class="nm">特斯拉 TSLA</div><div class="pct">3.99%</div></div>
+        <div class="q-item"><div class="nm">美光科技 MU</div><div class="pct">3.32%</div></div>
+        <div class="q-item"><div class="nm">超威半导体 AMD</div><div class="pct">2.99%</div></div>
+      </div>
+    </div>
+    <!-- 2026 Q1 -->
+    <div class="q-col latest">
+      <div class="q-head">2026 · Q1</div>
+      <div class="q-sub">台积电新进</div>
+      <div class="q-list">
+        <div class="q-item hl"><div class="nm">英伟达 NVDA</div><div class="pct">9.26%</div></div>
+        <div class="q-item hl"><div class="nm">谷歌-A GOOGL</div><div class="pct">8.06%</div></div>
+        <div class="q-item hl"><div class="nm">苹果 AAPL</div><div class="pct">6.37%</div></div>
+        <div class="q-item hl"><div class="nm">亚马逊 AMZN</div><div class="pct">5.62%</div></div>
+        <div class="q-item hl"><div class="nm">博通 AVGO</div><div class="pct">4.69%</div></div>
+        <div class="q-item hl"><div class="nm">特斯拉 TSLA</div><div class="pct">4.63%</div></div>
+        <div class="q-item"><div class="nm">美光科技 MU</div><div class="pct">3.92%</div></div>
+        <div class="q-item"><div class="nm">台积电 TSM</div><div class="pct">3.90%</div></div>
+        <div class="q-item"><div class="nm">超威半导体 AMD</div><div class="pct">3.71%</div></div>
+        <div class="q-item hl"><div class="nm">微软 MSFT</div><div class="pct">3.64%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-foot">
+    <b>英伟达 × 谷歌 × 苹果 × 亚马逊 × 博通 × 特斯拉 × 微软</b> 连续四季稳居 Top10（金色高亮），
+    <br/>合计仓位约 <b>42%</b>，构成马君的核心底仓；微软仓位在最新一季大幅回落。
+  </div>
+
+  <div class="disclaimer">数据获取 2026-05-13 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="watermark">HOLDINGS</div>
+  <div class="page-num">02 / 05</div>
+</div>
+
+<!-- ============ 卡片 3 · 基金经理名片 ============ -->
+<div class="card" id="p3">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">THE MANAGER</div>
+    <div class="ph-cn">基 金 经 理 · 马 君</div>
+    <div class="ph-range">Ma Jun · Yinhua Fund</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="mgr-top" style="padding-top:40px">
+    <div class="avatar-wrap">
+      <img class="avatar" src="https://pdf.dfcfw.com/pdf/H8_30185328_1.PNG" alt="马君" />
+    </div>
+    <div class="mgr-text">
+      <div class="mgr-name">马 君</div>
+      <div class="mgr-role">Quantitative Fund Manager</div>
+      <div class="mgr-title">银华基金 · 量化投资老将 · 硕士学位</div>
+    </div>
+  </div>
+
+  <div class="mgr-grid">
+    <div class="mgr-cell hot">
+      <div class="k">本基金任职回报</div>
+      <div class="v">+104.44<span class="u">%</span></div>
+      <div class="sub">2023-03-15 至今</div>
+    </div>
+    <div class="mgr-cell">
+      <div class="k">任职时长</div>
+      <div class="v">3<span class="u">年 61天</span></div>
+      <div class="sub">Since 2023-03-15</div>
+    </div>
+    <div class="mgr-cell">
+      <div class="k">管理规模（本基金）</div>
+      <div class="v">23.08<span class="u">亿</span></div>
+      <div class="sub">截至 2026-05-12</div>
+    </div>
+    <div class="mgr-cell">
+      <div class="k">从业年限</div>
+      <div class="v">18<span class="u">年+</span></div>
+      <div class="sub">2008 年入行</div>
+    </div>
+  </div>
+
+  <div class="mgr-bio">
+    马君女士，<b>硕士学位，2008 年 7 月加入大成基金任助理金融工程师</b>。2009 年 3 月加盟<b>银华基金</b>，历任研究员及基金经理助理。2012 年 9 月起担任基金经理，拥有<b>超过 13 年的基金经理任职经验</b>，擅长量化选股及海外投资。
+  </div>
+
+  <div class="mgr-idea">
+    <div class="mgr-idea-title">投 资 风 格 · 三 个 关 键 词</div>
+    <div class="mgr-idea-row">
+      <div class="mgr-idea-no">Ⅰ</div>
+      <div class="mgr-idea-text"><b>量化选股配置</b>：采用量化模型精选海外科技龙头，美股持仓占比极高，集中度适中。</div>
+    </div>
+    <div class="mgr-idea-row">
+      <div class="mgr-idea-no">Ⅱ</div>
+      <div class="mgr-idea-text"><b>核心持仓极度稳定</b>：英伟达、谷歌、苹果、亚马逊、微软等连续多季在 Top10，英伟达更是常年第一。</div>
+    </div>
+    <div class="mgr-idea-row">
+      <div class="mgr-idea-no">Ⅲ</div>
+      <div class="mgr-idea-text"><b>FAANG+MAG7 为核心</b>：以美股科技巨头为底仓，适当配置半导体产业链公司。</div>
+    </div>
+  </div>
+
+  <div class="disclaimer">数据获取 2026-05-13 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="watermark">MANAGER</div>
+  <div class="page-num">03 / 05</div>
+</div>
+
+<!-- ============ 卡片 4 · 投资习惯 ============ -->
+<div class="card" id="p4">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">TRADING · HABITS</div>
+    <div class="ph-cn">马 君 · 四 个 交 易 习 惯</div>
+    <div class="ph-range">Derived from 4 quarters</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="insight-grid" style="margin-top:10px">
+    <div class="icard up">
+      <div class="i-k">核心持仓稳定度高</div>
+      <div class="i-v">7<span class="u">/10</span></div>
+      <div class="i-sub">Stability · 70%</div>
+      <div class="i-extra">近 4 季 7 只股票持续在 Top10<br/>英伟达常年稳居第一重仓</div>
+    </div>
+    <div class="icard up">
+      <div class="i-k">Top10 集中度</div>
+      <div class="i-v">53.8<span class="u">%</span></div>
+      <div class="i-sub">中度集中</div>
+      <div class="i-extra">前十大持仓占比约 54%<br/>英伟达常年保持 9% 左右仓位</div>
+    </div>
+    <div class="icard">
+      <div class="i-k">纯美股配置</div>
+      <div class="i-v">100<span class="u">%</span></div>
+      <div class="i-sub">US Equities Only</div>
+      <div class="i-extra">Top10 全部为美股<br/>聚焦科技龙头 FAANG+MAG7</div>
+    </div>
+    <div class="icard down">
+      <div class="i-k">每季换仓股票数</div>
+      <div class="i-v">1<span class="u">~2</span></div>
+      <div class="i-sub">Turnover · 偏低</div>
+      <div class="i-extra">最新一季新进 1 只（台积电）<br/>退出 1 只（Meta），操作稳健</div>
+    </div>
+  </div>
+
+  <div class="trend-bar">
+    <div class="trend-title">T O P 1 0 · 集 中 度 演 化</div>
+    <div class="trend-row">
+      <div class="trend-cell top10"><div class="q">2025 Q2</div><div class="v">61.3%</div></div>
+      <div class="trend-cell top10"><div class="q">2025 Q3</div><div class="v">60.3%</div></div>
+      <div class="trend-cell top10"><div class="q">2025 Q4</div><div class="v">63.6%</div></div>
+      <div class="trend-cell top10"><div class="q">2026 Q1</div><div class="v">53.8%</div></div>
+    </div>
+    <div class="trend-arrow">→ → → ↘ 最新一季集中度下降</div>
+  </div>
+
+  <div class="habit-sum">
+    <b>习惯总结</b>：马君采用<b>量化选股 + 核心卫星策略</b>，以英伟达、谷歌、苹果、微软、亚马逊等美股科技巨头为压舱石，
+    适当配置博通、特斯拉、AMD 等弹性标的，整体换手率偏低，风格稳定。
+  </div>
+
+  <div class="disclaimer">数据获取 2026-05-13 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="watermark">HABITS</div>
+  <div class="page-num">04 / 05</div>
+</div>
+
+<!-- ============ 卡片 5 · 下一期推测 ============ -->
+<div class="card" id="p5">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">NEXT · QUARTER · FORECAST</div>
+    <div class="ph-cn">下 一 期 持 仓 · 推 测</div>
+    <div class="ph-range">2026 Q2 · Probable</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="forecast-main">
+    <div class="fm-label">MAIN FORECAST</div>
+    <div class="fm-text">
+      继续沿 <b>FAANG+MAG7 + 半导体</b> 配置，<br/>
+      <b>英伟达</b> 作为第一重仓的地位难以撼动，<br/>
+      <b>台积电、AMD</b> 可能进一步增持。
+    </div>
+  </div>
+
+  <div class="forecast-reasons">
+    <div class="fr-title">三 条 推 理 依 据</div>
+    <div class="fr-row">
+      <div class="fr-no">Ⅰ</div>
+      <div class="fr-text"><b>英伟达的核心地位不变</b>：近 4 季英伟达仓位稳定在 9%-9.5% 之间，始终为第一大重仓股，体现极强的信心。</div>
+    </div>
+    <div class="fr-row">
+      <div class="fr-no">Ⅱ</div>
+      <div class="fr-text"><b>微软仓位大幅下降值得关注</b>：最新一季微软从 8.84% 骤降至 3.64%，是主动减仓还是被动调整需要观察。</div>
+    </div>
+    <div class="fr-row">
+      <div class="fr-no">Ⅲ</div>
+      <div class="fr-text"><b>台积电新进 Top10</b>：台积电最新一季进入前十大，叠加 AMD 增持、美光仓位提升，显示对半导体产业链的看好。</div>
+    </div>
+  </div>
+
+  <div class="risk-tip">
+    ⚠ 本推测仅基于公开季报规律外推，非投资建议<br/>
+    基金持仓每季变动，历史习惯 ≠ 未来动作 · 请理性决策
+  </div>
+
+  <div class="end-tag">
+    <div class="btn">END · 关 注 获 取 下 季 复 盘</div>
+  </div>
+
+  <div class="disclaimer">数据获取 2026-05-13 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="watermark">FORECAST</div>
+  <div class="page-num">05 / 05</div>
+</div>
+
+</body>
+</html>

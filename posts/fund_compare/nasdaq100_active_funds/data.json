@@ -1,0 +1,1328 @@
+{
+  "update_date": "2026-07-21",
+  "count": 20,
+  "_warnings": [
+    "017204_missing_market_distribution"
+  ],
+  "funds": [
+    {
+      "code": "017437",
+      "display_name": "华宝纳斯达克精选",
+      "name": "华宝纳斯达克精选股票发起式(QDII)C",
+      "return_1y": "7.51",
+      "drawdown_1y": "20.44",
+      "purchase_limit": "1000元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 89.84
+      },
+      "focus_direction": "科技巨头",
+      "top10_holdings": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "8.14%"
+        },
+        {
+          "code": "MRVL",
+          "name": "迈威尔科技",
+          "pct": "7.98%"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "6.73%"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "6.35%"
+        },
+        {
+          "code": "NFLX",
+          "name": "奈飞",
+          "pct": "6.12%"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "5.89%"
+        },
+        {
+          "code": "TSLA",
+          "name": "特斯拉",
+          "pct": "5.63%"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "5.55%"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "5.29%"
+        },
+        {
+          "code": "SMCI",
+          "name": "超微电脑",
+          "pct": "4.94%"
+        }
+      ]
+    },
+    {
+      "code": "014002",
+      "display_name": "浦银安盛全球智能科技",
+      "name": "浦银安盛全球智能科技(QDII)C",
+      "return_1y": "52.60",
+      "drawdown_1y": "28.19",
+      "purchase_limit": "0",
+      "purchase_status": "暂停",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 73.31,
+        "日本": 9.61,
+        "韩国": 7.59
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "9.52%"
+        },
+        {
+          "code": "285A",
+          "name": "KIOXIA",
+          "pct": "8.81%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "8.50%"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "7.82%"
+        },
+        {
+          "code": "WDC",
+          "name": "西部数据",
+          "pct": "7.58%"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "7.53%"
+        },
+        {
+          "code": "COHR",
+          "name": "Coherent Corp",
+          "pct": "3.95%"
+        },
+        {
+          "code": "TER",
+          "name": "泰瑞达",
+          "pct": "3.95%"
+        },
+        {
+          "code": "005930",
+          "name": "三星电子",
+          "pct": "3.83%"
+        },
+        {
+          "code": "000660",
+          "name": "SK海力士",
+          "pct": "3.77%"
+        }
+      ]
+    },
+    {
+      "code": "021277",
+      "display_name": "广发全球精选",
+      "name": "广发全球精选股票(QDII)人民币C",
+      "return_1y": "42.03",
+      "drawdown_1y": "20.22",
+      "purchase_limit": "200元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "韩国": 3.08,
+        "日本": 7.56,
+        "中国香港": 12.81,
+        "中国内地": 17.43,
+        "美国": 46.65
+      },
+      "focus_direction": "科技",
+      "top10_holdings": [
+        {
+          "code": "02513",
+          "name": "智谱",
+          "pct": "9.01%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "6.16%"
+        },
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "4.50%"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "4.35%"
+        },
+        {
+          "code": "285A",
+          "name": "KIOXIA",
+          "pct": "4.07%"
+        },
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "3.89%"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "3.74%"
+        },
+        {
+          "code": "AMAT",
+          "name": "应用材料",
+          "pct": "3.50%"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "3.37%"
+        },
+        {
+          "code": "300408",
+          "name": "三环集团",
+          "pct": "3.10%"
+        }
+      ]
+    },
+    {
+      "code": "017731",
+      "display_name": "嘉实全球产业升级",
+      "name": "嘉实全球产业升级股票发起式(QDII)C",
+      "return_1y": "106.18",
+      "drawdown_1y": "22.73",
+      "purchase_limit": "100元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "中国内地": 42.56,
+        "美国": 32.63,
+        "中国香港": 8.42,
+        "日本": 1.59
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "3.54%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "3.40%"
+        },
+        {
+          "code": "KLAC",
+          "name": "科磊",
+          "pct": "3.20%"
+        },
+        {
+          "code": "688498",
+          "name": "源杰科技",
+          "pct": "3.16%"
+        },
+        {
+          "code": "MPWR",
+          "name": "Monolithic Power Systems Inc",
+          "pct": "3.14%"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "3.05%"
+        },
+        {
+          "code": "688361",
+          "name": "中科飞测",
+          "pct": "3.04%"
+        },
+        {
+          "code": "688256",
+          "name": "寒武纪",
+          "pct": "2.93%"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "2.93%"
+        },
+        {
+          "code": "03986",
+          "name": "兆易创新",
+          "pct": "1.99%"
+        }
+      ]
+    },
+    {
+      "code": "000043",
+      "display_name": "嘉实美国成长",
+      "name": "嘉实美国成长股票人民币",
+      "return_1y": "17.38",
+      "drawdown_1y": "14.86",
+      "purchase_limit": "100元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 94.94
+      },
+      "focus_direction": "科技巨头",
+      "top10_holdings": [
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "8.29%"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "7.81%"
+        },
+        {
+          "code": "GOOGL",
+          "name": "谷歌-A",
+          "pct": "5.66%"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "4.58%"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "4.53%"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "4.11%"
+        },
+        {
+          "code": "WDC",
+          "name": "西部数据",
+          "pct": "3.36%"
+        },
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "2.69%"
+        },
+        {
+          "code": "LLY",
+          "name": "礼来",
+          "pct": "2.61%"
+        },
+        {
+          "code": "TSLA",
+          "name": "特斯拉",
+          "pct": "2.36%"
+        }
+      ]
+    },
+    {
+      "code": "161128",
+      "display_name": "易方达标普信息科技",
+      "name": "易方达标普信息科技指数(QDII-LOF)A(人民币)",
+      "return_1y": "18.90",
+      "drawdown_1y": "18.87",
+      "purchase_limit": "0",
+      "purchase_status": "暂停",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 91.31
+      },
+      "focus_direction": "科技巨头",
+      "top10_holdings": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "18.05%"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "15.83%"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "10.32%"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "6.66%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "4.85%"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "3.53%"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "2.46%"
+        },
+        {
+          "code": "AMAT",
+          "name": "应用材料",
+          "pct": "2.14%"
+        },
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "2.02%"
+        },
+        {
+          "code": "CSCO",
+          "name": "思科",
+          "pct": "1.73%"
+        }
+      ]
+    },
+    {
+      "code": "012922",
+      "display_name": "易方达全球成长精选",
+      "name": "易方达全球成长精选混合(QDII)人民币C",
+      "return_1y": "123.97",
+      "drawdown_1y": "27.16",
+      "purchase_limit": "0",
+      "purchase_status": "暂停",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 42.76,
+        "中国内地": 28.54,
+        "日本": 8.53,
+        "中国香港": 8.03,
+        "韩国": 3.5,
+        "中国台湾": 0.23,
+        "德国": 0.15
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "6.41%"
+        },
+        {
+          "code": "285A",
+          "name": "KIOXIA",
+          "pct": "5.89%"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "5.54%"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "4.96%"
+        },
+        {
+          "code": "300502",
+          "name": "新易盛",
+          "pct": "4.68%"
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "pct": "4.61%"
+        },
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "4.46%"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "4.26%"
+        },
+        {
+          "code": "688498",
+          "name": "源杰科技",
+          "pct": "3.34%"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "3.33%"
+        }
+      ]
+    },
+    {
+      "code": "021842",
+      "display_name": "国富全球科技",
+      "name": "国富全球科技互联混合(QDII)人民币C",
+      "return_1y": "73.85",
+      "drawdown_1y": "21.24",
+      "purchase_limit": "10元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 71.95,
+        "日本": 8.74,
+        "中国香港": 3.47,
+        "中国内地": 1.14
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "8.42%"
+        },
+        {
+          "code": "MKSI",
+          "name": "MKS Inc",
+          "pct": "7.47%"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "7.47%"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "7.17%"
+        },
+        {
+          "code": "GLW",
+          "name": "康宁",
+          "pct": "5.37%"
+        },
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "4.38%"
+        },
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "3.68%"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "3.21%"
+        },
+        {
+          "code": "6857",
+          "name": "爱德万测试",
+          "pct": "2.75%"
+        },
+        {
+          "code": "NOK",
+          "name": "诺基亚",
+          "pct": "2.66%"
+        }
+      ]
+    },
+    {
+      "code": "539002",
+      "display_name": "建信新兴市场混合",
+      "name": "建信新兴市场混合(QDII)A",
+      "return_1y": "93.66",
+      "drawdown_1y": "23.17",
+      "purchase_limit": "100元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 59.65,
+        "韩国": 17.51,
+        "中国台湾": 2.33,
+        "日本": 2.11
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "9.68%"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "9.38%"
+        },
+        {
+          "code": "000660",
+          "name": "SK海力士",
+          "pct": "8.94%"
+        },
+        {
+          "code": "005930",
+          "name": "三星电子",
+          "pct": "7.80%"
+        },
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "7.16%"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "4.18%"
+        },
+        {
+          "code": "WDC",
+          "name": "西部数据",
+          "pct": "4.18%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "3.99%"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "3.56%"
+        },
+        {
+          "code": "GLW",
+          "name": "康宁",
+          "pct": "3.35%"
+        }
+      ]
+    },
+    {
+      "code": "015202",
+      "display_name": "汇添富全球移动互联",
+      "name": "汇添富全球移动互联混合(QDII)人民币C",
+      "return_1y": "21.89",
+      "drawdown_1y": "16.13",
+      "purchase_limit": "700元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 92.77,
+        "中国香港": 1.77
+      },
+      "focus_direction": "科技巨头",
+      "top10_holdings": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "7.74%"
+        },
+        {
+          "code": "GOOGL",
+          "name": "谷歌-A",
+          "pct": "6.53%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "5.74%"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "4.21%"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "4.14%"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "4.06%"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "3.55%"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "3.39%"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "3.06%"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "2.97%"
+        }
+      ]
+    },
+    {
+      "code": "024239",
+      "display_name": "华夏全球科技先锋",
+      "name": "华夏全球科技先锋混合(QDII)C",
+      "return_1y": "44.59",
+      "drawdown_1y": "33.40",
+      "purchase_limit": "5000元",
+      "purchase_status": "限小额",
+      "effectively_closed": false,
+      "market_distribution": {
+        "中国内地": 36.61,
+        "中国香港": 23.17,
+        "美国": 16.66
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "3.11%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "2.85%"
+        },
+        {
+          "code": "MRVL",
+          "name": "迈威尔科技",
+          "pct": "1.60%"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "1.57%"
+        },
+        {
+          "code": "UMC",
+          "name": "联华电子",
+          "pct": "1.51%"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "1.51%"
+        },
+        {
+          "code": "STX",
+          "name": "希捷科技",
+          "pct": "1.49%"
+        },
+        {
+          "code": "WDC",
+          "name": "西部数据",
+          "pct": "1.46%"
+        },
+        {
+          "code": "01888",
+          "name": "建滔积层板",
+          "pct": "1.38%"
+        },
+        {
+          "code": "00522",
+          "name": "ASMPT",
+          "pct": "1.37%"
+        }
+      ]
+    },
+    {
+      "code": "016702",
+      "display_name": "银华海外数字经济",
+      "name": "银华海外数字经济量化选股混合发起式(QDII)C",
+      "return_1y": "27.49",
+      "drawdown_1y": "18.20",
+      "purchase_limit": "1000元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 87.89,
+        "中国香港": 2.55
+      },
+      "focus_direction": "科技巨头",
+      "top10_holdings": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "8.16%"
+        },
+        {
+          "code": "GOOGL",
+          "name": "谷歌-A",
+          "pct": "7.42%"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "6.27%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "6.14%"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "5.43%"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "5.41%"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "4.45%"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "4.31%"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "4.06%"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "3.31%"
+        }
+      ]
+    },
+    {
+      "code": "018036",
+      "display_name": "长城全球新能源车",
+      "name": "长城全球新能源车股票发起式(QDII)C",
+      "return_1y": "56.91",
+      "drawdown_1y": "16.40",
+      "purchase_limit": "10万",
+      "purchase_status": "限大额",
+      "effectively_closed": false,
+      "market_distribution": {
+        "美国": 74.62,
+        "中国内地": 8.47,
+        "韩国": 5.16,
+        "德国": 0.01
+      },
+      "focus_direction": "科技巨头",
+      "top10_holdings": [
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "8.71%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "7.55%"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "6.03%"
+        },
+        {
+          "code": "KLAC",
+          "name": "科磊",
+          "pct": "5.96%"
+        },
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "5.27%"
+        },
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "5.19%"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "5.14%"
+        },
+        {
+          "code": "GOOGL",
+          "name": "谷歌-A",
+          "pct": "4.89%"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "4.35%"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "4.11%"
+        }
+      ]
+    },
+    {
+      "code": "022184",
+      "display_name": "富国全球科技互联网",
+      "name": "富国全球科技互联网股票(QDII)C",
+      "return_1y": "70.90",
+      "drawdown_1y": "20.62",
+      "purchase_limit": "1000元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "中国香港": 50.31,
+        "美国": 17.85,
+        "中国内地": 10.31,
+        "韩国": 9.2,
+        "日本": 4.58
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "00522",
+          "name": "ASMPT",
+          "pct": "5.62%"
+        },
+        {
+          "code": "603986",
+          "name": "兆易创新",
+          "pct": "5.51%"
+        },
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "5.04%"
+        },
+        {
+          "code": "600183",
+          "name": "生益科技",
+          "pct": "4.70%"
+        },
+        {
+          "code": "000660",
+          "name": "SK海力士",
+          "pct": "4.62%"
+        },
+        {
+          "code": "005930",
+          "name": "三星电子",
+          "pct": "4.58%"
+        },
+        {
+          "code": "285A",
+          "name": "KIOXIA",
+          "pct": "4.58%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "4.31%"
+        },
+        {
+          "code": "STX",
+          "name": "希捷科技",
+          "pct": "4.28%"
+        },
+        {
+          "code": "WDC",
+          "name": "西部数据",
+          "pct": "4.22%"
+        }
+      ]
+    },
+    {
+      "code": "017204",
+      "display_name": "华宝海外科技",
+      "name": "华宝海外科技股票(QDII-LOF)C",
+      "return_1y": "18.08",
+      "drawdown_1y": "17.67",
+      "purchase_limit": "20元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {},
+      "focus_direction": "科技",
+      "top10_holdings": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "0.08%"
+        }
+      ]
+    },
+    {
+      "code": "008254",
+      "display_name": "华宝致远混合",
+      "name": "华宝致远混合(QDII)C",
+      "return_1y": "52.54",
+      "drawdown_1y": "23.49",
+      "purchase_limit": "1000元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 78.73,
+        "中国香港": 2.57
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "9.12%"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "8.46%"
+        },
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "3.67%"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "3.65%"
+        },
+        {
+          "code": "MKSI",
+          "name": "MKS Inc",
+          "pct": "3.61%"
+        },
+        {
+          "code": "AMAT",
+          "name": "应用材料",
+          "pct": "3.53%"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "3.47%"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "2.43%"
+        },
+        {
+          "code": "NBIS",
+          "name": "Nebius Group NV-A",
+          "pct": "2.41%"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "2.37%"
+        }
+      ]
+    },
+    {
+      "code": "017093",
+      "display_name": "景顺长城纳斯达克科技",
+      "name": "景顺长城纳斯达克科技ETF联接(QDII)C人民币",
+      "return_1y": "28.80",
+      "drawdown_1y": "17.47",
+      "purchase_limit": "0",
+      "purchase_status": "暂停",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 97.97
+      },
+      "focus_direction": "科技巨头",
+      "top10_holdings": [
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "8.55%"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "8.09%"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "7.57%"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "4.70%"
+        },
+        {
+          "code": "GOOGL",
+          "name": "谷歌-A",
+          "pct": "4.30%"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "4.23%"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "3.32%"
+        },
+        {
+          "code": "ADBE",
+          "name": "奥多比",
+          "pct": "2.25%"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "1.61%"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "1.44%"
+        }
+      ]
+    },
+    {
+      "code": "016665",
+      "display_name": "天弘全球高端制造",
+      "name": "天弘全球高端制造混合(QDII)C",
+      "return_1y": "100.59",
+      "drawdown_1y": "32.53",
+      "purchase_limit": "100元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "中国内地": 38.93,
+        "美国": 24.23,
+        "中国香港": 8.59,
+        "日本": 7.64,
+        "德国": 0.98,
+        "荷兰": 0.67
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "JP3236330001",
+          "name": "铠侠控股株式会社",
+          "pct": "3.88%"
+        },
+        {
+          "code": "02476",
+          "name": "胜宏科技",
+          "pct": "3.33%"
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "pct": "2.18%"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "2.16%"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "2.09%"
+        },
+        {
+          "code": "01347",
+          "name": "华虹宏力",
+          "pct": "2.09%"
+        },
+        {
+          "code": "GLW",
+          "name": "康宁",
+          "pct": "2.02%"
+        },
+        {
+          "code": "JP3684400009",
+          "name": "日东纺织",
+          "pct": "1.87%"
+        },
+        {
+          "code": "002384",
+          "name": "东山精密",
+          "pct": "1.80%"
+        },
+        {
+          "code": "688498",
+          "name": "源杰科技",
+          "pct": "1.78%"
+        }
+      ]
+    },
+    {
+      "code": "002891",
+      "display_name": "华夏移动互联",
+      "name": "华夏移动互联混合人民币",
+      "return_1y": "87.16",
+      "drawdown_1y": "27.98",
+      "purchase_limit": "500元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "美国": 63.23,
+        "中国内地": 13.48,
+        "日本": 9.04,
+        "中国香港": 1.86
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "8.16%"
+        },
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "6.53%"
+        },
+        {
+          "code": "ONTO",
+          "name": "Onto Innovation Inc",
+          "pct": "5.55%"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "5.30%"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "4.94%"
+        },
+        {
+          "code": "285A",
+          "name": "KIOXIA",
+          "pct": "4.59%"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "4.43%"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "4.30%"
+        },
+        {
+          "code": "STM",
+          "name": "意法半导体",
+          "pct": "4.28%"
+        },
+        {
+          "code": "ALAB",
+          "name": "Astera Labs Inc",
+          "pct": "3.47%"
+        }
+      ]
+    },
+    {
+      "code": "021662",
+      "display_name": "国富亚洲机会",
+      "name": "国富亚洲机会股票(QDII)C",
+      "return_1y": "87.04",
+      "drawdown_1y": "19.45",
+      "purchase_limit": "200元",
+      "purchase_status": "限小额",
+      "effectively_closed": true,
+      "market_distribution": {
+        "韩国": 20.43,
+        "中国台湾": 20.21,
+        "中国香港": 18.44,
+        "美国": 14.9,
+        "中国内地": 5.51,
+        "日本": 4.92
+      },
+      "focus_direction": "半导体",
+      "top10_holdings": [
+        {
+          "code": "000660",
+          "name": "SK海力士",
+          "pct": "7.95%"
+        },
+        {
+          "code": "005930",
+          "name": "三星电子",
+          "pct": "6.47%"
+        },
+        {
+          "code": "2330",
+          "name": "台积电",
+          "pct": "5.30%"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "3.63%"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "3.43%"
+        },
+        {
+          "code": "2308",
+          "name": "台达电",
+          "pct": "3.35%"
+        },
+        {
+          "code": "2454",
+          "name": "联发科",
+          "pct": "3.08%"
+        },
+        {
+          "code": "6981",
+          "name": "村田制作所",
+          "pct": "3.00%"
+        },
+        {
+          "code": "09988",
+          "name": "阿里巴巴-W",
+          "pct": "2.75%"
+        },
+        {
+          "code": "009150",
+          "name": "Samsung Electro-Mechanics",
+          "pct": "2.72%"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg-0: #ffffff;
+  --bg-1: #f7f7f7;
+  --bg-2: #e4e4e4;
+  --line: #cccccc;
+  --text: #222222;
+  --muted: #666666;
+  --accent: #444444;
+  --up: #ef3b3b;
+  --down: #168353;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--bg-0);
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+}
+.card {
+  width: 1080px;
+  height: 1440px;
+  position: relative;
+  background: var(--bg-0);
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.corner {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  border: 1.5px solid var(--line);
+  z-index: 5;
+}
+.corner.tl {
+  top: 54px;
+  left: 54px;
+  border-right: none;
+  border-bottom: none;
+}
+.corner.tr {
+  top: 54px;
+  right: 54px;
+  border-left: none;
+  border-bottom: none;
+}
+.corner.bl {
+  bottom: 54px;
+  left: 54px;
+  border-right: none;
+  border-top: none;
+}
+.corner.br {
+  bottom: 54px;
+  right: 54px;
+  border-left: none;
+  border-top: none;
+}
+.watermark-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.watermark-inner {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  transform: rotate(-28deg);
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding-top: 60px;
+}
+.watermark-line {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 8px;
+  color: rgba(68, 68, 68, 0.05);
+  white-space: nowrap;
+  line-height: 1;
+}
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 2;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  pointer-events: none;
+  text-align: center;
+}
+.seal .seal-label {
+  font-size: 14px;
+  color: rgba(68, 68, 68, 0.12);
+  letter-spacing: 6px;
+  text-align: center;
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.seal .seal-code {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 42px;
+  color: rgba(68, 68, 68, 0.08);
+  letter-spacing: 8px;
+  text-align: center;
+}
+.seal .seal-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 16px;
+  color: rgba(68, 68, 68, 0.12);
+  letter-spacing: 6px;
+  text-align: center;
+  margin-top: 4px;
+}
+.header-area {
+  position: relative;
+  z-index: 3;
+  padding: 58px 56px 0;
+  text-align: center;
+  flex-shrink: 0;
+}
+.title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--text);
+  letter-spacing: 2px;
+  line-height: 1.3;
+  display: inline-block;
+}
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+.divider {
+  height: 1px;
+  margin: 10px 0 0;
+  background: var(--line);
+}
+.table-area {
+  position: relative;
+  z-index: 3;
+  padding: 0 56px;
+  flex: 1;
+  overflow: hidden;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text);
+  table-layout: fixed;
+}
+thead th {
+  font-family: "DM Serif Display", serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 1px;
+  padding: 8px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+tbody td {
+  padding: 0;
+  border-bottom: 1px solid var(--line);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  text-align: center;
+  color: var(--text);
+}
+tbody tr:nth-child(even) {
+  background: var(--bg-1);
+}
+td.num {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 300;
+  opacity: 1;
+}
+td.name {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: left;
+  padding-right: 2px;
+  color: var(--text);
+}
+td.name .nc {
+  font-size: 12.5px;
+  color: var(--muted);
+  font-weight: 300;
+  font-family: 'Inter', sans-serif;
+  margin-left: 6px;
+  opacity: 1;
+}
+td.ret {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--up);
+}
+td.dd {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--down);
+}
+td.limit {
+  font-size: 14px;
+  color: var(--text);
+}
+td.limit.suspended {
+  color: var(--muted);
+  font-style: italic;
+}
+td.mkt {
+  font-size: 14px;
+  color: var(--text);
+  text-align: left;
+  padding-left: 4px;
+}
+td.hold {
+  font-size: 14px;
+  color: var(--text);
+  text-align: left;
+  padding-left: 4px;
+}
+td.hold .hn {
+  font-weight: 500;
+  font-family: "Cormorant Garamond", serif;
+}
+.foot-area {
+  position: relative;
+  z-index: 3;
+  padding: 0 56px 28px;
+  flex-shrink: 0;
+}
+.foot-line {
+  height: 1px;
+  margin-bottom: 8px;
+  background: var(--line);
+}
+.foot-source {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+}
+.foot-source a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.foot-disclaimer {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 3px;
+  line-height: 1.4;
+}
+.foot-watermark {
+  position: absolute;
+  left: 76px;
+  bottom: 28px;
+  color: var(--muted);
+  font-size: 18px;
+  letter-spacing: 3px;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  z-index: 3;
+}
+</style>
+</head>
+<body>
+<div class="card" id="p1">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="watermark-bg">
+    <div class="watermark-inner">
+      <div class="watermark-line">NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100</div>
+      <div class="watermark-line">QDII · ACTIVE FUND · NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100 · QDII</div>
+      <div class="watermark-line">ACTIVE FUND · NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100 · QDII · ACTIVE</div>
+      <div class="watermark-line">NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100</div>
+      <div class="watermark-line">QDII · ACTIVE FUND · NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100 · QDII</div>
+      <div class="watermark-line">ACTIVE FUND · NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100 · QDII · ACTIVE</div>
+      <div class="watermark-line">NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100</div>
+      <div class="watermark-line">QDII · ACTIVE FUND · NASDAQ 100 · QDII · ACTIVE FUND · NASDAQ 100 · QDII</div>
+    </div>
+  </div>
+
+  <div class="seal">
+    <div class="seal-label">XIAOHONGSHU</div>
+    <div class="seal-code">纳指心理按摩师</div>
+    <div class="seal-sub">ORIGINAL CONTENT</div>
+  </div>
+
+  <div class="header-area">
+    <div class="title">热门纳斯达克100主动基金全景</div>
+    <div class="subtitle">20只QDII主动基金 · 按近1年收益率排序 · 收益 · 最大回撤 · 限额 · 持仓 · 市场分布</div>
+    <div class="divider"></div>
+  </div>
+
+  <div class="table-area">
+    <table>
+      <colgroup>
+        <col style="width:20px" />
+        <col style="width:194px" />
+        <col style="width:82px" />
+        <col style="width:72px" />
+        <col style="width:76px" />
+        <col style="width:210px" />
+        <col style="width:206px" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th style="text-align:left">基金名称 / 代码</th>
+          <th>近1年收益</th>
+          <th>最大回撤</th>
+          <th>限额</th>
+          <th style="text-align:left">市场投资分布TOP3</th>
+          <th style="text-align:left">持仓 TOP3</th>
+        </tr>
+      </thead>
+      <tbody id="fund-body"></tbody>
+    </table>
+  </div>
+
+  <div class="foot-area">
+    <div class="foot-line"></div>
+    <div class="foot-source">
+      部分数据来源：<a href="http://eid.csrc.gov.cn/">证监会基金披露网站</a> · 持仓数据及市场投资分布更新于2026Q1季度报告
+    </div>
+    <div class="foot-disclaimer">数据获取 2026.07.21 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  </div>
+  <div class="foot-watermark">小红书：纳指心理按摩师</div>
+</div>
+
+<script>
+const funds=[
+{code:"012922",display_name:"易方达全球成长精选",return_1y:"123.97",drawdown_1y:"27.16",purchase_limit:"暂停申购",holdings:["拉姆研究","KIOXIA","台积电"],mkt:"美42.76% / A股28.54% / 日8.53%"},
+{code:"017731",display_name:"嘉实全球产业升级",return_1y:"106.18",drawdown_1y:"22.73",purchase_limit:"100",holdings:["超威半导体","美光科技","科磊"],mkt:"A股42.56% / 美32.63% / 港8.42%"},
+{code:"016665",display_name:"天弘全球高端制造",return_1y:"100.59",drawdown_1y:"32.53",purchase_limit:"100",holdings:["铠侠控股","胜宏科技","中际旭创"],mkt:"A股38.93% / 美24.23% / 港8.59%"},
+{code:"539002",display_name:"建信新兴市场混合",return_1y:"93.66",drawdown_1y:"23.17",purchase_limit:"100",holdings:["台积电","英伟达","SK海力士"],mkt:"美59.65% / 韩17.51% / 台2.33%"},
+{code:"002891",display_name:"华夏移动互联",return_1y:"87.16",drawdown_1y:"27.98",purchase_limit:"500",holdings:["美光科技","闪迪","Onto Innovation"],mkt:"美63.23% / A股13.48% / 日9.04%"},
+{code:"021662",display_name:"国富亚洲机会",return_1y:"87.04",drawdown_1y:"19.45",purchase_limit:"200",holdings:["SK海力士","三星电子","台积电"],mkt:"韩20.43% / 台20.21% / 港18.44%"},
+{code:"021842",display_name:"国富全球科技",return_1y:"73.85",drawdown_1y:"21.24",purchase_limit:"10",holdings:["美光科技","MKS Inc","台积电"],mkt:"美71.95% / 日8.74% / 港3.47%"},
+{code:"022184",display_name:"富国全球科技互联网",return_1y:"70.90",drawdown_1y:"20.62",purchase_limit:"1000",holdings:["ASMPT","兆易创新","闪迪"],mkt:"港50.31% / 美17.85% / A股10.31%"},
+{code:"018036",display_name:"长城全球新能源车",return_1y:"56.91",drawdown_1y:"16.40",purchase_limit:"100000",holdings:["台积电","美光科技","博通"],mkt:"美74.62% / A股8.47% / 韩5.16%"},
+{code:"014002",display_name:"浦银安盛全球智能科技",return_1y:"52.60",drawdown_1y:"28.19",purchase_limit:"暂停申购",holdings:["闪迪","KIOXIA","美光科技"],mkt:"美73.31% / 日9.61% / 韩7.59%"},
+{code:"008254",display_name:"华宝致远混合",return_1y:"52.54",drawdown_1y:"23.49",purchase_limit:"1000",holdings:["闪迪","美光科技","拉姆研究"],mkt:"美78.73% / 港2.57%"},
+{code:"024239",display_name:"华夏全球科技先锋",return_1y:"44.59",drawdown_1y:"33.40",purchase_limit:"5000",holdings:["闪迪","美光科技","迈威尔科技"],mkt:"A股36.61% / 港23.17% / 美16.66%"},
+{code:"021277",display_name:"广发全球精选",return_1y:"42.03",drawdown_1y:"20.22",purchase_limit:"200",holdings:["智谱","美光科技","拉姆研究"],mkt:"美46.65% / A股17.43% / 港12.81%"},
+{code:"017093",display_name:"景顺长城纳斯达克科技",return_1y:"28.80",drawdown_1y:"17.47",purchase_limit:"暂停申购",holdings:["微软","苹果","英伟达"],mkt:"美97.97%"},
+{code:"016702",display_name:"银华海外数字经济",return_1y:"27.49",drawdown_1y:"18.20",purchase_limit:"1000",holdings:["英伟达","谷歌-A","苹果"],mkt:"美87.89% / 港2.55%"},
+{code:"015202",display_name:"汇添富全球移动互联",return_1y:"21.89",drawdown_1y:"16.13",purchase_limit:"700",holdings:["英伟达","谷歌-A","美光科技"],mkt:"美92.77% / 港1.77%"},
+{code:"161128",display_name:"易方达标普信息科技",return_1y:"18.90",drawdown_1y:"18.87",purchase_limit:"暂停申购",holdings:["英伟达","苹果","微软"],mkt:"美91.31%"},
+{code:"017204",display_name:"华宝海外科技",return_1y:"18.08",drawdown_1y:"17.67",purchase_limit:"20",holdings:["ETF间接投资"],mkt:"—"},
+{code:"000043",display_name:"嘉实美国成长",return_1y:"17.38",drawdown_1y:"14.86",purchase_limit:"100",holdings:["苹果","英伟达","谷歌-A"],mkt:"美94.94%"},
+{code:"017437",display_name:"华宝纳斯达克精选",return_1y:"7.51",drawdown_1y:"20.44",purchase_limit:"1000",holdings:["英伟达","迈威尔科技","苹果"],mkt:"美89.84%"}
+];
+const tbody = document.getElementById('fund-body');
+funds.forEach((f, i) => {
+  const holdHtml = f.holdings.map(n => `<span class="hn">${n}</span>`).join(' · ');
+  const limitCls = f.purchase_limit === '暂停申购' ? 'limit suspended' : 'limit';
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="num">${i + 1}</td>
+    <td class="name">${f.display_name}<span class="nc">${f.code}</span></td>
+    <td class="ret">${f.return_1y}%</td>
+    <td class="dd">${f.drawdown_1y}%</td>
+    <td class="${limitCls}">${f.purchase_limit}</td>
+    <td class="mkt">${f.mkt}</td>
+    <td class="hold">${holdHtml}</td>
+  `;
+  tbody.appendChild(tr);
+});
+requestAnimationFrame(() => {
+  const tableArea = document.querySelector('.table-area');
+  const table = document.querySelector('table');
+  const availH = tableArea.clientHeight;
+  const theadH = table.querySelector('thead').offsetHeight;
+  const rows = tbody.querySelectorAll('tr');
+  const rowH = Math.floor((availH - theadH) / rows.length);
+  rows.forEach(r => {
+    r.style.height = rowH + 'px';
+  });
+});
+</script>
+</body>
+</html>

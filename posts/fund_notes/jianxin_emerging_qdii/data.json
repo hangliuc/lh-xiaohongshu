@@ -1,0 +1,1339 @@
+{
+  "code": "539002",
+  "basic": {
+    "name": "建信新兴市场混合(QDII)A",
+    "code": "539002",
+    "type": "QDII-混合偏股",
+    "risk": "中高风险",
+    "scale": "11.20亿元",
+    "manager_name": "李博涵",
+    "found_date": "2011-06-21",
+    "company": "建信基金",
+    "nav": "2.5690",
+    "nav_date": "07-06",
+    "return_1m": "4.39%",
+    "return_3m": "52.83%",
+    "return_6m": "71.72%",
+    "return_1y": "120.89%",
+    "return_3y": "241.62%",
+    "return_sl": "156.90%"
+  },
+  "manager": {
+    "tenures": [
+      {
+        "start": "2024-06-18",
+        "end": "至今",
+        "period": "2024-06-18 ~ 至今",
+        "managers": [
+          "李博涵",
+          "程星烨",
+          "房乐"
+        ],
+        "days": "2年又19天",
+        "return": "119.75%"
+      },
+      {
+        "start": "2019-12-11",
+        "end": "2024-06-17",
+        "period": "2019-12-11 ~ 2024-06-17",
+        "managers": [
+          "李博涵",
+          "程星烨"
+        ],
+        "days": "4年又190天",
+        "return": "24.35%"
+      },
+      {
+        "start": "2018-02-05",
+        "end": "2019-12-10",
+        "period": "2018-02-05 ~ 2019-12-10",
+        "managers": [
+          "李博涵"
+        ],
+        "days": "1年又308天",
+        "return": "-6.05%"
+      },
+      {
+        "start": "2017-11-13",
+        "end": "2018-02-04",
+        "period": "2017-11-13 ~ 2018-02-04",
+        "managers": [
+          "赵英楷",
+          "李博涵"
+        ],
+        "days": "83天",
+        "return": "1.99%"
+      },
+      {
+        "start": "2011-06-21",
+        "end": "2017-11-12",
+        "period": "2011-06-21 ~ 2017-11-12",
+        "managers": [
+          "赵英楷"
+        ],
+        "days": "6年又146天",
+        "return": "-4.40%"
+      }
+    ],
+    "current": {
+      "start": "2024-06-18",
+      "end": "至今",
+      "period": "2024-06-18 ~ 至今",
+      "managers": [
+        "李博涵",
+        "程星烨",
+        "房乐"
+      ],
+      "days": "2年又19天",
+      "return": "119.75%"
+    },
+    "profiles": [
+      {
+        "name": "李博涵",
+        "avatar": "https://pdf.dfcfw.com/pdf/H8_30201130_1.JPG",
+        "appoint_date": "2017-11-13",
+        "bio": "李博涵先生:海外投资部副总经理,硕士,加拿大籍华人。曾任美国联邦快递北京分公司销售主管、美国联合航空公司北京分公司销售主管、美国万事达卡国际组织北京分公司机构销售经理;2005年2月起加入加拿大蒙特利尔银行,任资产管理部投资助理;2006年8月起加入加拿大帝国商业银行,任资产管理部投资顾问;2008年8月加入建信基金管理有限责任公司,任海外投资部高级研究员兼基金经理助理、基金经理,2018年5月起兼任部门副总经理;2013年8月5日起任建信全球资源混合型证券投资基金(自2020年1月10起转型为建信富时100指数型证券投资基金(QDII))的基金经理;2017年11月13日起任建信全球机遇混合型证券投资基金(自2021年9月22日起转型为建信纳斯达克100指数型证券投资基金(QDII))、建信新兴市场优选混合型证券投资基金的基金经理;2018年12月13日至2021年8月9日任建信港股通恒生中国企业交易型开放式指数证券投资基金的基金经理。"
+      }
+    ]
+  },
+  "holdings": [
+    {
+      "quarter": "2026年1季度",
+      "stocks": [
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "10.26%",
+          "shares": "20.04",
+          "value": "46,862.23"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "10.14%",
+          "shares": "38.40",
+          "value": "46,340.27"
+        },
+        {
+          "code": "000660",
+          "name": "SK海力士",
+          "pct": "8.65%",
+          "shares": "10.80",
+          "value": "39,525.14"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "8.52%",
+          "shares": "18.17",
+          "value": "38,908.37"
+        },
+        {
+          "code": "005930",
+          "name": "三星电子",
+          "pct": "6.76%",
+          "shares": "40.74",
+          "value": "30,884.53"
+        },
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "4.91%",
+          "shares": "5.11",
+          "value": "22,452.57"
+        },
+        {
+          "code": "GLW",
+          "name": "康宁",
+          "pct": "4.29%",
+          "shares": "20.82",
+          "value": "19,589.04"
+        },
+        {
+          "code": "WDC",
+          "name": "西部数据",
+          "pct": "3.73%",
+          "shares": "9.12",
+          "value": "17,061.58"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "3.58%",
+          "shares": "3.37",
+          "value": "16,368.75"
+        },
+        {
+          "code": "MPWR",
+          "name": "Monolithic Power Systems Inc",
+          "pct": "3.49%",
+          "shares": "2.11",
+          "value": "15,957.54"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年4季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "9.86%",
+          "shares": "14.87",
+          "value": "19,488.72"
+        },
+        {
+          "code": "000660",
+          "name": "SK hynix",
+          "pct": "9.79%",
+          "shares": "6.10",
+          "value": "19,345.40"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "9.07%",
+          "shares": "8.40",
+          "value": "17,933.92"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "7.98%",
+          "shares": "6.48",
+          "value": "15,766.85"
+        },
+        {
+          "code": "005930",
+          "name": "SamsungElectronics",
+          "pct": "5.44%",
+          "shares": "18.40",
+          "value": "10,743.89"
+        },
+        {
+          "code": "GLW",
+          "name": "康宁",
+          "pct": "4.45%",
+          "shares": "14.29",
+          "value": "8,797.19"
+        },
+        {
+          "code": "MPWR",
+          "name": "Monolithic Power Systems Inc",
+          "pct": "3.89%",
+          "shares": "1.21",
+          "value": "7,694.44"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "3.79%",
+          "shares": "2.89",
+          "value": "7,487.00"
+        },
+        {
+          "code": "CRDO",
+          "name": "Credo Technology Group Holding Ltd",
+          "pct": "2.38%",
+          "shares": "4.65",
+          "value": "4,706.23"
+        },
+        {
+          "code": "2317",
+          "name": "鸿海精密工业",
+          "pct": "2.35%",
+          "shares": "90.00",
+          "value": "4,641.79"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年3季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "9.71%",
+          "shares": "4.74",
+          "value": "6,286.94"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "9.27%",
+          "shares": "3.02",
+          "value": "6,001.31"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "8.78%",
+          "shares": "2.42",
+          "value": "5,680.87"
+        },
+        {
+          "code": "000660",
+          "name": "SK hynix",
+          "pct": "8.70%",
+          "shares": "3.20",
+          "value": "5,628.84"
+        },
+        {
+          "code": "MPWR",
+          "name": "Monolithic Power Systems Inc",
+          "pct": "8.37%",
+          "shares": "0.83",
+          "value": "5,415.14"
+        },
+        {
+          "code": "2317",
+          "name": "鸿海精密工业",
+          "pct": "4.75%",
+          "shares": "61.00",
+          "value": "3,073.10"
+        },
+        {
+          "code": "2383",
+          "name": "台光电子",
+          "pct": "3.53%",
+          "shares": "8.00",
+          "value": "2,285.70"
+        },
+        {
+          "code": "GLW",
+          "name": "康宁",
+          "pct": "3.41%",
+          "shares": "3.79",
+          "value": "2,208.94"
+        },
+        {
+          "code": "CRDO",
+          "name": "Credo Technology Group Holding Ltd",
+          "pct": "3.08%",
+          "shares": "1.93",
+          "value": "1,996.84"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "2.79%",
+          "shares": "0.35",
+          "value": "1,803.91"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年2季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "10.51%",
+          "shares": "5.50",
+          "value": "6,220.43"
+        },
+        {
+          "code": "000660",
+          "name": "SK hynix",
+          "pct": "10.09%",
+          "shares": "3.87",
+          "value": "5,971.00"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "10.05%",
+          "shares": "3.67",
+          "value": "5,950.36"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "10.00%",
+          "shares": "3.00",
+          "value": "5,919.80"
+        },
+        {
+          "code": "MPWR",
+          "name": "Monolithic Power Systems Inc",
+          "pct": "6.68%",
+          "shares": "0.76",
+          "value": "3,952.92"
+        },
+        {
+          "code": "ARM",
+          "name": "Arm Holdings plc ADR",
+          "pct": "4.87%",
+          "shares": "2.49",
+          "value": "2,883.00"
+        },
+        {
+          "code": "2454",
+          "name": "联发科技",
+          "pct": "4.09%",
+          "shares": "7.90",
+          "value": "2,418.20"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "3.30%",
+          "shares": "0.34",
+          "value": "1,950.52"
+        },
+        {
+          "code": "CRDO",
+          "name": "Credo Technology Group Holding Ltd",
+          "pct": "2.16%",
+          "shares": "1.93",
+          "value": "1,279.23"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "1.43%",
+          "shares": "0.16",
+          "value": "845.39"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年1季度",
+      "stocks": [
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "9.28%",
+          "shares": "4.22",
+          "value": "5,028.47"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "9.15%",
+          "shares": "6.37",
+          "value": "4,955.69"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "9.12%",
+          "shares": "4.11",
+          "value": "4,939.59"
+        },
+        {
+          "code": "000660",
+          "name": "SK hynix",
+          "pct": "8.60%",
+          "shares": "5.02",
+          "value": "4,661.69"
+        },
+        {
+          "code": "MPWR",
+          "name": "Monolithic Power Systems Inc",
+          "pct": "5.19%",
+          "shares": "0.68",
+          "value": "2,810.17"
+        },
+        {
+          "code": "2454",
+          "name": "联发科技",
+          "pct": "4.38%",
+          "shares": "7.90",
+          "value": "2,374.35"
+        },
+        {
+          "code": "ARM",
+          "name": "Arm Holdings plc ADR",
+          "pct": "3.52%",
+          "shares": "2.49",
+          "value": "1,908.73"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "2.75%",
+          "shares": "0.36",
+          "value": "1,489.40"
+        },
+        {
+          "code": "CRDO",
+          "name": "Credo Technology Group Holding Ltd",
+          "pct": "2.33%",
+          "shares": "4.38",
+          "value": "1,262.65"
+        },
+        {
+          "code": "2317",
+          "name": "鸿海精密工业",
+          "pct": "1.69%",
+          "shares": "29.00",
+          "value": "915.49"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年4季度",
+      "stocks": [
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "9.88%",
+          "shares": "3.12",
+          "value": "4,429.27"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "9.82%",
+          "shares": "4.56",
+          "value": "4,401.91"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "9.81%",
+          "shares": "2.64",
+          "value": "4,399.71"
+        },
+        {
+          "code": "2317",
+          "name": "鸿海精密工业",
+          "pct": "8.73%",
+          "shares": "97.00",
+          "value": "3,912.38"
+        },
+        {
+          "code": "000660",
+          "name": "SK hynix",
+          "pct": "8.11%",
+          "shares": "4.30",
+          "value": "3,638.18"
+        },
+        {
+          "code": "MRVL",
+          "name": "迈威尔科技",
+          "pct": "3.54%",
+          "shares": "2.00",
+          "value": "1,587.92"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "3.19%",
+          "shares": "0.34",
+          "value": "1,431.02"
+        },
+        {
+          "code": "2454",
+          "name": "联发科技",
+          "pct": "2.84%",
+          "shares": "4.10",
+          "value": "1,271.72"
+        },
+        {
+          "code": "CRDO",
+          "name": "Credo Technology Group Holding Ltd",
+          "pct": "2.67%",
+          "shares": "2.48",
+          "value": "1,198.17"
+        },
+        {
+          "code": "ALAB",
+          "name": "Astera Labs Inc",
+          "pct": "2.12%",
+          "shares": "1.00",
+          "value": "952.10"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年3季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "10.47%",
+          "shares": "8.67",
+          "value": "7,377.98"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "10.26%",
+          "shares": "5.94",
+          "value": "7,228.83"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "9.75%",
+          "shares": "1.18",
+          "value": "6,866.57"
+        },
+        {
+          "code": "000660",
+          "name": "SK hynix",
+          "pct": "9.50%",
+          "shares": "7.19",
+          "value": "6,695.16"
+        },
+        {
+          "code": "2317",
+          "name": "鸿海精密工业",
+          "pct": "9.42%",
+          "shares": "160.00",
+          "value": "6,639.15"
+        },
+        {
+          "code": "MPWR",
+          "name": "Monolithic Power Systems Inc",
+          "pct": "6.62%",
+          "shares": "0.72",
+          "value": "4,664.41"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "6.28%",
+          "shares": "3.66",
+          "value": "4,424.12"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "5.92%",
+          "shares": "2.56",
+          "value": "4,171.61"
+        },
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "4.55%",
+          "shares": "0.56",
+          "value": "3,208.13"
+        },
+        {
+          "code": "JP3914400001",
+          "name": "村田制作所",
+          "pct": "1.95%",
+          "shares": "10.00",
+          "value": "1,377.35"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年2季度",
+      "stocks": [
+        {
+          "code": "000660",
+          "name": "SK海力士",
+          "pct": "10.15%",
+          "shares": "8.65",
+          "value": "10,590.16"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "9.96%",
+          "shares": "11.81",
+          "value": "10,398.05"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "9.93%",
+          "shares": "8.37",
+          "value": "10,368.00"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "9.33%",
+          "shares": "1.34",
+          "value": "9,737.83"
+        },
+        {
+          "code": "QCOM",
+          "name": "高通",
+          "pct": "9.09%",
+          "shares": "6.68",
+          "value": "9,482.37"
+        },
+        {
+          "code": "2454",
+          "name": "联发科",
+          "pct": "8.02%",
+          "shares": "27.20",
+          "value": "8,366.12"
+        },
+        {
+          "code": "2317",
+          "name": "鸿海",
+          "pct": "6.13%",
+          "shares": "136.00",
+          "value": "6,394.11"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "4.52%",
+          "shares": "3.15",
+          "value": "4,720.79"
+        },
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "2.63%",
+          "shares": "0.36",
+          "value": "2,739.62"
+        },
+        {
+          "code": "CAMT",
+          "name": "康特科技",
+          "pct": "2.27%",
+          "shares": "2.65",
+          "value": "2,365.29"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年1季度",
+      "stocks": [
+        {
+          "code": "000660",
+          "name": "SK hynix",
+          "pct": "10.54%",
+          "shares": "2.15",
+          "value": "2,073.68"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "10.03%",
+          "shares": "0.31",
+          "value": "1,974.51"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "9.69%",
+          "shares": "1.98",
+          "value": "1,906.42"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "9.55%",
+          "shares": "0.27",
+          "value": "1,879.74"
+        },
+        {
+          "code": "QCOM",
+          "name": "高通",
+          "pct": "9.37%",
+          "shares": "1.54",
+          "value": "1,843.82"
+        },
+        {
+          "code": "2454",
+          "name": "联发科技",
+          "pct": "8.08%",
+          "shares": "6.00",
+          "value": "1,589.87"
+        },
+        {
+          "code": "AMAT",
+          "name": "应用材料",
+          "pct": "3.27%",
+          "shares": "0.44",
+          "value": "643.81"
+        },
+        {
+          "code": "ASX",
+          "name": "日月光半导体",
+          "pct": "3.09%",
+          "shares": "7.80",
+          "value": "608.20"
+        },
+        {
+          "code": "ONTO",
+          "name": "Onto Innovation Inc",
+          "pct": "2.87%",
+          "shares": "0.44",
+          "value": "565.30"
+        },
+        {
+          "code": "ARM",
+          "name": "Arm Holdings plc ADR",
+          "pct": "2.75%",
+          "shares": "0.61",
+          "value": "540.95"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年4季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "9.88%",
+          "shares": "0.16",
+          "value": "554.18"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "9.85%",
+          "shares": "0.75",
+          "value": "552.45"
+        },
+        {
+          "code": "000660",
+          "name": "SK海力士",
+          "pct": "9.83%",
+          "shares": "0.71",
+          "value": "551.10"
+        },
+        {
+          "code": "2454",
+          "name": "联发科",
+          "pct": "9.22%",
+          "shares": "2.20",
+          "value": "517.11"
+        },
+        {
+          "code": "ASX",
+          "name": "日月光半导体",
+          "pct": "7.13%",
+          "shares": "6.00",
+          "value": "399.89"
+        },
+        {
+          "code": "UMC",
+          "name": "联华电子",
+          "pct": "6.20%",
+          "shares": "5.80",
+          "value": "347.53"
+        },
+        {
+          "code": "005930",
+          "name": "三星电子",
+          "pct": "5.99%",
+          "shares": "0.78",
+          "value": "335.88"
+        },
+        {
+          "code": "PDD",
+          "name": "拼多多",
+          "pct": "4.43%",
+          "shares": "0.24",
+          "value": "248.70"
+        },
+        {
+          "code": "3443",
+          "name": "创意",
+          "pct": "2.87%",
+          "shares": "0.40",
+          "value": "161.18"
+        },
+        {
+          "code": "QCOM",
+          "name": "高通",
+          "pct": "2.74%",
+          "shares": "0.15",
+          "value": "153.66"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年3季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "10.45%",
+          "shares": "0.17",
+          "value": "524.69"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "9.32%",
+          "shares": "0.75",
+          "value": "467.94"
+        },
+        {
+          "code": "000660",
+          "name": "SK hynix",
+          "pct": "9.24%",
+          "shares": "0.76",
+          "value": "464.23"
+        },
+        {
+          "code": "ASX",
+          "name": "日月光半导体",
+          "pct": "8.60%",
+          "shares": "8.00",
+          "value": "431.94"
+        },
+        {
+          "code": "PDD",
+          "name": "拼多多",
+          "pct": "4.21%",
+          "shares": "0.30",
+          "value": "211.24"
+        },
+        {
+          "code": "03690",
+          "name": "美团-W",
+          "pct": "3.79%",
+          "shares": "1.81",
+          "value": "190.34"
+        },
+        {
+          "code": "005930",
+          "name": "SamsungElectronics",
+          "pct": "3.77%",
+          "shares": "0.52",
+          "value": "189.42"
+        },
+        {
+          "code": "00941",
+          "name": "中国移动",
+          "pct": "2.52%",
+          "shares": "2.10",
+          "value": "126.61"
+        },
+        {
+          "code": "00728",
+          "name": "中国电信",
+          "pct": "2.22%",
+          "shares": "31.00",
+          "value": "111.51"
+        },
+        {
+          "code": "02269",
+          "name": "药明生物",
+          "pct": "2.08%",
+          "shares": "2.50",
+          "value": "104.72"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年2季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "10.10%",
+          "shares": "0.17",
+          "value": "519.63"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "9.63%",
+          "shares": "0.68",
+          "value": "495.87"
+        },
+        {
+          "code": "ASX",
+          "name": "日月光半导体",
+          "pct": "8.75%",
+          "shares": "8.00",
+          "value": "450.31"
+        },
+        {
+          "code": "UMC",
+          "name": "联华电子",
+          "pct": "5.54%",
+          "shares": "5.00",
+          "value": "285.06"
+        },
+        {
+          "code": "PDD",
+          "name": "拼多多",
+          "pct": "5.34%",
+          "shares": "0.55",
+          "value": "274.78"
+        },
+        {
+          "code": "02269",
+          "name": "药明生物",
+          "pct": "4.88%",
+          "shares": "7.25",
+          "value": "251.00"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "2.91%",
+          "shares": "0.18",
+          "value": "149.80"
+        },
+        {
+          "code": "02020",
+          "name": "安踏体育",
+          "pct": "2.15%",
+          "shares": "1.50",
+          "value": "110.71"
+        },
+        {
+          "code": "09999",
+          "name": "网易-S",
+          "pct": "1.37%",
+          "shares": "0.50",
+          "value": "70.35"
+        },
+        {
+          "code": "03347",
+          "name": "泰格医药",
+          "pct": "1.31%",
+          "shares": "1.64",
+          "value": "67.51"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年1季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "9.48%",
+          "shares": "0.31",
+          "value": "591.71"
+        },
+        {
+          "code": "00700",
+          "name": "腾讯控股",
+          "pct": "9.47%",
+          "shares": "1.75",
+          "value": "591.03"
+        },
+        {
+          "code": "03690",
+          "name": "美团-W",
+          "pct": "6.35%",
+          "shares": "3.16",
+          "value": "396.34"
+        },
+        {
+          "code": "PDD",
+          "name": "拼多多",
+          "pct": "5.26%",
+          "shares": "0.63",
+          "value": "328.58"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "3.89%",
+          "shares": "0.38",
+          "value": "242.90"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "3.88%",
+          "shares": "0.36",
+          "value": "242.46"
+        },
+        {
+          "code": "01179",
+          "name": "华住集团-S",
+          "pct": "3.80%",
+          "shares": "7.10",
+          "value": "237.12"
+        },
+        {
+          "code": "09618",
+          "name": "京东集团-SW",
+          "pct": "3.62%",
+          "shares": "1.50",
+          "value": "225.86"
+        },
+        {
+          "code": "HTHT",
+          "name": "华住",
+          "pct": "3.34%",
+          "shares": "0.62",
+          "value": "208.68"
+        },
+        {
+          "code": "BABA",
+          "name": "阿里巴巴",
+          "pct": "2.02%",
+          "shares": "0.18",
+          "value": "126.39"
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "core_stocks": [
+      "000660",
+      "AVGO",
+      "MPWR",
+      "NVDA",
+      "TSM"
+    ],
+    "core_count": 5,
+    "stability_pct": 50.0,
+    "movements": {
+      "new_in": [
+        {
+          "code": "SNDK",
+          "name": "闪迪",
+          "pct": "4.91%"
+        },
+        {
+          "code": "WDC",
+          "name": "西部数据",
+          "pct": "3.73%"
+        }
+      ],
+      "new_out": [
+        {
+          "code": "CRDO",
+          "name": "Credo Technology Group Holding Ltd",
+          "pct": "2.38%"
+        },
+        {
+          "code": "2317",
+          "name": "鸿海精密工业",
+          "pct": "2.35%"
+        }
+      ],
+      "add": [
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "10.26%",
+          "diff": 1.19
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "8.52%",
+          "diff": 0.54
+        },
+        {
+          "code": "005930",
+          "name": "三星电子",
+          "pct": "6.76%",
+          "diff": 1.32
+        }
+      ],
+      "reduce": [
+        {
+          "code": "000660",
+          "name": "SK海力士",
+          "pct": "8.65%",
+          "diff": -1.14
+        },
+        {
+          "code": "MPWR",
+          "name": "Monolithic Power Systems Inc",
+          "pct": "3.49%",
+          "diff": -0.4
+        }
+      ],
+      "hold": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "10.14%"
+        },
+        {
+          "code": "GLW",
+          "name": "康宁",
+          "pct": "4.29%"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "3.58%"
+        }
+      ]
+    },
+    "concentration": [
+      {
+        "quarter": "2026年1季度",
+        "top3": 29.05,
+        "top10": 64.33
+      },
+      {
+        "quarter": "2025年4季度",
+        "top3": 28.72,
+        "top10": 59.0
+      },
+      {
+        "quarter": "2025年3季度",
+        "top3": 27.76,
+        "top10": 62.39
+      },
+      {
+        "quarter": "2025年2季度",
+        "top3": 30.65,
+        "top10": 63.18
+      }
+    ],
+    "core_trend": [
+      {
+        "code": "TSM",
+        "name": "台积电",
+        "series": [
+          {
+            "q": "2026年1季度",
+            "pct": "10.26%"
+          },
+          {
+            "q": "2025年4季度",
+            "pct": "9.07%"
+          },
+          {
+            "q": "2025年3季度",
+            "pct": "9.27%"
+          },
+          {
+            "q": "2025年2季度",
+            "pct": "10.05%"
+          }
+        ]
+      },
+      {
+        "code": "NVDA",
+        "name": "英伟达",
+        "series": [
+          {
+            "q": "2026年1季度",
+            "pct": "10.14%"
+          },
+          {
+            "q": "2025年4季度",
+            "pct": "9.86%"
+          },
+          {
+            "q": "2025年3季度",
+            "pct": "9.71%"
+          },
+          {
+            "q": "2025年2季度",
+            "pct": "10.51%"
+          }
+        ]
+      },
+      {
+        "code": "000660",
+        "name": "SK hynix",
+        "series": [
+          {
+            "q": "2026年1季度",
+            "pct": "8.65%"
+          },
+          {
+            "q": "2025年4季度",
+            "pct": "9.79%"
+          },
+          {
+            "q": "2025年3季度",
+            "pct": "8.70%"
+          },
+          {
+            "q": "2025年2季度",
+            "pct": "10.09%"
+          }
+        ]
+      },
+      {
+        "code": "AVGO",
+        "name": "博通",
+        "series": [
+          {
+            "q": "2026年1季度",
+            "pct": "8.52%"
+          },
+          {
+            "q": "2025年4季度",
+            "pct": "7.98%"
+          },
+          {
+            "q": "2025年3季度",
+            "pct": "8.78%"
+          },
+          {
+            "q": "2025年2季度",
+            "pct": "10.00%"
+          }
+        ]
+      },
+      {
+        "code": "MPWR",
+        "name": "Monolithic Power Systems Inc",
+        "series": [
+          {
+            "q": "2026年1季度",
+            "pct": "3.49%"
+          },
+          {
+            "q": "2025年4季度",
+            "pct": "3.89%"
+          },
+          {
+            "q": "2025年3季度",
+            "pct": "8.37%"
+          },
+          {
+            "q": "2025年2季度",
+            "pct": "6.68%"
+          }
+        ]
+      }
+    ],
+    "latest_top5": [
+      {
+        "code": "TSM",
+        "name": "台积电",
+        "pct": "10.26%",
+        "shares": "20.04",
+        "value": "46,862.23"
+      },
+      {
+        "code": "NVDA",
+        "name": "英伟达",
+        "pct": "10.14%",
+        "shares": "38.40",
+        "value": "46,340.27"
+      },
+      {
+        "code": "000660",
+        "name": "SK海力士",
+        "pct": "8.65%",
+        "shares": "10.80",
+        "value": "39,525.14"
+      },
+      {
+        "code": "AVGO",
+        "name": "博通",
+        "pct": "8.52%",
+        "shares": "18.17",
+        "value": "38,908.37"
+      },
+      {
+        "code": "005930",
+        "name": "三星电子",
+        "pct": "6.76%",
+        "shares": "40.74",
+        "value": "30,884.53"
+      }
+    ],
+    "region_mix": {
+      "A股": 15.41,
+      "美股/港股": 48.92
+    }
+  }
+}

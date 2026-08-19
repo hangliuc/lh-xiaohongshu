@@ -1,0 +1,1185 @@
+{
+  "code": "016665",
+  "basic": {
+    "name": "天弘全球高端制造混合(QDII)C",
+    "code": "016665",
+    "type": "QDII-混合偏股",
+    "risk": "中高风险",
+    "scale": "14.25亿元",
+    "manager_name": "LIU",
+    "found_date": "2023-04-26",
+    "company": "天弘基金",
+    "nav": "3.0567",
+    "nav_date": "05-19",
+    "return_1m": "18.30%",
+    "return_3m": "43.99%",
+    "return_6m": "82.14%",
+    "return_1y": "161.01%",
+    "return_3y": "205.36%",
+    "return_sl": "205.67%"
+  },
+  "manager": {
+    "tenures": [
+      {
+        "start": "2024-09-14",
+        "end": "至今",
+        "period": "2024-09-14 ~ 至今",
+        "managers": [
+          "LIU DONG(刘冬)"
+        ],
+        "days": "1年又249天",
+        "return": "167.33%"
+      },
+      {
+        "start": "2023-04-26",
+        "end": "2024-09-13",
+        "period": "2023-04-26 ~ 2024-09-13",
+        "managers": [
+          "陈国光",
+          "LIU DONG(刘冬)"
+        ],
+        "days": "1年又141天",
+        "return": "14.34%"
+      }
+    ],
+    "current": {
+      "start": "2024-09-14",
+      "end": "至今",
+      "period": "2024-09-14 ~ 至今",
+      "managers": [
+        "LIU DONG(刘冬)"
+      ],
+      "days": "1年又249天",
+      "return": "167.33%"
+    },
+    "profiles": [
+      {
+        "name": "LIU DONG(刘冬)",
+        "avatar": "https://pdf.dfcfw.com/pdf/H8_30067607_1.PNG",
+        "appoint_date": "2023-04-26",
+        "bio": "Liu Dong(刘冬)先生:金融分析专业硕士。刘冬先生于2003年至2007年在美国汤森路透旗下的STARMINE工作,从事股票研究工作,历任汤森路透Research(研究部)量化分析师;2007年加入巴克莱全球投资公司,从事股票基金投资管理工作;2009年加入招商基金,从事国外市场投资研究工作,任基金经理;2012年加入融通基金,任国际业务部总监。2015年5月加盟天弘基金。历任天弘养老目标日期2035三年持有期混合型发起式基金中基金(FOF)基金经理(2020年04月至2021年09月)、天弘永裕稳健养老目标一年持有期混合型基金中基金(FOF)基金经理(2020年06月至2021年09月)、天弘永裕平衡养老目标三年持有期混合型发起式基金中基金(FOF)基金经理(2020年08月至2021年09月)、天弘新享一年定期开放债券型发起式证券投资基金基金经理(2023年01月至2024年10月)、天弘国证港股通50指数证券投资基金基金经理(2022年03月至2023年10月)。现任天弘基金管理有限公司国际业务副总监、基金经理。天弘恒生科技指数型发起式证券投资基金(QDII)基金经理、天弘全球高端制造混合型证券投资基金(QDII)基金经理、天弘纳斯达克100指数型发起式证券投资基金(QDII)基金经理。"
+      }
+    ]
+  },
+  "holdings": [
+    {
+      "quarter": "2026年1季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "3.65%",
+          "shares": "6.00",
+          "value": "7,240.46"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "3.07%",
+          "shares": "2.85",
+          "value": "6,103.63"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "2.77%",
+          "shares": "2.35",
+          "value": "5,495.27"
+        },
+        {
+          "code": "TSEM",
+          "name": "Tower半导体",
+          "pct": "2.75%",
+          "shares": "4.50",
+          "value": "5,463.97"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "2.69%",
+          "shares": "1.10",
+          "value": "5,348.95"
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "pct": "2.44%",
+          "shares": "8.50",
+          "value": "4,839.99"
+        },
+        {
+          "code": "COHR",
+          "name": "Coherent Corp",
+          "pct": "2.28%",
+          "shares": "2.75",
+          "value": "4,532.74"
+        },
+        {
+          "code": "300502",
+          "name": "新易盛",
+          "pct": "2.23%",
+          "shares": "10.00",
+          "value": "4,428.40"
+        },
+        {
+          "code": "300476",
+          "name": "胜宏科技",
+          "pct": "2.21%",
+          "shares": "17.50",
+          "value": "4,392.50"
+        },
+        {
+          "code": "JP3684400009",
+          "name": "Nitto Boseki Co Ltd",
+          "pct": "2.04%",
+          "shares": "5.00",
+          "value": "4,056.84"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年4季度",
+      "stocks": [
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "5.80%",
+          "shares": "1.50",
+          "value": "3,649.00"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "5.21%",
+          "shares": "2.50",
+          "value": "3,277.18"
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "pct": "3.88%",
+          "shares": "4.00",
+          "value": "2,440.00"
+        },
+        {
+          "code": "300502",
+          "name": "新易盛",
+          "pct": "3.77%",
+          "shares": "5.50",
+          "value": "2,369.84"
+        },
+        {
+          "code": "300476",
+          "name": "胜宏科技",
+          "pct": "3.43%",
+          "shares": "7.50",
+          "value": "2,156.85"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "3.39%",
+          "shares": "1.00",
+          "value": "2,135.98"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "2.28%",
+          "shares": "0.65",
+          "value": "1,433.66"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "2.26%",
+          "shares": "0.55",
+          "value": "1,424.91"
+        },
+        {
+          "code": "VRT",
+          "name": "Vertiv Holdings Co-A",
+          "pct": "2.17%",
+          "shares": "1.20",
+          "value": "1,366.48"
+        },
+        {
+          "code": "TSEM",
+          "name": "Tower半导体",
+          "pct": "1.97%",
+          "shares": "1.50",
+          "value": "1,237.98"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年3季度",
+      "stocks": [
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "5.15%",
+          "shares": "0.88",
+          "value": "2,051.15"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "4.99%",
+          "shares": "1.50",
+          "value": "1,988.62"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "3.98%",
+          "shares": "0.80",
+          "value": "1,587.60"
+        },
+        {
+          "code": "300476",
+          "name": "胜宏科技",
+          "pct": "3.22%",
+          "shares": "4.50",
+          "value": "1,284.75"
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "pct": "3.04%",
+          "shares": "3.00",
+          "value": "1,211.04"
+        },
+        {
+          "code": "CLS",
+          "name": "天弘科技",
+          "pct": "2.42%",
+          "shares": "0.55",
+          "value": "962.86"
+        },
+        {
+          "code": "TSLA",
+          "name": "特斯拉",
+          "pct": "2.38%",
+          "shares": "0.30",
+          "value": "947.99"
+        },
+        {
+          "code": "JP3811000003",
+          "name": "Fujikura Ltd",
+          "pct": "2.34%",
+          "shares": "1.35",
+          "value": "933.91"
+        },
+        {
+          "code": "SNPS",
+          "name": "新思科技",
+          "pct": "2.33%",
+          "shares": "0.27",
+          "value": "929.03"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "2.32%",
+          "shares": "0.80",
+          "value": "924.91"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年2季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "5.48%",
+          "shares": "1.50",
+          "value": "1,696.48"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "5.42%",
+          "shares": "0.85",
+          "value": "1,677.28"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "4.98%",
+          "shares": "0.95",
+          "value": "1,540.28"
+        },
+        {
+          "code": "JP3122400009",
+          "name": "爱德万测试",
+          "pct": "2.99%",
+          "shares": "1.75",
+          "value": "924.74"
+        },
+        {
+          "code": "NL0012866412",
+          "name": "BESI NV",
+          "pct": "2.93%",
+          "shares": "0.85",
+          "value": "907.40"
+        },
+        {
+          "code": "CLS",
+          "name": "天弘科技",
+          "pct": "2.71%",
+          "shares": "0.75",
+          "value": "838.15"
+        },
+        {
+          "code": "VRT",
+          "name": "Vertiv Holdings Co-A",
+          "pct": "2.67%",
+          "shares": "0.90",
+          "value": "827.31"
+        },
+        {
+          "code": "DE000ENER6Y0",
+          "name": "西门子能源",
+          "pct": "2.66%",
+          "shares": "1.00",
+          "value": "823.94"
+        },
+        {
+          "code": "0A8Z",
+          "name": "MACOM TECHNOLOGY SOLUTIONS HOLDINGS MACOM TECHNOLOGY SOLUTIONS ORD SHS",
+          "pct": "2.49%",
+          "shares": "0.75",
+          "value": "769.32"
+        },
+        {
+          "code": "ANET",
+          "name": "Arista Networks Inc",
+          "pct": "2.37%",
+          "shares": "1.00",
+          "value": "732.40"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年1季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "5.09%",
+          "shares": "2.25",
+          "value": "1,750.44"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "4.72%",
+          "shares": "1.35",
+          "value": "1,622.49"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "3.47%",
+          "shares": "1.00",
+          "value": "1,191.58"
+        },
+        {
+          "code": "JP3548600000",
+          "name": "东京精密制造",
+          "pct": "2.73%",
+          "shares": "0.65",
+          "value": "939.62"
+        },
+        {
+          "code": "NL0012866412",
+          "name": "BESINV",
+          "pct": "2.59%",
+          "shares": "1.20",
+          "value": "890.82"
+        },
+        {
+          "code": "ONTO",
+          "name": "Onto Innovation Inc",
+          "pct": "2.53%",
+          "shares": "1.00",
+          "value": "871.00"
+        },
+        {
+          "code": "ANET",
+          "name": "Arista Networks Inc",
+          "pct": "2.43%",
+          "shares": "1.50",
+          "value": "834.25"
+        },
+        {
+          "code": "JP3571400005",
+          "name": "东京电子",
+          "pct": "2.40%",
+          "shares": "0.85",
+          "value": "826.56"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "2.28%",
+          "shares": "1.75",
+          "value": "783.11"
+        },
+        {
+          "code": "VRT",
+          "name": "Vertiv Holdings Co-A",
+          "pct": "2.26%",
+          "shares": "1.50",
+          "value": "777.40"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年4季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "5.93%",
+          "shares": "2.20",
+          "value": "2,123.73"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "5.58%",
+          "shares": "1.20",
+          "value": "1,999.87"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "4.76%",
+          "shares": "1.20",
+          "value": "1,703.56"
+        },
+        {
+          "code": "NL0012866412",
+          "name": "BESINV",
+          "pct": "3.47%",
+          "shares": "1.25",
+          "value": "1,244.56"
+        },
+        {
+          "code": "0A8Z",
+          "name": "MACOM TECHNOLOGY SOLUTIONS HOLDINGS MACOM TECHNOLOGY SOLUTIONS ORD SHS",
+          "pct": "3.26%",
+          "shares": "1.25",
+          "value": "1,167.31"
+        },
+        {
+          "code": "JP3236330001",
+          "name": "铠侠控股株式会社",
+          "pct": "3.17%",
+          "shares": "15.00",
+          "value": "1,137.33"
+        },
+        {
+          "code": "ANET",
+          "name": "Arista Networks Inc",
+          "pct": "3.10%",
+          "shares": "1.40",
+          "value": "1,112.35"
+        },
+        {
+          "code": "JP3548600000",
+          "name": "东京精密制造",
+          "pct": "3.03%",
+          "shares": "0.55",
+          "value": "1,086.54"
+        },
+        {
+          "code": "NL0000334118",
+          "name": "ASMINTERNATIONALNV",
+          "pct": "2.93%",
+          "shares": "0.25",
+          "value": "1,051.34"
+        },
+        {
+          "code": "CDNS",
+          "name": "铿腾电子",
+          "pct": "2.71%",
+          "shares": "0.45",
+          "value": "971.92"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年3季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "7.70%",
+          "shares": "4.75",
+          "value": "4,042.15"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "6.33%",
+          "shares": "2.75",
+          "value": "3,324.14"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "5.47%",
+          "shares": "2.50",
+          "value": "2,874.44"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "5.10%",
+          "shares": "2.20",
+          "value": "2,677.35"
+        },
+        {
+          "code": "JP3122400009",
+          "name": "Advantest Cor p",
+          "pct": "3.47%",
+          "shares": "5.50",
+          "value": "1,819.55"
+        },
+        {
+          "code": "300502",
+          "name": "新易盛",
+          "pct": "3.40%",
+          "shares": "13.75",
+          "value": "1,787.09"
+        },
+        {
+          "code": "0A8Z",
+          "name": "MACOM TECHNOLOGY SOLUTIONS HOLDINGS MACOM TECHNOLOGY SOLUTIONS ORD SHS",
+          "pct": "3.34%",
+          "shares": "2.25",
+          "value": "1,754.20"
+        },
+        {
+          "code": "601138",
+          "name": "工业富联",
+          "pct": "3.24%",
+          "shares": "67.50",
+          "value": "1,700.33"
+        },
+        {
+          "code": "NL0012866412",
+          "name": "BE Semicondu ctor Industries NV",
+          "pct": "3.13%",
+          "shares": "1.85",
+          "value": "1,644.14"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "3.11%",
+          "shares": "0.28",
+          "value": "1,634.90"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年2季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "7.19%",
+          "shares": "3.00",
+          "value": "2,641.33"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "4.67%",
+          "shares": "0.15",
+          "value": "1,716.34"
+        },
+        {
+          "code": "300502",
+          "name": "新易盛",
+          "pct": "4.48%",
+          "shares": "15.58",
+          "value": "1,644.47"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "4.21%",
+          "shares": "1.25",
+          "value": "1,548.39"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "3.83%",
+          "shares": "1.50",
+          "value": "1,406.08"
+        },
+        {
+          "code": "NL0012866412",
+          "name": "BE Semiconduct or Industries NV",
+          "pct": "3.26%",
+          "shares": "1.00",
+          "value": "1,196.37"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "3.17%",
+          "shares": "0.16",
+          "value": "1,166.21"
+        },
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "3.10%",
+          "shares": "0.15",
+          "value": "1,138.35"
+        },
+        {
+          "code": "MRVL",
+          "name": "迈威尔科技",
+          "pct": "3.05%",
+          "shares": "2.25",
+          "value": "1,120.87"
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "pct": "3.03%",
+          "shares": "8.07",
+          "value": "1,112.14"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年1季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "7.50%",
+          "shares": "0.25",
+          "value": "1,602.69"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "4.40%",
+          "shares": "0.10",
+          "value": "940.38"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "4.03%",
+          "shares": "2.75",
+          "value": "861.81"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "4.03%",
+          "shares": "0.13",
+          "value": "860.69"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "3.91%",
+          "shares": "1.00",
+          "value": "836.43"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "3.90%",
+          "shares": "0.65",
+          "value": "832.37"
+        },
+        {
+          "code": "MRVL",
+          "name": "迈威尔科技",
+          "pct": "3.77%",
+          "shares": "1.60",
+          "value": "804.63"
+        },
+        {
+          "code": "JP3979200007",
+          "name": "Lasertec C orp",
+          "pct": "3.23%",
+          "shares": "0.35",
+          "value": "689.92"
+        },
+        {
+          "code": "JP3548600000",
+          "name": "Disco Corp",
+          "pct": "3.16%",
+          "shares": "0.25",
+          "value": "674.24"
+        },
+        {
+          "code": "QCOM",
+          "name": "高通",
+          "pct": "3.09%",
+          "shares": "0.55",
+          "value": "660.65"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年4季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "8.06%",
+          "shares": "0.34",
+          "value": "1,175.01"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "4.88%",
+          "shares": "0.09",
+          "value": "711.55"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "4.66%",
+          "shares": "0.65",
+          "value": "678.64"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "4.60%",
+          "shares": "0.13",
+          "value": "670.13"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "3.66%",
+          "shares": "1.50",
+          "value": "533.86"
+        },
+        {
+          "code": "JP3433500000",
+          "name": "Socionext Inc",
+          "pct": "3.31%",
+          "shares": "3.75",
+          "value": "482.04"
+        },
+        {
+          "code": "MRVL",
+          "name": "迈威尔科技",
+          "pct": "2.93%",
+          "shares": "1.00",
+          "value": "427.16"
+        },
+        {
+          "code": "002475",
+          "name": "立讯精密",
+          "pct": "2.91%",
+          "shares": "12.32",
+          "value": "424.42"
+        },
+        {
+          "code": "002156",
+          "name": "通富微电",
+          "pct": "2.86%",
+          "shares": "18.03",
+          "value": "416.85"
+        },
+        {
+          "code": "LRCX",
+          "name": "拉姆研究",
+          "pct": "2.85%",
+          "shares": "0.08",
+          "value": "416.07"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年3季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "8.32%",
+          "shares": "0.42",
+          "value": "1,311.72"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "4.83%",
+          "shares": "0.18",
+          "value": "760.76"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "4.73%",
+          "shares": "0.13",
+          "value": "745.42"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "4.12%",
+          "shares": "0.88",
+          "value": "649.64"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "3.87%",
+          "shares": "1.25",
+          "value": "610.55"
+        },
+        {
+          "code": "JP3355000005",
+          "name": "Shibaura M echatronics Corp",
+          "pct": "3.25%",
+          "shares": "1.50",
+          "value": "511.81"
+        },
+        {
+          "code": "KLAC",
+          "name": "科磊",
+          "pct": "3.13%",
+          "shares": "0.15",
+          "value": "493.96"
+        },
+        {
+          "code": "AMAT",
+          "name": "应用材料",
+          "pct": "3.00%",
+          "shares": "0.48",
+          "value": "472.17"
+        },
+        {
+          "code": "JP3548600000",
+          "name": "Disco Corp",
+          "pct": "2.96%",
+          "shares": "0.35",
+          "value": "467.19"
+        },
+        {
+          "code": "JP3433500000",
+          "name": "Socionext I nc",
+          "pct": "2.95%",
+          "shares": "0.65",
+          "value": "464.96"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年2季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "6.20%",
+          "shares": "0.49",
+          "value": "1,497.76"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "3.11%",
+          "shares": "0.12",
+          "value": "752.15"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "2.89%",
+          "shares": "0.85",
+          "value": "699.63"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "2.60%",
+          "shares": "0.12",
+          "value": "628.43"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "2.41%",
+          "shares": "0.80",
+          "value": "583.38"
+        },
+        {
+          "code": "JP3494600004",
+          "name": "SCREEN Holdings Co Ltd",
+          "pct": "2.29%",
+          "shares": "0.68",
+          "value": "553.20"
+        },
+        {
+          "code": "000938",
+          "name": "紫光股份",
+          "pct": "2.15%",
+          "shares": "16.31",
+          "value": "519.47"
+        },
+        {
+          "code": "JP3355000005",
+          "name": "Shibaura Mechatronics Corp",
+          "pct": "2.07%",
+          "shares": "0.45",
+          "value": "501.12"
+        },
+        {
+          "code": "JP3548600000",
+          "name": "Disco Corp",
+          "pct": "1.97%",
+          "shares": "0.42",
+          "value": "475.70"
+        },
+        {
+          "code": "JP3164720009",
+          "name": "Renesas Electronics Corp",
+          "pct": "1.96%",
+          "shares": "3.50",
+          "value": "473.65"
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "core_stocks": [
+      "AVGO",
+      "NVDA",
+      "TSM"
+    ],
+    "core_count": 3,
+    "stability_pct": 30.0,
+    "movements": {
+      "new_in": [
+        {
+          "code": "COHR",
+          "name": "Coherent Corp",
+          "pct": "2.28%"
+        },
+        {
+          "code": "JP3684400009",
+          "name": "Nitto Boseki Co Ltd",
+          "pct": "2.04%"
+        }
+      ],
+      "new_out": [
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "2.28%"
+        },
+        {
+          "code": "VRT",
+          "name": "Vertiv Holdings Co-A",
+          "pct": "2.17%"
+        }
+      ],
+      "add": [
+        {
+          "code": "TSEM",
+          "name": "Tower半导体",
+          "pct": "2.75%",
+          "diff": 0.78
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "2.69%",
+          "diff": 0.43
+        }
+      ],
+      "reduce": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "3.65%",
+          "diff": -1.56
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "3.07%",
+          "diff": -2.73
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "2.77%",
+          "diff": -0.62
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "pct": "2.44%",
+          "diff": -1.44
+        },
+        {
+          "code": "300502",
+          "name": "新易盛",
+          "pct": "2.23%",
+          "diff": -1.54
+        },
+        {
+          "code": "300476",
+          "name": "胜宏科技",
+          "pct": "2.21%",
+          "diff": -1.22
+        }
+      ],
+      "hold": []
+    },
+    "concentration": [
+      {
+        "quarter": "2026年1季度",
+        "top3": 9.49,
+        "top10": 26.13
+      },
+      {
+        "quarter": "2025年4季度",
+        "top3": 14.89,
+        "top10": 34.16
+      },
+      {
+        "quarter": "2025年3季度",
+        "top3": 14.12,
+        "top10": 32.17
+      },
+      {
+        "quarter": "2025年2季度",
+        "top3": 15.88,
+        "top10": 34.7
+      }
+    ],
+    "core_trend": [
+      {
+        "code": "NVDA",
+        "name": "英伟达",
+        "series": [
+          {
+            "q": "2026年1季度",
+            "pct": "3.65%"
+          },
+          {
+            "q": "2025年4季度",
+            "pct": "5.21%"
+          },
+          {
+            "q": "2025年3季度",
+            "pct": "4.99%"
+          },
+          {
+            "q": "2025年2季度",
+            "pct": "5.48%"
+          }
+        ]
+      },
+      {
+        "code": "AVGO",
+        "name": "博通",
+        "series": [
+          {
+            "q": "2026年1季度",
+            "pct": "3.07%"
+          },
+          {
+            "q": "2025年4季度",
+            "pct": "5.80%"
+          },
+          {
+            "q": "2025年3季度",
+            "pct": "5.15%"
+          },
+          {
+            "q": "2025年2季度",
+            "pct": "5.42%"
+          }
+        ]
+      },
+      {
+        "code": "TSM",
+        "name": "台积电",
+        "series": [
+          {
+            "q": "2026年1季度",
+            "pct": "2.77%"
+          },
+          {
+            "q": "2025年4季度",
+            "pct": "3.39%"
+          },
+          {
+            "q": "2025年3季度",
+            "pct": "3.98%"
+          },
+          {
+            "q": "2025年2季度",
+            "pct": "4.98%"
+          }
+        ]
+      }
+    ],
+    "latest_top5": [
+      {
+        "code": "NVDA",
+        "name": "英伟达",
+        "pct": "3.65%",
+        "shares": "6.00",
+        "value": "7,240.46"
+      },
+      {
+        "code": "AVGO",
+        "name": "博通",
+        "pct": "3.07%",
+        "shares": "2.85",
+        "value": "6,103.63"
+      },
+      {
+        "code": "TSM",
+        "name": "台积电",
+        "pct": "2.77%",
+        "shares": "2.35",
+        "value": "5,495.27"
+      },
+      {
+        "code": "TSEM",
+        "name": "Tower半导体",
+        "pct": "2.75%",
+        "shares": "4.50",
+        "value": "5,463.97"
+      },
+      {
+        "code": "LITE",
+        "name": "Lumentum Holdings Inc",
+        "pct": "2.69%",
+        "shares": "1.10",
+        "value": "5,348.95"
+      }
+    ],
+    "region_mix": {
+      "A股": 6.88,
+      "美股/港股": 19.25
+    }
+  }
+}

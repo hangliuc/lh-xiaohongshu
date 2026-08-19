@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>海外QDII基金交易规则</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0a0d15}
+body{
+  font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
+  font-weight:600;
+  -webkit-font-smoothing:antialiased;
+  color:#e7ecf3;
+  padding:30px 0;
+}
+.card{
+  width:1080px;height:1440px;
+  margin:24px auto;position:relative;
+  background:
+    radial-gradient(1400px 800px at 120% -10%,rgba(212,178,106,.10),transparent 60%),
+    radial-gradient(1200px 700px at -20% 40%,rgba(255,107,107,.06),transparent 60%),
+    radial-gradient(1200px 700px at 110% 110%,rgba(74,158,255,.06),transparent 60%),
+    linear-gradient(180deg,#05060b 0%,#0b1020 50%,#070a14 100%);
+  overflow:hidden;border-radius:8px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+.corner{position:absolute;width:56px;height:56px;border:1.5px solid rgba(212,178,106,.45)}
+.corner.tl{top:40px;left:40px;border-right:none;border-bottom:none}
+.corner.tr{top:40px;right:40px;border-left:none;border-bottom:none}
+.corner.bl{bottom:36px;left:40px;border-right:none;border-top:none}
+.corner.br{bottom:36px;right:40px;border-left:none;border-top:none}
+
+.header{padding:52px 60px 0;text-align:center}
+.header .en{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;letter-spacing:8px;color:#d4b26a;font-size:22px}
+.header .cn{margin-top:12px;font-size:48px;font-weight:900;letter-spacing:6px;background:linear-gradient(180deg,#fff 0%,#f3e3b8 60%,#d4b26a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.header .sub{margin-top:10px;font-size:20px;color:#8a93a6;letter-spacing:3px}
+.hairline{width:100px;height:1px;background:linear-gradient(90deg,transparent,#d4b26a,transparent);margin:16px auto 0}
+
+/* 交易时间 */
+.trading-hours{
+  margin:28px 60px 0;
+  padding:13px 28px;
+  border-radius:12px;
+  background:rgba(212,178,106,.06);
+  border:1px solid rgba(212,178,106,.25);
+  text-align:center;
+}
+.trading-hours .label{font-size:15px;color:#d4b26a;letter-spacing:3px;font-weight:700;margin-bottom:6px}
+.trading-hours .times{font-size:21px;color:#e7ecf3;letter-spacing:2px}
+.trading-hours .times .gold{color:#d4b26a;font-family:"DM Serif Display",serif;font-size:23px}
+
+/* 时间轴区块 */
+.tl-section{
+  margin:24px 60px 0;
+  padding:18px 24px 16px;
+  border-radius:14px;
+}
+.tl-section.buy{
+  background:linear-gradient(135deg,rgba(255,107,107,.03),rgba(255,107,107,.07));
+  border:1px solid rgba(255,107,107,.2);
+}
+.tl-section.sell{
+  background:linear-gradient(135deg,rgba(74,158,255,.03),rgba(74,158,255,.07));
+  border:1px solid rgba(74,158,255,.2);
+}
+.sec-title{font-size:21px;font-weight:700;letter-spacing:3px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sec-title.buy{color:#ff6b6b}
+.sec-title.sell{color:#4a9eff}
+.sec-title .dot{width:10px;height:10px;border-radius:50%}
+.sec-title.buy .dot{background:#ff6b6b}
+.sec-title.sell .dot{background:#4a9eff}
+
+.timeline{position:relative;height:222px;padding:0 36px 0 8px}
+.track{position:relative;width:100%;height:100%}
+
+/* 日期标题 */
+.track .day-labels{position:absolute;top:0;left:0;right:0;display:flex}
+.day-label{font-family:"DM Serif Display",serif;font-size:19px;color:#d4b26a;text-align:center;letter-spacing:2px}
+
+/* 0:00 分割线 */
+.track .divider{position:absolute;top:22px;bottom:0;border-left:1.5px dashed rgba(212,178,106,.3)}
+
+/* 美股交易区间 */
+.track .session{
+  position:absolute;top:46px;height:16px;
+  background:rgba(212,178,106,.07);border:1px solid rgba(212,178,106,.12);border-radius:3px;
+}
+
+/* 轴线 */
+.track .axis{position:absolute;top:52px;left:0;right:0;height:3px;display:flex;align-items:center}
+.axis-line{flex:1;height:3px;border-radius:2px}
+.buy .axis-line{background:linear-gradient(90deg,rgba(255,107,107,.2),rgba(255,107,107,.55),rgba(255,107,107,.2))}
+.sell .axis-line{background:linear-gradient(90deg,rgba(74,158,255,.2),rgba(74,158,255,.55),rgba(74,158,255,.2))}
+.axis-arrow{border-top:6px solid transparent;border-bottom:6px solid transparent}
+.buy .axis-arrow{border-left:10px solid rgba(255,107,107,.65)}
+.sell .axis-arrow{border-left:10px solid rgba(74,158,255,.65)}
+.axis-tag{position:absolute;top:48px;right:-34px;font-size:11px;color:#8a93a6;letter-spacing:1px}
+
+/* 刻度 */
+.track .tk{position:absolute;top:42px;display:flex;flex-direction:column;align-items:center;transform:translateX(-50%)}
+.tk .ln{width:1.5px;height:20px;background:rgba(212,178,106,.45);border-radius:1px}
+.tk .lb{margin-top:3px;font-family:"DM Serif Display",serif;font-size:13px;color:#8a93a6;white-space:nowrap}
+
+/* 事件卡 */
+.track .ev{position:absolute;top:80px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center}
+.ev .wire{width:1px;height:14px;background:rgba(212,178,106,.35)}
+.ev .box{text-align:center;padding:10px 14px;border-radius:8px}
+.buy .ev .box{background:rgba(255,107,107,.06);border:1px solid rgba(255,107,107,.2)}
+.sell .ev .box{background:rgba(74,158,255,.06);border:1px solid rgba(74,158,255,.2)}
+.ev .t{font-size:14px;color:#f2e9d2;letter-spacing:1px;margin-bottom:4px;font-weight:700}
+.ev .d{font-size:13px;line-height:1.65;letter-spacing:.5px}
+.buy .ev .d{color:rgba(255,180,180,.85)}
+.sell .ev .d{color:rgba(160,200,255,.85)}
+
+/* 说明区 */
+.note-section{
+  margin:16px 60px 0;
+  padding:14px 24px;
+  border-radius:12px;
+}
+.note-section.buy-note{
+  background:rgba(255,107,107,.03);border:1px solid rgba(255,107,107,.15);
+}
+.note-section.sell-note{
+  background:rgba(74,158,255,.03);border:1px solid rgba(74,158,255,.15);
+}
+.note-row{
+  display:flex;align-items:baseline;gap:12px;
+  padding:7px 0;
+  border-bottom:1px solid rgba(212,178,106,.08);
+}
+.note-row:last-child{border-bottom:none}
+.note-row .tag{
+  flex-shrink:0;
+  font-size:14px;font-weight:700;letter-spacing:1px;
+  padding:3px 10px;border-radius:4px;
+  white-space:nowrap;
+}
+.buy-note .note-row .tag{color:#ff6b6b;background:rgba(255,107,107,.08)}
+.sell-note .note-row .tag{color:#4a9eff;background:rgba(74,158,255,.08)}
+.note-row .txt{font-size:16px;line-height:1.75;letter-spacing:.5px;color:#b0b8c8}
+.note-row .txt b{color:#e7ecf3;font-weight:700}
+.note-row .txt .warn{color:#d4b26a;font-weight:700}
+
+.footer{position:absolute;left:0;right:0;bottom:46px;display:flex;justify-content:space-between;align-items:center;padding:0 60px}
+.watermark{color:rgba(138,147,166,.4);font-size:16px;letter-spacing:4px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+.disclaimer{color:rgba(138,147,166,.4);font-size:13px;letter-spacing:2px}
+</style>
+</head>
+<body>
+<div class="card" id="p1">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="header">
+    <div class="en">QDII FUND · TRADING RULES</div>
+    <div class="cn">海外QDII基金交易规则</div>
+    <div class="sub">以 100 元买入为例 · 北京时间</div>
+    <div class="hairline"></div>
+  </div>
+
+  <!-- 美股交易时间 -->
+  <div class="trading-hours">
+    <div class="label">美股交易时间（北京时间）</div>
+    <div class="times">夏令时 <span class="gold">21:30 — 04:00</span> &nbsp;·&nbsp; 冬令时 <span class="gold">22:30 — 05:00</span></div>
+  </div>
+
+  <!-- ========== 买入时间轴 ========== -->
+  <div class="tl-section buy">
+    <div class="sec-title buy"><span class="dot"></span>买入（申购）· 如周一 15:00 前买入</div>
+    <div class="timeline">
+      <div class="track">
+        <div class="day-labels">
+          <div class="day-label" style="flex:0 0 26%">T 日（周一）</div>
+          <div class="day-label" style="flex:0 0 42%">T+1 日（周二）</div>
+          <div class="day-label" style="flex:0 0 32%">T+2 日（周三）</div>
+        </div>
+        <div class="divider" style="left:26%"></div>
+        <div class="divider" style="left:68%"></div>
+        <div class="session" style="left:19%;width:14%"></div>
+        <div class="session" style="left:61%;width:14%"></div>
+        <div class="axis"><div class="axis-line"></div><div class="axis-arrow"></div></div>
+        <div class="axis-tag">北京时间</div>
+        <div class="tk" style="left:5%"><div class="ln"></div><div class="lb">15:00</div></div>
+        <div class="tk" style="left:19%"><div class="ln"></div><div class="lb">21:30</div></div>
+        <div class="tk" style="left:33%"><div class="ln"></div><div class="lb">04:00</div></div>
+        <div class="tk" style="left:47%"><div class="ln"></div><div class="lb">15:00</div></div>
+        <div class="tk" style="left:61%"><div class="ln"></div><div class="lb">21:30</div></div>
+        <div class="tk" style="left:75%"><div class="ln"></div><div class="lb">04:00</div></div>
+        <div class="tk" style="left:89%"><div class="ln"></div><div class="lb">15:00</div></div>
+        <!-- 事件卡 -->
+        <div class="ev" style="left:5%">
+          <div class="wire"></div>
+          <div class="box"><div class="t">15:00 前</div><div class="d">提交申购<br/>扣款 100 元</div></div>
+        </div>
+        <div class="ev" style="left:26%">
+          <div class="wire"></div>
+          <div class="box"><div class="t">周一晚美股</div><div class="d">收盘确认净值<br/>成本价 1 元/份<br/>得到 100 份</div></div>
+        </div>
+        <div class="ev" style="left:68%">
+          <div class="wire"></div>
+          <div class="box"><div class="t">周二晚美股</div><div class="d">涨 10%<br/>净值变 1.1 元<br/>产生 10 元盈利</div></div>
+        </div>
+        <div class="ev" style="left:89%">
+          <div class="wire"></div>
+          <div class="box"><div class="t">周三晚更新</div><div class="d">APP 显示<br/>持仓 110 元</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 买入说明 -->
+  <div class="note-section buy-note">
+    <div class="note-row">
+      <span class="tag">买入价</span>
+      <span class="txt">按<b>周一晚</b>美股收盘价确定（21:30 开盘，凌晨 04:00 收盘），当晚跌了更好 → 你的买入价更低</span>
+    </div>
+    <div class="note-row">
+      <span class="tag">涨跌</span>
+      <span class="txt"><b>周二晚</b>美股的涨跌开始和你有关，根据周二晚涨跌计算你的收益</span>
+    </div>
+    <div class="note-row">
+      <span class="tag">收益更新</span>
+      <span class="txt">首次收益会在<b>周三晚</b>APP 更新收益时显示（因为时差，要等 T+2）</span>
+    </div>
+    <div class="note-row">
+      <span class="tag">周五15:00后/周末</span>
+      <span class="txt">算<b>下一个交易日</b>下单，周一晚涨跌跟你无关</span>
+    </div>
+  </div>
+
+  <!-- ========== 卖出时间轴 ========== -->
+  <div class="tl-section sell">
+    <div class="sec-title sell"><span class="dot"></span>卖出（赎回）· 如周一 15:00 前卖出</div>
+    <div class="timeline">
+      <div class="track">
+        <div class="day-labels">
+          <div class="day-label" style="flex:0 0 29%">T 日（周一）</div>
+          <div class="day-label" style="flex:0 0 38%">T+2 确认</div>
+          <div class="day-label" style="flex:0 0 33%">T+4~T+10 到账</div>
+        </div>
+        <div class="divider" style="left:29%"></div>
+        <div class="divider" style="left:67%"></div>
+        <div class="session" style="left:22%;width:14%"></div>
+        <div class="axis"><div class="axis-line"></div><div class="axis-arrow"></div></div>
+        <div class="axis-tag">北京时间</div>
+        <div class="tk" style="left:8%"><div class="ln"></div><div class="lb">15:00</div></div>
+        <div class="tk" style="left:22%"><div class="ln"></div><div class="lb">21:30</div></div>
+        <div class="tk" style="left:36%"><div class="ln"></div><div class="lb">04:00</div></div>
+        <div class="tk" style="left:55%"><div class="ln"></div><div class="lb">T+2</div></div>
+        <div class="tk" style="left:80%"><div class="ln"></div><div class="lb">到账</div></div>
+        <!-- 事件卡 -->
+        <div class="ev" style="left:8%">
+          <div class="wire"></div>
+          <div class="box"><div class="t">15:00 前</div><div class="d">提交赎回<br/>冻结份额</div></div>
+        </div>
+        <div class="ev" style="left:29%">
+          <div class="wire"></div>
+          <div class="box"><div class="t">周一晚美股</div><div class="d">按收盘价<br/>确定卖出价</div></div>
+        </div>
+        <div class="ev" style="left:55%">
+          <div class="wire"></div>
+          <div class="box"><div class="t">份额确认</div><div class="d">时差导致<br/>T+2 完成</div></div>
+        </div>
+        <div class="ev" style="left:80%">
+          <div class="wire"></div>
+          <div class="box"><div class="t">资金到账</div><div class="d">跨境结算<br/>T+4~T+10</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 卖出说明 -->
+  <div class="note-section sell-note">
+    <div class="note-row">
+      <span class="tag">卖出价</span>
+      <span class="txt">按<b>周一晚</b>美股收盘价结算，当晚大跌 → 你的卖出价也跟着低，亏损直接锁定</span>
+    </div>
+    <div class="note-row">
+      <span class="tag">涨跌</span>
+      <span class="txt"><b>周一晚</b>美股涨跌仍然和你有关；<b>周二晚</b>开始的涨跌跟你无关了</span>
+    </div>
+    <div class="note-row">
+      <span class="tag">到账</span>
+      <span class="txt">净值定了剩下就是等钱回来 → 跨境换汇结算 <b>T+4~T+10 工作日</b>到余额</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="watermark">QDII · TRADING RULES</div>
+    <div class="disclaimer">仅作信息分享，不构成任何投资建议</div>
+  </div>
+</div>
+</body>
+</html>
