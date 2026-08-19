@@ -1,12 +1,17 @@
 {
   "name": "xiaohongshu",
   "version": "1.0.0",
-  "description": "",
+  "description": "小红书图文卡片项目：用 HTML+CSS 做 1080×1440 卡片，Puppeteer 批量截图",
   "main": "shot.js",
   "scripts": {
+    "shot": "node shot.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "xiaohongshu",
+    "puppeteer",
+    "screenshot"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",

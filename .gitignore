@@ -1,9 +1,20 @@
+# 依赖
 node_modules/
+
+# 系统 / 编辑器
 .DS_Store
+._*
+.idea/
+.vscode/
+
+# 日志与环境
 *.log
 .env
 .env.*
-.idea/
-.vscode/
+
+# Python
 __pycache__/
 *.pyc
+
+# 工具临时状态（brainstorm 服务器 pid/log 等，非项目产物）
+.superpowers/

@@ -1,0 +1,1254 @@
+{
+  "code": "014002",
+  "basic": {
+    "name": "浦银安盛全球智能科技(QDII)C",
+    "code": "014002",
+    "type": "QDII-普通股票",
+    "risk": "中高风险",
+    "scale": "19.34亿元",
+    "manager_name": "IKEDA",
+    "found_date": "2021-11-03",
+    "company": "浦银安盛基金",
+    "nav": "3.5985",
+    "nav_date": "05-21",
+    "return_1m": "17.74%",
+    "return_3m": "35.91%",
+    "return_6m": "54.81%",
+    "return_1y": "84.22%",
+    "return_3y": "171.54%",
+    "return_sl": "112.24%"
+  },
+  "manager": {
+    "tenures": [
+      {
+        "start": "2022-08-11",
+        "end": "至今",
+        "period": "2022-08-11 ~ 至今",
+        "managers": [
+          "IKEDA KAE",
+          "俞瑾"
+        ],
+        "days": "3年又285天",
+        "return": "157.61%"
+      },
+      {
+        "start": "2021-11-03",
+        "end": "2022-08-10",
+        "period": "2021-11-03 ~ 2022-08-10",
+        "managers": [
+          "IKEDA KAE"
+        ],
+        "days": "280天",
+        "return": "-20.55%"
+      }
+    ],
+    "current": {
+      "start": "2022-08-11",
+      "end": "至今",
+      "period": "2022-08-11 ~ 至今",
+      "managers": [
+        "IKEDA KAE",
+        "俞瑾"
+      ],
+      "days": "3年又285天",
+      "return": "157.61%"
+    },
+    "profiles": [
+      {
+        "name": "IKEDA KAE",
+        "avatar": "https://pdf.dfcfw.com/pdf/H8_30564218_1.PNG",
+        "appoint_date": "2021-11-03",
+        "bio": "IKEDA KAE女士:日本广岛大学经济学专业学士和硕士,CFA。曾在日本团体生命保险公司从事股票投资管理工作,先后从事日本股票及外汇交易、管理包括日本、美国、欧洲、亚洲等多国股票,进行资产分配和货币对冲,还曾进行债券和另类投资。对海外证券市场投资具有丰富经验,熟悉各类投资品种。2015年10月加入浦银安盛基金管理有限公司。2018年1月24日至2021年9月1日任浦银安盛港股通量化优选灵活配置混合型证券投资基金的基金经理。"
+      }
+    ]
+  },
+  "holdings": [
+    {
+      "quarter": "2026年1季度",
+      "stocks": [
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "8.22%",
+          "shares": "5.08",
+          "value": "24,721.85"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "6.40%",
+          "shares": "9.70",
+          "value": "19,248.96"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "6.04%",
+          "shares": "7.77",
+          "value": "18,157.76"
+        },
+        {
+          "code": "WDC",
+          "name": "西部数据",
+          "pct": "5.19%",
+          "shares": "8.34",
+          "value": "15,609.38"
+        },
+        {
+          "code": "COHR",
+          "name": "Coherent Corp",
+          "pct": "5.17%",
+          "shares": "9.44",
+          "value": "15,559.67"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "5.13%",
+          "shares": "6.60",
+          "value": "15,428.49"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "4.34%",
+          "shares": "42.70",
+          "value": "13,038.58"
+        },
+        {
+          "code": "285AJP",
+          "name": "铠侠控股株式会社",
+          "pct": "3.71%",
+          "shares": "13.50",
+          "value": "11,152.18"
+        },
+        {
+          "code": "NFLX",
+          "name": "奈飞",
+          "pct": "3.55%",
+          "shares": "16.03",
+          "value": "10,664.76"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "3.25%",
+          "shares": "1.07",
+          "value": "9,779.11"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年4季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "8.11%",
+          "shares": "17.22",
+          "value": "22,570.58"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "7.87%",
+          "shares": "9.93",
+          "value": "21,905.73"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "7.45%",
+          "shares": "9.71",
+          "value": "20,729.71"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "7.31%",
+          "shares": "8.36",
+          "value": "20,346.83"
+        },
+        {
+          "code": "TSLA",
+          "name": "特斯拉",
+          "pct": "6.23%",
+          "shares": "5.48",
+          "value": "17,330.14"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "6.03%",
+          "shares": "8.37",
+          "value": "16,790.97"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "3.95%",
+          "shares": "3.23",
+          "value": "10,985.76"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "3.69%",
+          "shares": "6.32",
+          "value": "10,259.49"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "3.29%",
+          "shares": "4.80",
+          "value": "9,170.17"
+        },
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "2.95%",
+          "shares": "3.17",
+          "value": "8,199.71"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年3季度",
+      "stocks": [
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "8.74%",
+          "shares": "5.56",
+          "value": "11,039.75"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "8.63%",
+          "shares": "8.22",
+          "value": "10,894.97"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "7.55%",
+          "shares": "5.51",
+          "value": "9,538.24"
+        },
+        {
+          "code": "TSLA",
+          "name": "特斯拉",
+          "pct": "7.53%",
+          "shares": "3.01",
+          "value": "9,505.15"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "6.32%",
+          "shares": "3.40",
+          "value": "7,979.57"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "5.76%",
+          "shares": "1.98",
+          "value": "7,275.20"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "5.37%",
+          "shares": "3.75",
+          "value": "6,782.97"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "5.03%",
+          "shares": "1.22",
+          "value": "6,353.60"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "4.96%",
+          "shares": "4.01",
+          "value": "6,261.99"
+        },
+        {
+          "code": "ORCL",
+          "name": "甲骨文",
+          "pct": "2.31%",
+          "shares": "1.46",
+          "value": "2,913.60"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年2季度",
+      "stocks": [
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "8.43%",
+          "shares": "2.29",
+          "value": "8,139.18"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "7.97%",
+          "shares": "6.06",
+          "value": "7,697.53"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "7.59%",
+          "shares": "4.52",
+          "value": "7,333.37"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "7.51%",
+          "shares": "4.62",
+          "value": "7,250.80"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "7.39%",
+          "shares": "6.31",
+          "value": "7,134.27"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "6.66%",
+          "shares": "1.22",
+          "value": "6,433.42"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "6.24%",
+          "shares": "3.05",
+          "value": "6,026.36"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "4.76%",
+          "shares": "3.13",
+          "value": "4,595.66"
+        },
+        {
+          "code": "NFLX",
+          "name": "奈飞",
+          "pct": "4.18%",
+          "shares": "0.42",
+          "value": "4,035.83"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "2.19%",
+          "shares": "2.08",
+          "value": "2,112.77"
+        }
+      ]
+    },
+    {
+      "quarter": "2025年1季度",
+      "stocks": [
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "8.35%",
+          "shares": "5.21",
+          "value": "7,116.52"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "8.02%",
+          "shares": "6.09",
+          "value": "6,831.54"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "6.36%",
+          "shares": "3.40",
+          "value": "5,421.28"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "6.21%",
+          "shares": "6.81",
+          "value": "5,296.44"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "5.90%",
+          "shares": "4.22",
+          "value": "5,032.05"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "5.52%",
+          "shares": "1.14",
+          "value": "4,706.51"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "5.30%",
+          "shares": "1.68",
+          "value": "4,521.04"
+        },
+        {
+          "code": "NFLX",
+          "name": "奈飞",
+          "pct": "3.30%",
+          "shares": "0.42",
+          "value": "2,811.43"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "2.07%",
+          "shares": "2.82",
+          "value": "1,761.37"
+        },
+        {
+          "code": "SNOW",
+          "name": "Snowflake Inc-A",
+          "pct": "1.82%",
+          "shares": "1.48",
+          "value": "1,552.77"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年4季度",
+      "stocks": [
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "8.50%",
+          "shares": "6.38",
+          "value": "9,052.17"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "7.69%",
+          "shares": "8.49",
+          "value": "8,193.72"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "7.27%",
+          "shares": "2.56",
+          "value": "7,743.85"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "7.15%",
+          "shares": "4.83",
+          "value": "7,612.17"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "7.13%",
+          "shares": "4.22",
+          "value": "7,596.50"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "6.60%",
+          "shares": "5.14",
+          "value": "7,030.56"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "5.52%",
+          "shares": "3.53",
+          "value": "5,881.29"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "5.19%",
+          "shares": "1.31",
+          "value": "5,524.58"
+        },
+        {
+          "code": "TSLA",
+          "name": "特斯拉",
+          "pct": "3.55%",
+          "shares": "1.30",
+          "value": "3,784.59"
+        },
+        {
+          "code": "ANET",
+          "name": "Arista Networks Inc",
+          "pct": "2.06%",
+          "shares": "2.76",
+          "value": "2,194.50"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年3季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "8.76%",
+          "shares": "7.30",
+          "value": "6,210.44"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "8.71%",
+          "shares": "5.08",
+          "value": "6,177.85"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "7.60%",
+          "shares": "1.34",
+          "value": "5,391.61"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "6.81%",
+          "shares": "4.12",
+          "value": "4,826.51"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "5.97%",
+          "shares": "3.24",
+          "value": "4,232.78"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "5.15%",
+          "shares": "1.21",
+          "value": "3,653.92"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "4.95%",
+          "shares": "2.15",
+          "value": "3,510.36"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "4.38%",
+          "shares": "2.57",
+          "value": "3,105.35"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "4.17%",
+          "shares": "0.51",
+          "value": "2,954.49"
+        },
+        {
+          "code": "00700",
+          "name": "腾讯控股",
+          "pct": "3.47%",
+          "shares": "6.14",
+          "value": "2,461.75"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年2季度",
+      "stocks": [
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "8.41%",
+          "shares": "4.29",
+          "value": "5,312.08"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "8.32%",
+          "shares": "1.65",
+          "value": "5,258.33"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "8.02%",
+          "shares": "5.76",
+          "value": "5,069.60"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "7.09%",
+          "shares": "3.25",
+          "value": "4,478.55"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "6.64%",
+          "shares": "3.21",
+          "value": "4,197.67"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "5.51%",
+          "shares": "3.72",
+          "value": "3,482.87"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "5.23%",
+          "shares": "0.92",
+          "value": "3,306.36"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "4.94%",
+          "shares": "0.27",
+          "value": "3,122.60"
+        },
+        {
+          "code": "QCOM",
+          "name": "高通",
+          "pct": "4.85%",
+          "shares": "2.16",
+          "value": "3,065.44"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "4.81%",
+          "shares": "2.03",
+          "value": "3,041.87"
+        }
+      ]
+    },
+    {
+      "quarter": "2024年1季度",
+      "stocks": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "7.98%",
+          "shares": "0.35",
+          "value": "2,216.84"
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "7.70%",
+          "shares": "2.22",
+          "value": "2,138.08"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "6.14%",
+          "shares": "1.33",
+          "value": "1,705.71"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "6.02%",
+          "shares": "1.55",
+          "value": "1,672.50"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "5.89%",
+          "shares": "1.96",
+          "value": "1,635.64"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "5.89%",
+          "shares": "0.47",
+          "value": "1,635.09"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "5.71%",
+          "shares": "0.17",
+          "value": "1,585.48"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "4.99%",
+          "shares": "0.46",
+          "value": "1,385.64"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "3.03%",
+          "shares": "0.12",
+          "value": "840.03"
+        },
+        {
+          "code": "ANET",
+          "name": "Arista Networks Inc",
+          "pct": "2.52%",
+          "shares": "0.34",
+          "value": "699.52"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年4季度",
+      "stocks": [
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "7.50%",
+          "shares": "0.18",
+          "value": "487.66"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "6.75%",
+          "shares": "0.13",
+          "value": "438.44"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "6.15%",
+          "shares": "0.40",
+          "value": "399.77"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "5.05%",
+          "shares": "0.31",
+          "value": "328.22"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "5.02%",
+          "shares": "0.13",
+          "value": "325.91"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "4.66%",
+          "shares": "0.50",
+          "value": "302.52"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "4.49%",
+          "shares": "0.21",
+          "value": "291.82"
+        },
+        {
+          "code": "NFLX",
+          "name": "奈飞",
+          "pct": "3.41%",
+          "shares": "0.06",
+          "value": "221.39"
+        },
+        {
+          "code": "CRM",
+          "name": "赛富时",
+          "pct": "2.92%",
+          "shares": "0.10",
+          "value": "189.54"
+        },
+        {
+          "code": "PANW",
+          "name": "派拓网络",
+          "pct": "2.78%",
+          "shares": "0.09",
+          "value": "180.45"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年3季度",
+      "stocks": [
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "8.30%",
+          "shares": "0.37",
+          "value": "452.00"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "7.63%",
+          "shares": "0.18",
+          "value": "415.09"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "6.48%",
+          "shares": "0.37",
+          "value": "352.63"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "5.86%",
+          "shares": "0.10",
+          "value": "319.19"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "4.69%",
+          "shares": "0.28",
+          "value": "255.46"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "4.45%",
+          "shares": "0.11",
+          "value": "242.27"
+        },
+        {
+          "code": "TSLA",
+          "name": "特斯拉",
+          "pct": "3.32%",
+          "shares": "0.10",
+          "value": "180.91"
+        },
+        {
+          "code": "NFLX",
+          "name": "奈飞",
+          "pct": "3.20%",
+          "shares": "0.06",
+          "value": "174.05"
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "3.02%",
+          "shares": "0.34",
+          "value": "164.12"
+        },
+        {
+          "code": "CRM",
+          "name": "赛富时",
+          "pct": "2.72%",
+          "shares": "0.10",
+          "value": "148.07"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年2季度",
+      "stocks": [
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "8.58%",
+          "shares": "0.20",
+          "value": "504.19"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "8.52%",
+          "shares": "0.16",
+          "value": "500.68"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "5.12%",
+          "shares": "0.34",
+          "value": "301.13"
+        },
+        {
+          "code": "TSLA",
+          "name": "特斯拉",
+          "pct": "5.09%",
+          "shares": "0.16",
+          "value": "299.23"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "4.38%",
+          "shares": "0.18",
+          "value": "257.47"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "3.99%",
+          "shares": "0.11",
+          "value": "234.53"
+        },
+        {
+          "code": "PANW",
+          "name": "派拓网络",
+          "pct": "3.03%",
+          "shares": "0.10",
+          "value": "177.98"
+        },
+        {
+          "code": "NFLX",
+          "name": "奈飞",
+          "pct": "2.93%",
+          "shares": "0.05",
+          "value": "172.51"
+        },
+        {
+          "code": "AMD",
+          "name": "超威半导体",
+          "pct": "2.77%",
+          "shares": "0.20",
+          "value": "162.56"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "2.63%",
+          "shares": "0.16",
+          "value": "154.39"
+        }
+      ]
+    },
+    {
+      "quarter": "2023年1季度",
+      "stocks": [
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "8.96%",
+          "shares": "0.19",
+          "value": "385.92"
+        },
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "6.16%",
+          "shares": "0.14",
+          "value": "265.32"
+        },
+        {
+          "code": "TSLA",
+          "name": "特斯拉",
+          "pct": "5.79%",
+          "shares": "0.17",
+          "value": "249.05"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "4.85%",
+          "shares": "0.18",
+          "value": "208.73"
+        },
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "4.81%",
+          "shares": "0.29",
+          "value": "206.89"
+        },
+        {
+          "code": "NFLX",
+          "name": "奈飞",
+          "pct": "2.99%",
+          "shares": "0.05",
+          "value": "128.67"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "2.70%",
+          "shares": "0.16",
+          "value": "116.33"
+        },
+        {
+          "code": "PANW",
+          "name": "派拓网络",
+          "pct": "2.60%",
+          "shares": "0.08",
+          "value": "111.73"
+        },
+        {
+          "code": "BKNG",
+          "name": "Booking Holdings",
+          "pct": "2.54%",
+          "shares": "0.01",
+          "value": "109.36"
+        },
+        {
+          "code": "META",
+          "name": "Meta Platforms Inc-A",
+          "pct": "2.51%",
+          "shares": "0.07",
+          "value": "107.92"
+        }
+      ]
+    }
+  ],
+  "analysis": {
+    "core_stocks": [
+      "GOOG",
+      "TSM"
+    ],
+    "core_count": 2,
+    "stability_pct": 20.0,
+    "movements": {
+      "new_in": [
+        {
+          "code": "WDC",
+          "name": "西部数据",
+          "pct": "5.19%"
+        },
+        {
+          "code": "COHR",
+          "name": "Coherent Corp",
+          "pct": "5.17%"
+        },
+        {
+          "code": "INTC",
+          "name": "英特尔",
+          "pct": "4.34%"
+        },
+        {
+          "code": "285AJP",
+          "name": "铠侠控股株式会社",
+          "pct": "3.71%"
+        },
+        {
+          "code": "NFLX",
+          "name": "奈飞",
+          "pct": "3.55%"
+        },
+        {
+          "code": "ASML",
+          "name": "阿斯麦",
+          "pct": "3.25%"
+        }
+      ],
+      "new_out": [
+        {
+          "code": "NVDA",
+          "name": "英伟达",
+          "pct": "8.11%"
+        },
+        {
+          "code": "AVGO",
+          "name": "博通",
+          "pct": "7.31%"
+        },
+        {
+          "code": "TSLA",
+          "name": "特斯拉",
+          "pct": "6.23%"
+        },
+        {
+          "code": "MSFT",
+          "name": "微软",
+          "pct": "3.95%"
+        },
+        {
+          "code": "AMZN",
+          "name": "亚马逊",
+          "pct": "3.69%"
+        },
+        {
+          "code": "AAPL",
+          "name": "苹果",
+          "pct": "3.29%"
+        }
+      ],
+      "add": [
+        {
+          "code": "LITE",
+          "name": "Lumentum Holdings Inc",
+          "pct": "8.22%",
+          "diff": 5.27
+        }
+      ],
+      "reduce": [
+        {
+          "code": "GOOG",
+          "name": "谷歌-C",
+          "pct": "6.40%",
+          "diff": -1.47
+        },
+        {
+          "code": "TSM",
+          "name": "台积电",
+          "pct": "6.04%",
+          "diff": -1.41
+        },
+        {
+          "code": "MU",
+          "name": "美光科技",
+          "pct": "5.13%",
+          "diff": -0.9
+        }
+      ],
+      "hold": []
+    },
+    "concentration": [
+      {
+        "quarter": "2026年1季度",
+        "top3": 20.66,
+        "top10": 51.0
+      },
+      {
+        "quarter": "2025年4季度",
+        "top3": 23.43,
+        "top10": 56.88
+      },
+      {
+        "quarter": "2025年3季度",
+        "top3": 24.92,
+        "top10": 62.2
+      },
+      {
+        "quarter": "2025年2季度",
+        "top3": 23.99,
+        "top10": 62.92
+      }
+    ],
+    "core_trend": [
+      {
+        "code": "GOOG",
+        "name": "谷歌-C",
+        "series": [
+          {
+            "q": "2026年1季度",
+            "pct": "6.40%"
+          },
+          {
+            "q": "2025年4季度",
+            "pct": "7.87%"
+          },
+          {
+            "q": "2025年3季度",
+            "pct": "7.55%"
+          },
+          {
+            "q": "2025年2季度",
+            "pct": "7.97%"
+          }
+        ]
+      },
+      {
+        "code": "TSM",
+        "name": "台积电",
+        "series": [
+          {
+            "q": "2026年1季度",
+            "pct": "6.04%"
+          },
+          {
+            "q": "2025年4季度",
+            "pct": "7.45%"
+          },
+          {
+            "q": "2025年3季度",
+            "pct": "8.74%"
+          },
+          {
+            "q": "2025年2季度",
+            "pct": "7.59%"
+          }
+        ]
+      }
+    ],
+    "latest_top5": [
+      {
+        "code": "LITE",
+        "name": "Lumentum Holdings Inc",
+        "pct": "8.22%",
+        "shares": "5.08",
+        "value": "24,721.85"
+      },
+      {
+        "code": "GOOG",
+        "name": "谷歌-C",
+        "pct": "6.40%",
+        "shares": "9.70",
+        "value": "19,248.96"
+      },
+      {
+        "code": "TSM",
+        "name": "台积电",
+        "pct": "6.04%",
+        "shares": "7.77",
+        "value": "18,157.76"
+      },
+      {
+        "code": "WDC",
+        "name": "西部数据",
+        "pct": "5.19%",
+        "shares": "8.34",
+        "value": "15,609.38"
+      },
+      {
+        "code": "COHR",
+        "name": "Coherent Corp",
+        "pct": "5.17%",
+        "shares": "9.44",
+        "value": "15,559.67"
+      }
+    ],
+    "region_mix": {
+      "A股": 0.0,
+      "美股/港股": 51.0
+    }
+  }
+}
