@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>华夏全球科技先锋(QDII)C 024239 · 小红书图文笔记</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#05060b; --bg-1:#0b1020; --bg-2:#141a2e;
+    --line:rgba(255,255,255,.08);
+    --text:#e7ecf3; --muted:#8a93a6;
+    --gold:#d4b26a; --gold-soft:#f2e9d2;
+    --up:#ef3b3b; --up-deep:#a81818;
+    --down:#17b26a; --down-deep:#0b7a46;
+    --blue:#5b8bff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0a0d15}
+  body{
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
+    font-weight:600;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision;
+    color:var(--text);
+    padding:30px 0;
+  }
+  .mono{font-family:"DM Serif Display","Playfair Display",Georgia,serif}
+  .serif-en{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+
+  .card{
+    width:1080px; height:1440px;
+    margin:24px auto;
+    position:relative;
+    color:var(--text);
+    background:
+      radial-gradient(1400px 800px at 120% -10%,rgba(212,178,106,.16),transparent 60%),
+      radial-gradient(1200px 700px at -20% 30%,rgba(239,59,59,.12),transparent 60%),
+      radial-gradient(1200px 700px at 120% 110%,rgba(23,178,106,.10),transparent 60%),
+      linear-gradient(180deg,#05060b 0%,#0b1020 50%,#070a14 100%);
+    overflow:hidden;
+    border-radius:8px;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+  }
+
+  .corner{position:absolute;width:72px;height:72px;border:1.5px solid rgba(212,178,106,.55);z-index:1}
+  .corner.tl{top:54px;left:54px;border-right:none;border-bottom:none}
+  .corner.tr{top:54px;right:54px;border-left:none;border-bottom:none}
+  .corner.bl{bottom:54px;left:54px;border-right:none;border-top:none}
+  .corner.br{bottom:54px;right:54px;border-left:none;border-top:none}
+
+  .page-num{
+    position:absolute;right:80px;bottom:78px;
+    font-family:"DM Serif Display",serif;color:var(--gold);
+    font-size:28px;letter-spacing:4px;z-index:3;
+  }
+
+  .page-header{padding:100px 80px 0;text-align:center;position:relative;z-index:2}
+  .ph-en{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;letter-spacing:10px;color:var(--gold);font-size:28px}
+  .ph-cn{margin-top:14px;font-size:50px;font-weight:900;letter-spacing:6px}
+  .ph-range{margin-top:10px;font-family:"DM Serif Display",serif;font-size:30px;color:var(--gold-soft);letter-spacing:4px}
+  .ph-line{width:160px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto 0}
+
+  .bg-word{
+    position:absolute;font-family:"DM Serif Display",serif;
+    font-size:520px;line-height:.85;color:transparent;
+    -webkit-text-stroke:1px rgba(212,178,106,.10);
+    letter-spacing:-16px;top:540px;left:-40px;z-index:0;
+    pointer-events:none;user-select:none;
+  }
+  .cover-top{position:absolute;top:120px;left:0;right:0;text-align:center;z-index:2}
+  .brand{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;letter-spacing:12px;color:var(--gold);font-size:32px;margin-left:12px}
+  .brand-sub{margin-top:16px;color:var(--muted);letter-spacing:8px;font-size:18px}
+  .hairline{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px auto 0}
+
+  .cover-center{position:absolute;top:310px;left:0;right:0;text-align:center;padding:0 50px;z-index:2}
+  .main-title{font-family:"Noto Serif SC",serif;font-weight:900;line-height:1.1;letter-spacing:2px}
+  .main-title .h-brand{
+    display:inline-block;font-size:88px;letter-spacing:8px;
+    background:linear-gradient(180deg,#ffffff 0%,#f3e3b8 55%,#d4b26a 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 40px rgba(212,178,106,.22);padding-bottom:12px;
+  }
+  .main-title .h-sub{
+    display:inline-block;margin-top:14px;font-size:42px;letter-spacing:8px;color:#cfd6e4;font-weight:700;line-height:1.55;
+  }
+  .kw-row{margin-top:28px;display:flex;justify-content:center;align-items:center;gap:18px;line-height:1}
+  .kw-tag{
+    display:inline-block;padding:16px 28px;border-radius:26px;
+    font-family:"Noto Serif SC",serif;font-weight:700;font-size:32px;letter-spacing:4px;
+    background:linear-gradient(135deg,rgba(212,178,106,.18),rgba(212,178,106,.04));
+    border:1px solid rgba(212,178,106,.45);color:var(--gold-soft);
+    box-shadow:0 0 20px rgba(212,178,106,.12),inset 0 0 12px rgba(212,178,106,.08);
+  }
+  .years-range{margin-top:34px;font-family:"DM Serif Display",serif;font-size:42px;letter-spacing:6px;color:var(--gold-soft)}
+  .years-range .sep{color:var(--gold);margin:0 16px;font-size:36px;vertical-align:middle}
+
+  .stats{position:absolute;left:80px;right:80px;bottom:260px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;z-index:2}
+  .stat{
+    border:1px solid rgba(212,178,106,.35);border-radius:28px;
+    padding:30px 14px 26px;text-align:center;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.4));
+  }
+  .stat .k{font-family:"Noto Serif SC",serif;font-size:20px;color:#cfd6e4;letter-spacing:3px}
+  .stat .v{margin-top:14px;font-family:"DM Serif Display",serif;font-size:56px;line-height:1;letter-spacing:1px}
+  .stat .v .u{font-size:30px;margin-left:2px}
+  .stat.best .v{color:var(--up);text-shadow:0 0 20px rgba(239,59,59,.35)}
+  .stat.weak .v{color:var(--down);text-shadow:0 0 20px rgba(23,178,106,.35)}
+  .stat.since .v{color:var(--gold-soft)}
+  .stat .y{margin-top:10px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:22px;color:var(--muted);letter-spacing:3px}
+
+  .cover-bottom{position:absolute;left:0;right:0;bottom:140px;text-align:center;z-index:2}
+  .tag-dashed{display:inline-block;padding:12px 30px;border:1px dashed rgba(212,178,106,.5);border-radius:22px;color:#ffe8c4;font-size:20px;letter-spacing:6px}
+  .cover-hint{margin-top:20px;color:var(--muted);font-size:20px;letter-spacing:6px}
+
+  .q-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+    padding:14px 46px 0;margin-top:18px;position:relative;z-index:2;
+  }
+  .q-col{
+    border:1px solid rgba(212,178,106,.3);border-radius:18px;
+    background:linear-gradient(180deg,rgba(20,26,46,.6),rgba(10,14,26,.4));
+    padding:14px 10px 10px;display:flex;flex-direction:column;
+  }
+  .q-col.latest{border-color:rgba(239,59,59,.55);background:linear-gradient(180deg,rgba(80,20,20,.4),rgba(10,14,26,.55))}
+  .q-head{text-align:center;font-family:"DM Serif Display",serif;font-size:20px;color:var(--gold);letter-spacing:2px}
+  .q-col.latest .q-head{color:#ffdcdc}
+  .q-sub{text-align:center;font-size:13px;color:var(--muted);letter-spacing:2px;margin-top:3px;font-family:"Cormorant Garamond",serif;font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .q-list{margin-top:10px;display:flex;flex-direction:column;gap:7px}
+  .q-item{
+    border-radius:10px;padding:9px 8px;
+    background:rgba(20,26,46,.5);border:1px solid rgba(255,255,255,.04);
+  }
+  .q-item .nm{font-size:14px;color:#e7ecf3;letter-spacing:.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .q-item .pct{margin-top:2px;font-family:"DM Serif Display",serif;font-size:16px;color:var(--gold)}
+  .q-item.hl{border-color:rgba(212,178,106,.55);background:linear-gradient(135deg,rgba(212,178,106,.18),rgba(10,14,26,.4))}
+  .q-item.hl .pct{color:var(--gold-soft);text-shadow:0 0 10px rgba(212,178,106,.45)}
+  .q-item.new{border-color:rgba(91,139,255,.55);background:linear-gradient(135deg,rgba(91,139,255,.18),rgba(10,14,26,.4))}
+  .q-item.new .pct{color:#b3ccff;text-shadow:0 0 10px rgba(91,139,255,.45)}
+
+  .q-legend{margin:14px 80px 0;text-align:center;font-size:16px;color:var(--muted);letter-spacing:3px;position:relative;z-index:2}
+  .q-legend .hl-chip{display:inline-block;width:16px;height:16px;border-radius:5px;background:linear-gradient(135deg,#f3e3b8,#d4b26a);vertical-align:middle;margin-right:6px}
+  .q-legend .new-chip{display:inline-block;width:16px;height:16px;border-radius:5px;background:linear-gradient(135deg,#b3ccff,#5b8bff);vertical-align:middle;margin-right:6px;margin-left:20px}
+
+  .q-foot{
+    margin:14px 80px 0;padding:16px 24px;position:relative;z-index:2;
+    border:1px solid rgba(212,178,106,.3);border-radius:20px;
+    background:linear-gradient(180deg,rgba(20,26,46,.55),rgba(10,14,26,.3));
+    text-align:center;color:#cfd6e4;font-size:16px;line-height:1.6;letter-spacing:1px;
+  }
+  .q-foot b{color:var(--gold)}
+
+  .mgr-top{display:flex;align-items:center;gap:40px;padding:60px 80px 0;position:relative;z-index:2}
+  .avatar-wrap{
+    width:180px;height:180px;flex:0 0 180px;border-radius:50%;
+    background:linear-gradient(135deg,#f3e3b8,#d4b26a);padding:3px;
+    box-shadow:0 0 30px rgba(212,178,106,.35);
+  }
+  .avatar{
+    width:100%;height:100%;border-radius:50%;object-fit:cover;
+    background:linear-gradient(135deg,#141a2e,#0b1020);
+  }
+  .mgr-text{flex:1}
+  .mgr-name{font-size:72px;font-weight:900;letter-spacing:4px;line-height:1}
+  .mgr-role{margin-top:14px;font-size:22px;color:var(--gold);letter-spacing:3px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+  .mgr-title{margin-top:10px;font-size:22px;color:#cfd6e4;letter-spacing:2px}
+
+  .mgr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding:40px 80px 0;position:relative;z-index:2}
+  .mgr-cell{
+    border:1px solid rgba(212,178,106,.3);border-radius:24px;padding:24px 26px;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.4));
+  }
+  .mgr-cell .k{font-size:20px;color:#cfd6e4;letter-spacing:3px}
+  .mgr-cell .v{margin-top:12px;font-family:"DM Serif Display",serif;font-size:52px;line-height:1;color:var(--gold)}
+  .mgr-cell.hot .v{color:var(--up);text-shadow:0 0 18px rgba(239,59,59,.35)}
+  .mgr-cell .u{font-size:28px;margin-left:4px;color:var(--gold-soft)}
+  .mgr-cell .sub{margin-top:10px;color:var(--muted);font-size:18px;letter-spacing:2px}
+
+  .mgr-bio{
+    margin:22px 80px 0;padding:22px 26px;position:relative;z-index:2;
+    border:1px dashed rgba(212,178,106,.35);border-radius:24px;
+    background:linear-gradient(135deg,rgba(212,178,106,.06),rgba(10,14,26,.3));
+    color:#e7ecf3;font-size:18px;line-height:1.7;letter-spacing:1px;
+  }
+  .mgr-bio b{color:var(--gold)}
+
+  .mgr-idea{margin:20px 80px 0;position:relative;z-index:2}
+  .mgr-idea-title{text-align:center;font-size:20px;color:var(--gold);letter-spacing:6px;margin-bottom:12px}
+  .mgr-idea-row{display:flex;gap:14px;align-items:flex-start;margin-top:10px}
+  .mgr-idea-no{
+    flex:0 0 36px;height:36px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"DM Serif Display",serif;font-size:18px;color:#1a0808;
+    background:radial-gradient(circle at 30% 30%,#ffe1ac,var(--gold));
+    box-shadow:0 0 12px rgba(212,178,106,.4);
+  }
+  .mgr-idea-text{color:#e7ecf3;font-size:18px;line-height:1.45;letter-spacing:1px}
+  .mgr-idea-text b{color:var(--gold)}
+
+  .insight-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;
+    padding:26px 80px 0;margin-top:20px;position:relative;z-index:2;
+  }
+  .icard{
+    border-radius:26px;padding:28px 24px;text-align:center;
+    background:linear-gradient(180deg,rgba(20,26,46,.7),rgba(10,14,26,.45));
+    border:1px solid rgba(212,178,106,.3);min-height:220px;
+  }
+  .icard.up{border-color:rgba(239,59,59,.45);background:linear-gradient(180deg,rgba(80,20,20,.45),rgba(10,14,26,.55))}
+  .icard.down{border-color:rgba(23,178,106,.45);background:linear-gradient(180deg,rgba(12,60,40,.45),rgba(10,14,26,.55))}
+  .icard .i-k{font-size:22px;color:#cfd6e4;letter-spacing:3px;font-weight:600}
+  .icard .i-v{
+    margin-top:14px;font-family:"DM Serif Display",serif;
+    font-size:78px;line-height:1;color:var(--gold);text-shadow:0 0 22px rgba(212,178,106,.3);
+  }
+  .icard.up .i-v{color:var(--up);text-shadow:0 0 22px rgba(239,59,59,.35)}
+  .icard.down .i-v{color:var(--down);text-shadow:0 0 22px rgba(23,178,106,.35)}
+  .icard .i-v .u{font-size:34px;margin-left:4px}
+  .icard .i-sub{margin-top:14px;color:var(--muted);font-size:18px;letter-spacing:2px;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600}
+  .icard .i-extra{margin-top:8px;color:#cfd6e4;font-size:16px;letter-spacing:1px;line-height:1.5}
+
+  .trend-bar{
+    margin:22px 80px 0;padding:22px 28px;border-radius:24px;position:relative;z-index:2;
+    background:linear-gradient(135deg,rgba(23,178,106,.10),rgba(212,178,106,.10));
+    border:1px solid rgba(212,178,106,.3);
+  }
+  .trend-title{text-align:center;font-size:20px;color:var(--gold);letter-spacing:6px;margin-bottom:12px}
+  .trend-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .trend-cell{text-align:center}
+  .trend-cell .q{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:16px;color:var(--muted)}
+  .trend-cell .v{margin-top:4px;font-family:"DM Serif Display",serif;font-size:32px;color:var(--gold-soft)}
+  .trend-cell.now .v{color:var(--down)}
+  .trend-arrow{text-align:center;margin-top:10px;color:var(--down);font-size:22px;letter-spacing:8px}
+
+  .habit-sum{
+    margin:20px 80px 0;padding:22px 30px;position:relative;z-index:2;
+    border:1px dashed rgba(212,178,106,.35);border-radius:24px;
+    background:linear-gradient(135deg,rgba(212,178,106,.06),rgba(10,14,26,.3));
+    text-align:center;color:#e7ecf3;font-size:19px;line-height:1.7;letter-spacing:1px;
+  }
+  .habit-sum b{color:var(--gold)}
+
+  /* ---- P5 · 回撤主数据 ---- */
+  .dd-hero{
+    margin:28px 80px 0;padding:32px 30px;border-radius:28px;position:relative;z-index:2;
+    background:linear-gradient(135deg,rgba(23,178,106,.16),rgba(10,14,26,.35));
+    border:1px solid rgba(23,178,106,.45);text-align:center;
+  }
+  .dd-hero .dh-label{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;font-size:22px;color:var(--gold);letter-spacing:6px}
+  .dd-hero .dh-v{
+    margin-top:8px;font-family:"DM Serif Display",serif;font-size:104px;line-height:1;
+    color:var(--down);text-shadow:0 0 26px rgba(23,178,106,.4);
+  }
+  .dd-hero .dh-v .u{font-size:42px;margin-left:2px}
+  .dd-hero .dh-sub{margin-top:16px;font-size:19px;color:#e7ecf3;letter-spacing:1px;line-height:1.75}
+  .dd-hero .dh-sub b{color:var(--gold-soft)}
+
+  /* ---- P5 · 地区分布 ---- */
+  .region-bar{
+    margin:20px 80px 0;padding:26px 28px;border-radius:24px;position:relative;z-index:2;
+    background:linear-gradient(135deg,rgba(212,178,106,.10),rgba(91,139,255,.08));
+    border:1px solid rgba(212,178,106,.3);
+  }
+  .region-title{text-align:center;font-size:21px;color:var(--gold);letter-spacing:6px;margin-bottom:16px}
+  .region-track{display:flex;gap:8px;height:74px}
+  .region-seg{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    border-radius:12px;overflow:hidden;white-space:nowrap;
+  }
+  .region-seg .rg-k{font-size:19px;letter-spacing:2px;line-height:1.1}
+  .region-seg .rg-v{font-family:"DM Serif Display",serif;font-size:34px;line-height:1.1;margin-top:4px}
+  .region-seg.cn{background:linear-gradient(135deg,rgba(239,59,59,.40),rgba(239,59,59,.14));border:1px solid rgba(239,59,59,.6);color:#ffe6e6}
+  .region-seg.cn .rg-v{color:#ffb9b9}
+  .region-seg.hk{background:linear-gradient(135deg,rgba(91,139,255,.38),rgba(91,139,255,.12));border:1px solid rgba(91,139,255,.6);color:#e4ecff}
+  .region-seg.hk .rg-v{color:#b3ccff}
+  .region-seg.us{background:linear-gradient(135deg,rgba(212,178,106,.42),rgba(212,178,106,.16));border:1px solid rgba(212,178,106,.6);color:#fff6e0}
+  .region-seg.us .rg-v{color:var(--gold-soft)}
+  .region-note{margin-top:16px;text-align:center;font-size:17px;color:#cfd6e4;letter-spacing:1px;line-height:1.65}
+  .region-note b{color:var(--gold)}
+
+  /* ---- P5 · 风险清单 ---- */
+  .risk-list{
+    margin:20px 80px 0;padding:26px 28px;border-radius:24px;position:relative;z-index:2;
+    border:1px solid rgba(239,59,59,.4);
+    background:linear-gradient(180deg,rgba(80,20,20,.35),rgba(10,14,26,.4));
+  }
+  .risk-title{text-align:center;font-size:21px;color:#ffb9b9;letter-spacing:6px;margin-bottom:16px}
+  .risk-row{display:flex;gap:14px;align-items:flex-start;margin-top:12px}
+  .risk-no{
+    flex:0 0 30px;height:30px;border-radius:10px;margin-top:2px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:"DM Serif Display",serif;font-size:17px;color:#2a0a0a;
+    background:radial-gradient(circle at 30% 30%,#ffc9c9,#ef3b3b);
+  }
+  .risk-text{color:#e7ecf3;font-size:18px;line-height:1.55;letter-spacing:.5px}
+  .risk-text b{color:#ffb9b9}
+
+  .end-tag{margin:20px 80px 0;text-align:center;position:relative;z-index:2}
+  .end-tag .btn{
+    display:inline-block;padding:14px 40px;
+    border:1px solid rgba(212,178,106,.5);border-radius:22px;
+    color:var(--gold-soft);font-size:22px;letter-spacing:6px;
+    background:linear-gradient(135deg,rgba(212,178,106,.10),transparent);
+  }
+
+  .disclaimer{
+    position:absolute;left:140px;right:140px;bottom:22px;
+    text-align:center;font-size:13px;color:rgba(207,214,228,.55);
+    letter-spacing:2px;font-family:"Noto Serif SC",serif;font-weight:400;z-index:3;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ P1 · 封面 ============ -->
+<div class="card" id="p1">
+  <div class="bg-word">QDII</div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="cover-top">
+    <div class="brand">CHINA AMC &middot; GLOBAL TECH</div>
+    <div class="brand-sub">华 夏 · 全 球 科 技 先 锋</div>
+    <div class="hairline"></div>
+  </div>
+
+  <div class="cover-center">
+    <div class="main-title">
+      <div class="h-brand">华夏全球科技先锋</div>
+      <div class="h-sub">QDII 混合 · C 024239<br/>基金经理 李湘杰</div>
+    </div>
+    <div class="kw-row">
+      <span class="kw-tag">存储四大</span>
+      <span class="kw-tag">代工 + 封测</span>
+      <span class="kw-tag">极致分散</span>
+    </div>
+    <div class="years-range">024239 <span class="sep">&#9670;</span> 2025 — 2026</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat weak">
+      <div class="k">近 3 月收益</div>
+      <div class="v">-14.64<span class="u">%</span></div>
+      <div class="y">PAST 3 MONTHS</div>
+    </div>
+    <div class="stat best">
+      <div class="k">近 1 年收益</div>
+      <div class="v">39.29<span class="u">%</span></div>
+      <div class="y">PAST 12 MONTHS</div>
+    </div>
+    <div class="stat weak">
+      <div class="k">近 1 年最大回撤</div>
+      <div class="v">-42.00<span class="u">%</span></div>
+      <div class="y">MAX DD &middot; 12M</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="tag-dashed">← 滑动查看 · 李湘杰的持仓密码 →</div>
+    <div class="cover-hint">经 理 · 持 仓 · 习 惯 · 风 险</div>
+  </div>
+
+  <div class="disclaimer">数据获取 2026.08.19 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="page-num">01 / 05</div>
+</div>
+
+<!-- ============ P2 · 季度持仓演化 ============ -->
+<div class="card" id="p2">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:56px">
+    <div class="ph-en">HOLDINGS · EVOLUTION</div>
+    <div class="ph-cn">近 四 季 · 持 仓 演 化</div>
+    <div class="ph-range">2025 Q3 — 2026 Q2</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="q-legend" style="margin-top:18px">
+    <span class="hl-chip"></span>近 4 季出现 3 次以上的核心底仓 &nbsp;&nbsp;<span class="new-chip"></span>最新季新进 Top10
+  </div>
+
+  <div class="q-grid">
+    <!-- 2025 Q3 -->
+    <div class="q-col">
+      <div class="q-head">2025 · Q3</div>
+      <div class="q-sub">NVDA · AAPL · MSFT</div>
+      <div class="q-list">
+        <div class="q-item"><div class="nm">英伟达 NVDA</div><div class="pct">9.96%</div></div>
+        <div class="q-item"><div class="nm">苹果 AAPL</div><div class="pct">6.87%</div></div>
+        <div class="q-item"><div class="nm">微软 MSFT</div><div class="pct">6.69%</div></div>
+        <div class="q-item"><div class="nm">亚马逊 AMZN</div><div class="pct">6.41%</div></div>
+        <div class="q-item"><div class="nm">谷歌-C GOOG</div><div class="pct">6.40%</div></div>
+        <div class="q-item"><div class="nm">博通 AVGO</div><div class="pct">6.34%</div></div>
+        <div class="q-item"><div class="nm">Meta META</div><div class="pct">6.24%</div></div>
+        <div class="q-item hl"><div class="nm">台积电 TSM</div><div class="pct">5.90%</div></div>
+        <div class="q-item"><div class="nm">特斯拉 TSLA</div><div class="pct">4.86%</div></div>
+        <div class="q-item"><div class="nm">Palantir PLTR</div><div class="pct">4.01%</div></div>
+      </div>
+    </div>
+    <!-- 2025 Q4 -->
+    <div class="q-col">
+      <div class="q-head">2025 · Q4</div>
+      <div class="q-sub">AVGO · NVDA · GOOG</div>
+      <div class="q-list">
+        <div class="q-item"><div class="nm">博通 AVGO</div><div class="pct">7.25%</div></div>
+        <div class="q-item"><div class="nm">英伟达 NVDA</div><div class="pct">7.12%</div></div>
+        <div class="q-item"><div class="nm">谷歌-C GOOG</div><div class="pct">6.98%</div></div>
+        <div class="q-item hl"><div class="nm">台积电 TSM</div><div class="pct">6.72%</div></div>
+        <div class="q-item"><div class="nm">苹果 AAPL</div><div class="pct">2.00%</div></div>
+        <div class="q-item hl"><div class="nm">Lumentum LITE</div><div class="pct">1.98%</div></div>
+        <div class="q-item"><div class="nm">Coherent COHR</div><div class="pct">1.94%</div></div>
+        <div class="q-item"><div class="nm">Ciena CIEN</div><div class="pct">1.30%</div></div>
+        <div class="q-item"><div class="nm">TTM科技 TTMI</div><div class="pct">1.29%</div></div>
+        <div class="q-item"><div class="nm">Palantir PLTR</div><div class="pct">1.23%</div></div>
+      </div>
+    </div>
+    <!-- 2026 Q1 -->
+    <div class="q-col">
+      <div class="q-head">2026 · Q1</div>
+      <div class="q-sub">CIEN · TSM · LITE</div>
+      <div class="q-list">
+        <div class="q-item"><div class="nm">Ciena CIEN</div><div class="pct">5.56%</div></div>
+        <div class="q-item hl"><div class="nm">台积电 TSM</div><div class="pct">4.87%</div></div>
+        <div class="q-item hl"><div class="nm">Lumentum LITE</div><div class="pct">4.72%</div></div>
+        <div class="q-item"><div class="nm">Coherent COHR</div><div class="pct">4.59%</div></div>
+        <div class="q-item"><div class="nm">Viavi VIAV</div><div class="pct">4.52%</div></div>
+        <div class="q-item"><div class="nm">康宁 GLW</div><div class="pct">4.15%</div></div>
+        <div class="q-item"><div class="nm">闪迪 SNDK</div><div class="pct">2.66%</div></div>
+        <div class="q-item"><div class="nm">美光科技 MU</div><div class="pct">2.30%</div></div>
+        <div class="q-item"><div class="nm">先进能源 AEIS</div><div class="pct">1.63%</div></div>
+        <div class="q-item"><div class="nm">泰瑞达 TER</div><div class="pct">1.62%</div></div>
+      </div>
+    </div>
+    <!-- 2026 Q2 -->
+    <div class="q-col latest">
+      <div class="q-head">2026 · Q2</div>
+      <div class="q-sub">SNDK · MU · MRVL</div>
+      <div class="q-list">
+        <div class="q-item"><div class="nm">闪迪 SNDK</div><div class="pct">3.11%</div></div>
+        <div class="q-item"><div class="nm">美光科技 MU</div><div class="pct">2.85%</div></div>
+        <div class="q-item new"><div class="nm">迈威尔 MRVL</div><div class="pct">1.60%</div></div>
+        <div class="q-item hl"><div class="nm">台积电 TSM</div><div class="pct">1.57%</div></div>
+        <div class="q-item new"><div class="nm">联华电子 UMC</div><div class="pct">1.51%</div></div>
+        <div class="q-item hl"><div class="nm">Lumentum LITE</div><div class="pct">1.51%</div></div>
+        <div class="q-item new"><div class="nm">希捷科技 STX</div><div class="pct">1.49%</div></div>
+        <div class="q-item new"><div class="nm">西部数据 WDC</div><div class="pct">1.46%</div></div>
+        <div class="q-item new"><div class="nm">建滔积层板 01888</div><div class="pct">1.38%</div></div>
+        <div class="q-item new"><div class="nm">ASMPT 00522</div><div class="pct">1.37%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-foot">
+    从 <b>七巨头</b>（NVDA / AAPL / MSFT / AMZN / GOOG）→ <b>光通信五虎</b>（CIEN / LITE / COHR / VIAV / GLW）→ <b>存储四大 + 上游</b>（闪迪 / 美光 / 希捷 / 西数 + 联电 / ASMPT / 建滔），
+    <br/>四个季度三次换赛道，Top10 合计从 <b>63.68%</b> 一路降到 <b>17.85%</b>；<b>台积电</b>是唯一 4 季都在列的名字，但仓位已从 5.90% 摊薄到 1.57%。
+  </div>
+
+  <div class="disclaimer">数据获取 2026.08.19 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="page-num">02 / 05</div>
+</div>
+
+<!-- ============ P3 · 基金经理名片 ============ -->
+<div class="card" id="p3">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">THE MANAGER</div>
+    <div class="ph-cn">基 金 经 理 · 李 湘 杰</div>
+    <div class="ph-range">Li Xiangjie &middot; China AMC</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="mgr-top" style="padding-top:40px">
+    <div class="avatar-wrap">
+      <img class="avatar" src="https://pdf.dfcfw.com/pdf/H8_30201218_1.JPG" alt="李湘杰">
+    </div>
+    <div class="mgr-text">
+      <div class="mgr-name">李 湘 杰</div>
+      <div class="mgr-role">Investment Committee &middot; China AMC</div>
+      <div class="mgr-title">华夏基金 · 投委会成员 · 硕士 · 台湾出身</div>
+    </div>
+  </div>
+
+  <div class="mgr-grid">
+    <div class="mgr-cell hot">
+      <div class="k">C 类任职回报</div>
+      <div class="v">58.32<span class="u">%</span></div>
+      <div class="sub">2025-05-13 至今 · 1 年 99 天</div>
+    </div>
+    <div class="mgr-cell">
+      <div class="k">执掌本基金</div>
+      <div class="v">8<span class="u">年+</span></div>
+      <div class="sub">母基金 2018-04-17 起任职</div>
+    </div>
+    <div class="mgr-cell">
+      <div class="k">基金总净资产</div>
+      <div class="v">203.24<span class="u">亿</span></div>
+      <div class="sub">C 类 105.73 亿 · 2026-06-30</div>
+    </div>
+    <div class="mgr-cell">
+      <div class="k">基金经理年限</div>
+      <div class="v">13<span class="u">年+</span></div>
+      <div class="sub">2013 年起在内地管基金</div>
+    </div>
+  </div>
+
+  <div class="mgr-bio">
+    李湘杰，<b>硕士</b>。曾任台湾 ING 投信、元大投信基金经理，后任<b>华润元大基金投资管理部总经理</b>。2015 年 9 月加入华夏基金，现任<b>投委会成员</b>；2018-04-17 起执掌本基金，另管理华夏全球精选股票（2016 年起），曾管理华夏港股通精选 LOF（2016—2025）。
+  </div>
+
+  <div class="mgr-idea">
+    <div class="mgr-idea-title">投 资 风 格 · 三 个 关 键 词</div>
+    <div class="mgr-idea-row">
+      <div class="mgr-idea-no">Ⅰ</div>
+      <div class="mgr-idea-text"><b>产业链纵深轮动</b>：四季之内把前十从 NVDA / AAPL / MSFT 换成 SNDK / MU / STX / WDC 存储四大，只有台积电 4 季未离场。</div>
+    </div>
+    <div class="mgr-idea-row">
+      <div class="mgr-idea-no">Ⅱ</div>
+      <div class="mgr-idea-text"><b>不怕分散</b>：26Q2 前十合计仅 17.85%，第一大重仓闪迪也只有 3.11%，用极宽的持仓面接住一季 +658% 的申购。</div>
+    </div>
+    <div class="mgr-idea-row">
+      <div class="mgr-idea-no">Ⅲ</div>
+      <div class="mgr-idea-text"><b>沿上游要定价权</b>：台积电 + 联电组代工双线，配港股 ASMPT（封测设备）与建滔积层板（覆铜板），越买越靠上游。</div>
+    </div>
+  </div>
+
+  <div class="disclaimer">数据获取 2026.08.19 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="page-num">03 / 05</div>
+</div>
+
+<!-- ============ P4 · 投资习惯 ============ -->
+<div class="card" id="p4">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">TRADING · HABITS</div>
+    <div class="ph-cn">李 湘 杰 · 四 个 交 易 习 惯</div>
+    <div class="ph-range">Derived from 4 quarters</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="insight-grid" style="margin-top:10px">
+    <div class="icard up">
+      <div class="i-k">核心持仓稳定度</div>
+      <div class="i-v">1<span class="u">/10</span></div>
+      <div class="i-sub">10% Full-4Q Stability</div>
+      <div class="i-extra">只有台积电连续 4 季在列<br/>其余 9 席全部换过手</div>
+    </div>
+    <div class="icard down">
+      <div class="i-k">Top3 集中度</div>
+      <div class="i-v">7.56<span class="u">%</span></div>
+      <div class="i-sub">-15.96 pp vs 2025Q3</div>
+      <div class="i-extra">第一大重仓闪迪仅 3.11%<br/>从「单押龙头」转向「宽度铺开」</div>
+    </div>
+    <div class="icard up">
+      <div class="i-k">最新季换仓只数</div>
+      <div class="i-v">6<span class="u"> 只</span></div>
+      <div class="i-sub">New in 6 &middot; Out 6</div>
+      <div class="i-extra">进 STX / WDC / UMC / MRVL 等 6 只<br/>出 CIEN / COHR / VIAV / GLW 等 6 只</div>
+    </div>
+    <div class="icard">
+      <div class="i-k">存储四大合计仓位</div>
+      <div class="i-v">8.91<span class="u">%</span></div>
+      <div class="i-sub">SNDK + MU + STX + WDC</div>
+      <div class="i-extra">占 26Q2 前十仓位的一半<br/>光通信五虎同期全数清出</div>
+    </div>
+  </div>
+
+  <div class="trend-bar">
+    <div class="trend-title">T O P 1 0 · 集 中 度 演 化</div>
+    <div class="trend-row">
+      <div class="trend-cell"><div class="q">2025 Q3</div><div class="v">63.7%</div></div>
+      <div class="trend-cell"><div class="q">2025 Q4</div><div class="v">37.8%</div></div>
+      <div class="trend-cell"><div class="q">2026 Q1</div><div class="v">36.6%</div></div>
+      <div class="trend-cell now"><div class="q">2026 Q2</div><div class="v">17.9%</div></div>
+    </div>
+    <div class="trend-arrow">↘ ↘ ↘ ↘ &nbsp; 越 铺 越 分 散</div>
+  </div>
+
+  <div class="habit-sum">
+    <b>习惯总结：</b>C 类净资产一季从 13.94 亿冲到 <b>105.73 亿</b>（+658%），全基金到 <b>203.24 亿</b>。
+    李湘杰没有把老仓位等比放大，而是趁钱进来直接换赛道：<b>光通信五虎全清、存储四大进场</b>。
+    规模是被动的，换赛道是主动的。
+  </div>
+
+  <div class="disclaimer">数据获取 2026.08.19 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="page-num">04 / 05</div>
+</div>
+
+<!-- ============ P5 · 回撤 · 地区分布 · 风险 ============ -->
+<div class="card" id="p5">
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="page-header" style="padding-top:70px">
+    <div class="ph-en">DRAWDOWN &middot; REGION &middot; RISK</div>
+    <div class="ph-cn">回 撤 · 地 区 · 风 险</div>
+    <div class="ph-range">NAV as of 2026-08-18</div>
+    <div class="ph-line"></div>
+  </div>
+
+  <div class="dd-hero">
+    <div class="dh-label">MAX DRAWDOWN &middot; 12M = SINCE INCEPTION</div>
+    <div class="dh-v">-42.00<span class="u">%</span></div>
+    <div class="dh-sub">
+      净值 <b>4.1983</b>（2026-06-22）→ <b>2.4349</b>（2026-07-30），<b>28 个交易日</b>走完<br/>
+      现价 2.7753，距历史高点仍差 <b>-33.89%</b>；近 1 月还有一段 <b>-16.85%</b> 的二次回撤<br/>
+      成立至今只有这一次深坑，它同时定义了近 3 月 / 6 月 / 1 年的下限
+    </div>
+  </div>
+
+  <div class="region-bar">
+    <div class="region-title">前 三 市 场 · 地 区 分 布</div>
+    <div class="region-track">
+      <div class="region-seg cn" style="flex:0 0 47.8%">
+        <div class="rg-k">A 股</div>
+        <div class="rg-v">36.6%</div>
+      </div>
+      <div class="region-seg hk" style="flex:0 0 30.3%">
+        <div class="rg-k">港股</div>
+        <div class="rg-v">23.2%</div>
+      </div>
+      <div class="region-seg us" style="flex:1 1 auto">
+        <div class="rg-k">美股</div>
+        <div class="rg-v">16.7%</div>
+      </div>
+    </div>
+    <div class="region-note">
+      数字是<b>占基金净值比</b>，条形是三者的相对比例。名字叫「全球科技」，最大单一市场其实是 <b>A 股</b>；<br/>
+      而前十大里 A 股一只没有，说明这 <b>36.6%</b> 是几十只小仓位铺出来的——Top10 才只占 <b>17.85%</b>。
+    </div>
+  </div>
+
+  <div class="risk-list">
+    <div class="risk-title">四 条 需 要 想 清 楚 的 风 险</div>
+    <div class="risk-row">
+      <div class="risk-no">1</div>
+      <div class="risk-text"><b>波动是硬事实</b>：28 个交易日 -42%，高点买入的人到现在还亏三成，这个幅度不是「短期扰动」能解释的。</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-no">2</div>
+      <div class="risk-text"><b>看不见的八成</b>：前十只占 17.85%，A 股 36.6% 分散在披露之外，你很难知道自己实际持有什么。</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-no">3</div>
+      <div class="risk-text"><b>换赛道的代价</b>：一年内七巨头 → 光通信 → 存储换了三轮，切错半个季度就是两头挨打，这一轮回撤就发生在切换之后。</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-no">4</div>
+      <div class="risk-text"><b>规模与额度</b>：C 类一季从 13.94 亿到 105.73 亿、全基金 203 亿，目前已<b>限制大额申购</b>；QDII 还有汇率与到账慢两层摩擦。</div>
+    </div>
+  </div>
+
+  <div class="end-tag">
+    <div class="btn">END · 只 做 事 实 记 录 · 不 做 推 荐</div>
+  </div>
+
+  <div class="disclaimer">数据获取 2026.08.19 · 本内容仅作信息分享，不构成任何投资建议；如有侵权请联系删除</div>
+  <div class="page-num">05 / 05</div>
+</div>
+
+</body>
+</html>

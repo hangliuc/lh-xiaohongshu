@@ -27,6 +27,7 @@ xiaohongshu/
 | `fuguo_tech_internet/` | 富国全球科技互联网 100055 |
 | `greatwall_ev/` | 长城全球新能源车(QDII)C 018036 |
 | `guofu_qdii/` | 国富全球科技互联(QDII)C 021842 |
+| `huaxia_global_tech_pioneer/` | 华夏全球科技先锋(QDII)C 024239 |
 | `jianxin_emerging_qdii/` | 建信新兴市场混合(QDII)A 539002 |
 | `jiashi_qdii/` | 嘉实全球产业升级(QDII)C 017731 |
 | `puyin_global_smart_tech/` | 浦银安盛全球智能科技(QDII)C 014002 |
