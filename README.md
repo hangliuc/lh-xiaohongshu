@@ -9,7 +9,7 @@ xiaohongshu/
 ├── shot.js                 # 通用截图脚本（全项目唯一一份）
 ├── package.json
 ├── README.md
-├── .kiro/skills/           # 两个创作 skill（视觉规范 + 基金笔记流程）
+├── .kiro/skills/           # Kiro 读取位置（开源 skill 软链接到 ../skills）
 └── posts/                  # 所有选题，按题材分四类
     ├── fund_notes/         # 单只基金 · 5 页深度笔记
     ├── fund_compare/       # 基金横向对比
@@ -135,10 +135,53 @@ node shot.js posts/market_index/sse_extreme_days                                
 
 ## 创作 skill
 
-`.kiro/skills/` 下两个 skill 覆盖两条主要流水线：
+### 开源版 · 独立仓库 `../skills/`
 
-- **`xhs-dark-luxe-gold-ui`** — 深色奠华金视觉规范 + 小红书文案规则，做任何深色金融风卡片都走它
-- **`xhs-fund-holdings-analysis`** — 单只基金 5 页笔记的完整流程，自带 `scripts/fetch.py`（东财数据抓取）和 `example.html`（5 页样板）
+把 `fund_notes` 和 `market_index` 两条流水线的风格浓缩成一个符合 Agent Skills 规范的可移植 skill，MIT 许可，放在与本项目**同级的独立目录**里，方便单独开源。
+
+```
+personal/
+├── xiaohongshu/                        ← 本项目（选题与产物）
+└── skills/                             ← 开源 skill 仓库
+    ├── package.json                    自带 puppeteer 依赖
+    ├── LICENSE                         MIT
+    └── xhs-dark-luxe-gold-cards/
+        ├── SKILL.md                    入口：铁律 + 五步工作流
+        ├── references/                 design-tokens / layout-recipes / copywriting / acceptance
+        ├── assets/                     card-skeleton.html（空白骨架）+ components.css（组件库）
+        ├── scripts/                    shot.js（截图）+ check_cards.js（自动验收）
+        └── examples/                   2 页榜单示例 + 5 页笔记示例（数据全虚构）
+```
+
+亮点是 `scripts/check_cards.js`：在真实浏览器里量每一行文字的墨迹，自动查压字、越界、底部安全区、文本裁切、页码错位、字体降级，把「截完人眼逐张核对」变成一条命令。
+
+在本项目里可以直接拿它体检卡片：
+
+```bash
+npm run check:posts                                    # 体检 posts/ 下所有卡片
+npm run check -- posts/market_index/nasdaq_overview    # 查单个目录
+```
+
+在 skill 仓库里跑它自己的回归测试：
+
+```bash
+cd ../skills && npm run verify        # 跑示例 + 严格验收，应为 0 error 0 warn
+```
+
+`.kiro/skills/xhs-dark-luxe-gold-cards` 是指向 `../skills/xhs-dark-luxe-gold-cards` 的软链接，Kiro 里直接可用。软链接本身已 gitignore，克隆本仓库后需要重建：
+
+```bash
+ln -sfn ../../../skills/xhs-dark-luxe-gold-cards .kiro/skills/xhs-dark-luxe-gold-cards
+```
+
+### 私有版 · `.kiro/skills/`
+
+早期的两个 skill，仍在用：
+
+- **`xhs-dark-luxe-gold-ui`** — 深色奠华金视觉规范 + 小红书文案规则
+- **`xhs-fund-holdings-analysis`** — 单只基金 5 页笔记流程，自带 `scripts/fetch.py`（东财数据抓取）
+
+> 这两个的内容已被开源版覆盖，且 `example.html` 里是真实作品和个人水印。确认开源版够用之后可以删掉，避免三个 skill 触发条件重叠。
 
 ## 新增一个选题
 

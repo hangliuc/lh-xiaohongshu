@@ -5,7 +5,8 @@
   "main": "shot.js",
   "scripts": {
     "shot": "node shot.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check": "node ../skills/xhs-dark-luxe-gold-cards/scripts/check_cards.js",
+    "check:posts": "node ../skills/xhs-dark-luxe-gold-cards/scripts/check_cards.js posts"
   },
   "keywords": [
     "xiaohongshu",

@@ -18,3 +18,7 @@ __pycache__/
 
 # 工具临时状态（brainstorm 服务器 pid/log 等，非项目产物）
 .superpowers/
+
+# 开源 skill 已移到同级目录 ../skills/（独立仓库，自带 .gitignore）
+# .kiro/skills/xhs-dark-luxe-gold-cards 是指向它的软链接
+.kiro/skills/xhs-dark-luxe-gold-cards
